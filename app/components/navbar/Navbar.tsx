@@ -1,5 +1,5 @@
-import Link from "next/link";
 import { FC, ReactNode } from "react";
+import TransitionLink from "../transitionLink/TransitionLink";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -7,7 +7,7 @@ interface NavbarLinkProps {
 }
 
 const NavbarLink: FC<NavbarLinkProps> = ({ children, url }) => {
-    return (<Link href={url} className="text-4xl uppercase text-white">{children}</Link>
+    return (<TransitionLink href={url} className="text-4xl uppercase text-white">{children}</TransitionLink>
     );
 }
 

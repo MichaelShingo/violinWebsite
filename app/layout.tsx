@@ -3,6 +3,7 @@ import { Nanum_Myeongjo } from 'next/font/google';
 import './globals.css';
 import { ReduxProvider } from '@/redux/provider';
 import { Analytics } from '@vercel/analytics/react';
+import SubLayout from './components/subLayout';
 
 const nanum = Nanum_Myeongjo({
 	weight: "400",
@@ -20,8 +21,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<html lang="en" className="overflow-x-hidden bg-white">
+
 			<body className={`${nanum.className}`}>
-				<ReduxProvider>{children}</ReduxProvider>
+				<ReduxProvider><SubLayout>{children}</SubLayout></ReduxProvider>
 				<Analytics />
 			</body>
 		</html>
