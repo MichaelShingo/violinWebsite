@@ -1,23 +1,18 @@
 'use client';
-import Link from 'next/link';
-import Navbar from '../../components/navbar/Navbar';
 import Quote from '../../components/text/Quote';
 import GreenText from '../../components/text/GreenText';
 import Typography, { TypographyVariant } from '../../components/text/Typography';
 import Divider, { DividerVariant } from '../../components/divider/Divider';
 import TrebleIcon from '../../components/icons/TrebleClef';
 import BassIcon from '../../components/icons/BassClef';
-import LanguageToggle from '../../components/language/languageToggle';
 
 
 const Home = () => {
-
     return (
         <>
             <div className="z-0 flex h-[100vh] w-[100vw] -translate-y-[0px] flex-col justify-stretch overflow-hidden bg-[url('/alexTranProposal3.jpg')] bg-cover bg-no-repeat pb-5">
                 <div className="absolute z-0 h-full w-full bg-black-trans"></div>
             </div>
-            <LanguageToggle />
 
             <div className="mx-28 my-12 flex flex-col items-center gap-5">
 

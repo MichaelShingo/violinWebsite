@@ -1,4 +1,5 @@
-export enum Lang {
-    English = 'english',
-    Japanese = 'japanese'
+export enum Locale {
+    English = 'en',
+    Japanese = 'jp'
 }
+

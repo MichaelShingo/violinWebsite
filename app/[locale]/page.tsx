@@ -2,7 +2,6 @@
 import Link from 'next/link';
 import Navbar from '../components/navbar/Navbar';
 import LocationIcon from '../components/icons/LocationIcon'
-import LanguageToggle from '../components/language/languageToggle';
 import { useTranslations } from 'next-intl';
 
 export default function Home() {

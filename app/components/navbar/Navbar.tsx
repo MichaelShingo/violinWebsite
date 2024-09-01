@@ -4,6 +4,7 @@ import TransitionLink from "../transitionLink/TransitionLink";
 import { twJoin, twMerge } from "tailwind-merge";
 import WavyCircle from "../transitionLink/WavyCircle";
 import { useTranslations } from "next-intl";
+import { Link } from "@/i18n/routing";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -12,7 +13,7 @@ interface NavbarLinkProps {
 }
 
 const NavbarLink: FC<NavbarLinkProps> = ({ children, url, navbarTransform }) => {
-    return (<TransitionLink href={url} className={twMerge('text-4xl uppercase')}>{children}</TransitionLink>
+    return (<Link href={url} className={twMerge('text-4xl uppercase')}>{children}</Link>
     );
 }
 

@@ -29,14 +29,14 @@ const TransitionLink: FC<TransitionLinkProps> = ({ children, href, ...props }) =
 
     const handleTransition = async (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
         // const transitionDiv: HTMLDivElement | null = 
-        e.preventDefault();
+        // e.preventDefault();
         dispatch(setIsStartingTransition(true));
         // transitionDiv.classList.add('page-transition')
-        await sleep(300);
+        // await sleep(300);
         dispatch(setIsStartingTransition(false));
         dispatch(setIsEndingTransition(true));
         router.push(href);
-        await sleep(300);
+        // await sleep(300);
         dispatch(setIsEndingTransition(false));
     }
 
