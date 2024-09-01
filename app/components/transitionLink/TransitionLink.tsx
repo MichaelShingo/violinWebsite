@@ -3,8 +3,8 @@
 import { setIsEndingTransition, setIsStartingTransition } from "@/redux/features/locationSlice";
 import { useAppSelector } from "@/redux/store";
 import Link, { LinkProps } from "next/link";
-import { useRouter } from "next/navigation";
-import { FC, ReactNode } from "react";
+import { useRouter } from "@/i18n/routing";
+import { CSSProperties, FC, HTMLAttributes, ReactNode } from "react";
 import { useDispatch } from 'react-redux';
 
 interface TransitionLinkProps extends LinkProps {
@@ -40,7 +40,7 @@ const TransitionLink: FC<TransitionLinkProps> = ({ children, href, ...props }) =
         dispatch(setIsEndingTransition(false));
     }
 
-    return (<Link onClick={handleTransition} href={href} {...props}>{children}</Link>);
+    return (<Link color="white" onClick={handleTransition} href={href} {...props}>{children}</Link>);
 }
 
 export default TransitionLink;

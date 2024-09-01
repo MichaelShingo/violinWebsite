@@ -3,7 +3,7 @@ import { useAppSelector } from '@/redux/store';
 import SelectionRect from './SelectionRect';
 import { BoundingBox } from '@/redux/features/locationSlice';
 import useIsSafari from '../navbar/useIsSafari';
-import useIsMobile from '@/app/customHooks/useIsMobile';
+import useIsMobile from '@/src/app/customHooks/useIsMobile';
 
 const NavbarSelectionContainer = () => {
 	const boundingBox: BoundingBox = useAppSelector(

@@ -3,7 +3,7 @@ import { motion, useTransform, useScroll } from 'framer-motion';
 import { ReactNode, useEffect, useRef, useState } from 'react';
 import ProjectToggleButton from './ProjectToggleButton';
 import { useAppSelector } from '@/redux/store';
-import { PortfolioItem } from '@/app/utils/data';
+import { PortfolioItem } from '@/src/app/utils/data';
 import { useDispatch } from 'react-redux';
 import {
 	boundingClientRectToBoundingBox,
@@ -14,8 +14,8 @@ import {
 
 import { actions, useAppState } from '../../context/AppStateContext';
 import PortfolioIcon from './PortfolioIcon';
-import useIsMobile from '@/app/customHooks/useIsMobile';
-import { data } from '@/app/utils/data';
+import useIsMobile from '@/src/app/customHooks/useIsMobile';
+import { data } from '@/src/app/utils/data';
 
 const Portfolio = () => {
 	const dispatch = useDispatch();
@@ -130,9 +130,8 @@ const Portfolio = () => {
 	return (
 		<section
 			ref={portfolioSectionRef}
-			className={`z-0 pt-10 bg-paper-white dark:bg-black ${
-				isMobile || windowWidth < 1024 ? 'h-fit' : 'h-[400vh]'
-			}`}
+			className={`z-0 pt-10 bg-paper-white dark:bg-black ${isMobile || windowWidth < 1024 ? 'h-fit' : 'h-[400vh]'
+				}`}
 		>
 			{windowWidth > 1024 && !isMobile ? (
 				<div ref={verticalScrollRef} className="relative h-[400vh]">

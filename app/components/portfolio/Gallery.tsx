@@ -4,8 +4,8 @@ import { useAppSelector } from '@/redux/store';
 import { Dispatch, ReactNode, SetStateAction, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { motion, useMotionValue, useMotionValueEvent } from 'framer-motion';
-import { data } from '@/app/utils/data';
-import useIsMobile from '@/app/customHooks/useIsMobile';
+import { data } from '@/src/app/utils/data';
+import useIsMobile from '@/src/app/customHooks/useIsMobile';
 
 const DRAG_BUFFER = 50;
 const SPRING_OPTIONS = {
@@ -101,9 +101,8 @@ const Gallery: React.FC = () => {
 	}) => {
 		return (
 			<div
-				className={`absolute z-10 flex h-full w-[4vw] ${position} bottom-1 lg:bottom-0 items-end ${
-					isMobileScreen ? 'items-end' : 'items-center'
-				} justify-center`}
+				className={`absolute z-10 flex h-full w-[4vw] ${position} bottom-1 lg:bottom-0 items-end ${isMobileScreen ? 'items-end' : 'items-center'
+					} justify-center`}
 			>
 				<button
 					className="group aspect-square w-[3vw] min-w-[40px] rounded-full border-[2px] border-none transition duration-300 hover:scale-[110%]"
@@ -199,9 +198,8 @@ const Images: React.FC<ImagesProps> = ({ imgIndex }) => {
 					transition={SPRING_OPTIONS}
 				>
 					<div
-						className={`absolute z-10 mix-blend-screen h-screen w-screen transition duration-700 ${
-							isDarkMode ? 'opacity-00' : 'opacity-0'
-						}`}
+						className={`absolute z-10 mix-blend-screen h-screen w-screen transition duration-700 ${isDarkMode ? 'opacity-00' : 'opacity-0'
+							}`}
 					></div>
 					<div
 						className={`z-0 h-screen w-screen shrink-0 bg-contain bg-center bg-no-repeat ${maxHeight}`}
@@ -236,11 +234,10 @@ const Dots: React.FC<DotsProps> = ({ imgIndex, setImgIndex }) => {
 						key={index}
 						onClick={() => setImgIndex(index)}
 						style={{ transform: isSelected ? '' : 'skew(-10deg, -8deg)' }}
-						className={`flex items-center justify-center h-4 w-4 rounded-full transition duration-300 hover:scale-[120%] ${
-							isSelected
+						className={`flex items-center justify-center h-4 w-4 rounded-full transition duration-300 hover:scale-[120%] ${isSelected
 								? 'bg-none border-black dark:border-white border-[2px] scale-[108%]'
 								: 'bg-black dark:bg-white border-none scale-[90%]'
-						}`}
+							}`}
 					>
 						<div
 							className={`absolute w-[2px] translate-y-[-50%] bg-black transition duration-300 dark:bg-white`}

@@ -11,7 +11,7 @@ import {
 	setContactDimensions,
 } from '@/redux/features/locationSlice';
 import { actions, useAppState } from '../../context/AppStateContext';
-import { sendContactForm } from '@/app/utils/email';
+import { sendContactForm } from '@/src/app/utils/email';
 import InputField, {
 	clefContainerClasses,
 	inputFieldClasses,

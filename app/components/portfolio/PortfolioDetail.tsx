@@ -1,8 +1,8 @@
 'use client';
-import { PortfolioItem } from '@/app/utils/data';
+import { PortfolioItem } from '@/src/app/utils/data';
 import { useAppSelector } from '@/redux/store';
 import React, { ReactNode, useEffect, useState } from 'react';
-import { data } from '@/app/utils/data';
+import { data } from '@/src/app/utils/data';
 import { useDispatch } from 'react-redux';
 import {
 	setIsGalleryOpen,
@@ -103,11 +103,9 @@ const PortfolioDetail: React.FC = () => {
 					>
 						<div
 							id="sun"
-							className={`relative aspect-square h-[15%] max-h-[35px] translate-x-[-175%] translate-y-[150%] pointer-events-none ${
-								isGalleryOpen ? 'scale-[100%]' : 'scale-[100%] '
-							} rounded-full bg-paper-white transition duration-[1500ms] ${
-								isSunHoverable ? 'group-hover:translate-y-[-130%]' : ''
-							} xl:max-h-[50px]`}
+							className={`relative aspect-square h-[15%] max-h-[35px] translate-x-[-175%] translate-y-[150%] pointer-events-none ${isGalleryOpen ? 'scale-[100%]' : 'scale-[100%] '
+								} rounded-full bg-paper-white transition duration-[1500ms] ${isSunHoverable ? 'group-hover:translate-y-[-130%]' : ''
+								} xl:max-h-[50px]`}
 						></div>
 					</div>
 				</button>

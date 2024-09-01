@@ -1,4 +1,4 @@
-import { ContactFormData } from '@/app/utils/email';
+import { ContactFormData } from '@/src/app/utils/email';
 import { mailOptions, transporter } from './nodemailerFunctions';
 
 export async function POST(req: Request) {
