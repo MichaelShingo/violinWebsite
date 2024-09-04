@@ -99,27 +99,24 @@ const LanguageToggle: FC = () => {
     const currentScrollY = useRef<number>(0);
 
     const handleClick = () => {
-        const currentScrollY.current = window.scrollY;
-        setInterval(() => {
-            window.scrollTo(0, currentScrollY);
+        // const currentScrollY.current = window.scrollY;
+        router.replace(pathName, { locale: locale === Locale.English ? Locale.Japanese : Locale.English })
 
-        }, 1000)
     }
 
 
 
-    router.replace(pathName, { locale: locale === Locale.English ? Locale.Japanese : Locale.English })
 
-}
 
-return (
-    <div onClick={handleClick} className="group fixed bottom-0 right-0 z-[1000] m-3 flex h-[65px] w-[65px] items-center justify-center rounded-full bg-transparent p-0">
-        <div className="scale-[0%] transition duration-700 group-hover:scale-[50%]">
-            <WavyCircle />
+
+    return (
+        <div onClick={handleClick} className="group fixed bottom-0 right-0 z-[1000] m-3 flex h-[65px] w-[65px] items-center justify-center rounded-full bg-transparent p-0">
+            <div className="scale-[0%] transition duration-700 group-hover:scale-[50%]">
+                <WavyCircle />
+            </div>
+            <CharacterContainer language={locale} />
         </div>
-        <CharacterContainer language={locale} />
-    </div>
-)
+    )
 }
 
 export default LanguageToggle;
