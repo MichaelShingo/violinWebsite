@@ -41,7 +41,6 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
     return (
         <>
 
-            <Navbar />
             <LanguageToggle />
             {/* <Menu /> */}
             <div id={selectAnimationId()} className="page-transition bg-blak pointer-events-none fixed left-0 top-0 z-[999] flex h-screen w-screen -translate-y-[0] items-center justify-center opacity-0" style={{

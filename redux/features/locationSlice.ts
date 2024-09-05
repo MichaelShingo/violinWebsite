@@ -4,43 +4,20 @@ type InitialState = {
 	value: LocationState;
 };
 
-export type Coordinate = {
-	x: number;
-	y: number;
-};
-
-export type BoundingBox = {
-	topLeft: Coordinate;
-	topRight: Coordinate;
-	bottomRight: Coordinate;
-	bottomLeft: Coordinate;
-};
-
-const boundingBoxInitialState: BoundingBox = {
-	topLeft: { x: 0, y: 0 },
-	topRight: { x: 0, y: 0 },
-	bottomRight: { x: 0, y: 0 },
-	bottomLeft: { x: 0, y: 0 },
-};
-
-export const boundingClientRectToBoundingBox = (rect: DOMRect): BoundingBox => {
-	return {
-		topLeft: { x: rect.left, y: rect.top },
-		topRight: { x: rect.right, y: rect.top },
-		bottomRight: { x: rect.right, y: rect.bottom },
-		bottomLeft: { x: rect.left, y: rect.bottom },
-	};
-};
 
 type LocationState = {
 	isStartingTransition: boolean;
 	isEndingTransition: boolean;
+	isMenuOpen: boolean;
+	hoveredMenuInfo: string | null;
 };
 
 const initialState = {
 	value: {
 		isStartingTransition: false,
 		isEndingTransition: false,
+		isMenuOpen: false,
+		hoveredMenuInfo: null,
 	} as LocationState,
 } as InitialState;
 
@@ -53,6 +30,12 @@ export const location = createSlice({
 		},
 		setIsEndingTransition: (state, action: PayloadAction<boolean>) => {
 			state.value.isEndingTransition = action.payload;
+		},
+		setIsMenuOpen: (state, action: PayloadAction<boolean>) => {
+			state.value.isMenuOpen = action.payload;
+		},
+		setHoveredMenuInfo: (state, action: PayloadAction<string | null>) => {
+			state.value.hoveredMenuInfo = action.payload;
 		}
 	},
 });
@@ -60,5 +43,7 @@ export const location = createSlice({
 export const {
 	setIsStartingTransition,
 	setIsEndingTransition,
+	setIsMenuOpen,
+	setHoveredMenuInfo,
 } = location.actions;
 export default location.reducer;

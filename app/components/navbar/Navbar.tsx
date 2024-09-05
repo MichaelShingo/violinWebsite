@@ -1,10 +1,14 @@
 'use client';
 import { FC, ReactNode, useEffect, useState } from "react";
-import TransitionLink from "../transitionLink/TransitionLink";
 import { twJoin, twMerge } from "tailwind-merge";
-import WavyCircle from "../transitionLink/WavyCircle";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
+import ViolinIcon from "../icons/ViolinIcon";
+import HomeIcon from "../icons/HomeIcon";
+import PenIcon from "../icons/PenIcon";
+import EighthNoteArrowIcon from "../icons/EighthNoteArrowIcon";
+import EmailIcon from "../icons/EmailIcon";
+import { MenuItem } from "./MenuItem";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -17,26 +21,33 @@ const NavbarLink: FC<NavbarLinkProps> = ({ children, url, navbarTransform }) => 
     );
 }
 
-const links = [
+
+
+export const menuItems: MenuItem[] = [
     {
         label: 'home',
-        link: '/'
+        link: '/',
+        icon: HomeIcon
     },
     {
         label: 'violin',
-        link: '/violinist-in-tokyo'
+        link: '/violinist-in-tokyo',
+        icon: ViolinIcon
     },
     {
         label: 'composition',
-        link: '/classical-composer-in-tokyo'
+        link: '/classical-composer-in-tokyo',
+        icon: PenIcon
     },
     {
         label: 'arranging',
-        link: '/music-arranger-in-tokyo'
+        link: '/music-arranger-in-tokyo',
+        icon: EighthNoteArrowIcon
     },
     {
         label: 'contact',
-        link: '/contact-violinist-in-tokyo'
+        link: '/contact-violinist-in-tokyo',
+        icon: EmailIcon
     }
 ]
 
@@ -67,7 +78,7 @@ const Navbar = () => {
             <div className="absolute -z-10">
 
             </div>
-            {links.map((item) => (
+            {menuItems.map((item) => (
                 <NavbarLink navbarTransform key={item.link} url={item.link}>{t(item.label)}</NavbarLink>
             ))}
         </div>

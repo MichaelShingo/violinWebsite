@@ -3,8 +3,8 @@ import Quote from '../../components/text/Quote';
 import GreenText from '../../components/text/GreenText';
 import Typography, { TypographyVariant } from '../../components/text/Typography';
 import Divider, { DividerVariant } from '../../components/divider/Divider';
-import TrebleIcon from '../../components/icons/TrebleClef';
-import BassIcon from '../../components/icons/BassClef';
+import TrebleIcon from '../../components/icons/TrebleClefIcon';
+import BassIcon from '../../components/icons/BassClefIcon';
 
 
 const Home = () => {
