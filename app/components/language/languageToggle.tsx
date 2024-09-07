@@ -40,7 +40,7 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ language }) => {
 
     const handleClick = () => {
         animate();
-    }
+    };
 
     const animate = () => {
         const duration = 1000;
@@ -57,17 +57,16 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ language }) => {
 
             const amplitude = 1;
             const offset = 30;
-            const positionX = offset * cosValue * amplitude
-            const positionY = offset * sineValue * amplitude
+            const positionX = offset * cosValue * amplitude;
+            const positionY = offset * sineValue * amplitude;
             if (ref.current) {
-                console.log(positionX)
                 ref.current.style.transform = `translateX(${positionX}px) translateY(${positionY}px)`;
                 // animationFrame = requestAnimationFrame(animate);
             }
             if (progress < 1) {
                 requestAnimationFrame(step);
             }
-        }
+        };
 
         // const degrees = new Date().getTime() / 100;
     };
@@ -76,7 +75,7 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ language }) => {
 
     const calcPolarPosition = (degrees: number): number => {
         return Math.sin(degrees);
-    }
+    };
 
 
     return (
@@ -89,9 +88,9 @@ const CharacterContainer: FC<CharacterContainerProps> = ({ language }) => {
                 // transform: 'translate(5px, 5px)'
 
             }}>{language === Locale.English ? 'あ' : 'A'}</button>
-    )
+    );
 
-}
+};
 const LanguageToggle: FC = () => {
     const router = useRouter();
     const pathName = usePathname();
@@ -100,9 +99,9 @@ const LanguageToggle: FC = () => {
 
     const handleClick = () => {
         // const currentScrollY.current = window.scrollY;
-        router.replace(pathName, { locale: locale === Locale.English ? Locale.Japanese : Locale.English })
+        router.replace(pathName, { locale: locale === Locale.English ? Locale.Japanese : Locale.English });
 
-    }
+    };
 
 
 
@@ -116,7 +115,7 @@ const LanguageToggle: FC = () => {
             </div>
             <CharacterContainer language={locale} />
         </div>
-    )
-}
+    );
+};
 
 export default LanguageToggle;

@@ -19,7 +19,7 @@ const zenOldMincho = Zen_Old_Mincho({
 });
 
 export const metadata: Metadata = {
-	title: 'Michael Shingo | Violinist in Tokyo',
+	title: 'Tokyo Violinist | Michael Shingo ',
 	description:
 		'Michael Shingo Crawford, a violinist, composer, and arranger in Tokyo. Specializing in classical and anime music.',
 	metadataBase: new URL('https://michaelshingo.com/'),

@@ -19,15 +19,14 @@ interface MenuItemProps {
     index: number;
     itemsLength: number;
     pathname: string;
-
 }
+
 const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) => {
     const t = useTranslations('Navbar');
     const isMenuOpen: boolean = useAppSelector((state) => state.locationReducer.value.isMenuOpen);
     const dispatch = useDispatch();
     const menuDegreeIncrements = 2 * Math.PI / itemsLength;
     const isCurrentPage = pathname === item.link;
-    console.log(pathname, item.link);
     const radius = 165;
     const yCoordinate = radius * Math.sin(menuDegreeIncrements * index);
     const xCoordinate = radius * Math.cos(menuDegreeIncrements * index);
@@ -54,7 +53,6 @@ const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) =
                 style={{
                     transform: isMenuOpen ? `scale(100%) translateY(${yCoordinate}px) translateX(${xCoordinate}px)` : 'scale(0%) translateY(0px) translateX(0px)',
                     transitionDelay: `${index / 10}s`
-
                 }}
             >
                 <div className="pointer-events-none flex h-full w-full rotate-[90deg] items-center justify-center">

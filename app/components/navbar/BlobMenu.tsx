@@ -90,7 +90,7 @@ const BlobMenu: FC = () => {
                         <MenuCircle key={index} item={item} index={index} pathname={pathname} itemsLength={menuItems.length} />
                     ))}
                 </div>
-                <div className={twJoin([isMenuOpen ? 'scale-[55%]' : isRightLink ? 'scale-[35%]' : 'scale-[45%]', 'transition duration-700'])}>
+                <div className={twJoin([isMenuOpen ? 'scale-[55%]' : isRightLink ? 'scale-[38%]' : 'scale-[45%]', 'transition duration-700'])}>
                     <WavyCircle waves1={4} waves2={7} />
                 </div>
             </div>
