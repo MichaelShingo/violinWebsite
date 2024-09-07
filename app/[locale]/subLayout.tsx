@@ -1,13 +1,18 @@
 'use client';
 import { useAppSelector } from "@/redux/store";
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect } from "react";
 import BlobMenu from "../components/navbar/BlobMenu";
 import LanguageToggle from "../components/language/LanguageToggle";
+import Scrollbar from 'smooth-scrollbar';
+import { ReactLenis, useLenis } from 'lenis/react';
 
 interface SubLayoutProps {
     children: ReactNode;
 }
 const SubLayout: FC<SubLayoutProps> = ({ children }) => {
+    const lenis = useLenis(({ scroll }) => {
+    });
+
     const isStartingTransition: boolean = useAppSelector(
         (state) => state.locationReducer.value.isStartingTransition
     );
@@ -36,8 +41,23 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
         return '100%';
     };
 
+    useEffect(() => {
+        const options = {
+            'damping': 0.05,
+            'alwaysShowTracks': true
+        };
+
+        const scrollbarElement: HTMLElement | null = document.querySelector('#my-scrollbar');
+        if (scrollbarElement) {
+            Scrollbar.init(scrollbarElement);
+            console.log('init');
+        }
+
+    }, []);
+
     return (
         <>
+
             <BlobMenu />
             <LanguageToggle />
             {/* <Menu /> */}
@@ -47,7 +67,10 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
             {/* <div className="transition-all duration-500" style={{
                 opacity: calculateOpacity()
             }}> */}
-            {children}
+            <ReactLenis root>
+
+                {children}
+            </ReactLenis>
             {/* </div> */}
         </>);
 };

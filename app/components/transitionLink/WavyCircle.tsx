@@ -40,7 +40,7 @@ const WavyCircle: FC<WavyCircleProps> = ({ waves1, waves2 }) => {
         }
 
         ctx.closePath();
-        ctx.fillStyle = 'green';
+        ctx.fillStyle = '#007c00';
         ctx.fill();
         ctx.lineWidth = 2;
     };

@@ -41,12 +41,12 @@ const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) =
     };
 
     return (
-        <Link href={item.link} onClick={() => dispatch(setIsMenuOpen(false))}>
+        <Link scroll={true} href={item.link} onClick={() => dispatch(setIsMenuOpen(false))}>
             <button
                 className={twJoin([
                     'group absolute duration-500 h-24 w-24 flex justify-center items-center transform rounded-full transition-transform bg-green-light cursor-pointer',
                     isMenuOpen ? 'pointer-events-auto hover:bg-green-extra-light' : 'pointer-events-none',
-                    isCurrentPage ? 'border-white border-double border-[3px]' : 'border-none',
+                    isCurrentPage ? 'border-white border-[3px]' : 'border-none',
                 ])}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
