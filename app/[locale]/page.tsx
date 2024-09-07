@@ -20,7 +20,6 @@ export default function Home() {
 					<h1 className="relative z-50 w-full self-center text-center text-7xl uppercase text-white">{t('title')}</h1>
 					<h1 className="relative z-50 w-full self-center text-center text-4xl uppercase text-white">{t('role')}</h1>
 				</div>
-				<BlobMenu />
 				<div className="flex w-full flex-row justify-center">
 					<div className="flex w-fit flex-row">
 

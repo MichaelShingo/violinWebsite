@@ -8,7 +8,7 @@ import HomeIcon from "../icons/HomeIcon";
 import PenIcon from "../icons/PenIcon";
 import EighthNoteArrowIcon from "../icons/EighthNoteArrowIcon";
 import EmailIcon from "../icons/EmailIcon";
-import { MenuItem } from "./MenuItem";
+import { MenuCircle } from "./MenuCircle";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -20,36 +20,6 @@ const NavbarLink: FC<NavbarLinkProps> = ({ children, url, navbarTransform }) => 
     return (<Link href={url} className={twMerge('text-4xl uppercase')}>{children}</Link>
     );
 }
-
-
-
-export const menuItems: MenuItem[] = [
-    {
-        label: 'home',
-        link: '/',
-        icon: HomeIcon
-    },
-    {
-        label: 'violin',
-        link: '/violinist-in-tokyo',
-        icon: ViolinIcon
-    },
-    {
-        label: 'composition',
-        link: '/classical-composer-in-tokyo',
-        icon: PenIcon
-    },
-    {
-        label: 'arranging',
-        link: '/music-arranger-in-tokyo',
-        icon: EighthNoteArrowIcon
-    },
-    {
-        label: 'contact',
-        link: '/contact-violinist-in-tokyo',
-        icon: EmailIcon
-    }
-]
 
 const Navbar = () => {
     const t = useTranslations('Navbar');

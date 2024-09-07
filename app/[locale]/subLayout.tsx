@@ -1,10 +1,8 @@
 'use client';
 import { useAppSelector } from "@/redux/store";
 import { FC, ReactNode } from "react";
-import Navbar from './navbar/Navbar';
-import WavyCircle from './transitionLink/WavyCircle';
-import LanguageToggle from './language/languageToggle';
-import Menu from "./navbar/Menu";
+import BlobMenu from "../components/navbar/BlobMenu";
+import LanguageToggle from "../components/language/LanguageToggle";
 
 interface SubLayoutProps {
     children: ReactNode;
@@ -24,9 +22,9 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
         else if (isStartingTransition) {
             return 'start-page-transition';
         } else {
-            return ''
+            return '';
         }
-    }
+    };
 
     const calculateOpacity = (): string => {
         if (isStartingTransition) {
@@ -36,19 +34,15 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
             return '100%';
         }
         return '100%';
-    }
+    };
 
     return (
         <>
-
+            <BlobMenu />
             <LanguageToggle />
             {/* <Menu /> */}
             <div id={selectAnimationId()} className="page-transition bg-blak pointer-events-none fixed left-0 top-0 z-[999] flex h-screen w-screen -translate-y-[0] items-center justify-center opacity-0" style={{
-
             }}>
-
-                <WavyCircle />
-
             </div>
             {/* <div className="transition-all duration-500" style={{
                 opacity: calculateOpacity()
@@ -56,6 +50,6 @@ const SubLayout: FC<SubLayoutProps> = ({ children }) => {
             {children}
             {/* </div> */}
         </>);
-}
+};
 
 export default SubLayout;
