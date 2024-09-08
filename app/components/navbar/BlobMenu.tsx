@@ -1,5 +1,5 @@
 'use client';
-import { FC } from "react";
+import { FC, useEffect } from "react";
 import Hamburger from "./Hamburger";
 import WavyCircle from "../transitionLink/WavyCircle";
 import { twJoin } from "tailwind-merge";
@@ -11,6 +11,8 @@ import EighthNoteArrowIcon from "../icons/EighthNoteArrowIcon";
 import EmailIcon from "../icons/EmailIcon";
 import MenuCircle, { MenuItem } from "./MenuCircle";
 import { usePathname } from "@/i18n/routing";
+import { useDispatch } from "react-redux";
+import { setIsMenuOpen } from "@/redux/features/locationSlice";
 
 export const menuItems: MenuItem[] = [
     {
@@ -50,6 +52,7 @@ const BlobMenu: FC = () => {
     const isMenuHovered: boolean = useAppSelector((state) => state.locationReducer.value.isMenuHovered);
     const hoveredMenuInfo: string = useAppSelector((state) => state.locationReducer.value.hoveredMenuInfo);
     const pathname = usePathname();
+    const dispatch = useDispatch();
 
     const isRightLink = menuItems.filter(item => item.menuPosition === 'right').map(item => item.link).includes(pathname);
 
@@ -65,11 +68,37 @@ const BlobMenu: FC = () => {
         return res;
     };
 
+    const toggleMenu = () => {
+        dispatch(setIsMenuOpen(false));
+    };
+
+    useEffect(() => {
+        const handleKeyPress = (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                toggleMenu();
+                e.preventDefault();
+            }
+        };
+
+        window.addEventListener('keydown', (e) => handleKeyPress(e));
+
+        return () => {
+            window.removeEventListener('keydown', handleKeyPress);
+        };
+    }, []);
+
 
     return (
-        <div className={twJoin([
-            'fixed z-[100] h-dvh w-dvw transition duration-700 flex justify-center',
-            isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])}>
+        <div className={
+            twJoin([
+                'fixed z-[100] h-dvh w-dvw flex justify-center', isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none',
+            ])
+        } >
+            <div onClick={(e) => { toggleMenu(); e.stopPropagation(); }} className={
+                twJoin([
+                    'fixed -z-[100] h-dvh w-dvw transition duration-700 flex justify-center',
+                    isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])
+            } ></div>
             <h1 className={twJoin([
                 'z-50 text-[9rem] text-gray-300 uppercase bold duration-500 transition pointer-events-none',
                 isMenuHovered ? 'opacity-100' : 'opacity-0'
@@ -94,7 +123,7 @@ const BlobMenu: FC = () => {
                     <WavyCircle waves1={4} waves2={7} />
                 </div>
             </div>
-        </div>
+        </div >
     );
 };
 

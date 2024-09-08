@@ -1,14 +1,26 @@
 'use client';
-import Link from 'next/link';
-import Navbar from '../components/navbar/Navbar';
-import LocationIcon from '../components/icons/LocationIcon'
+import LocationIcon from '../components/icons/LocationIcon';
 import { useTranslations } from 'next-intl';
-import WavyCircle from '../components/transitionLink/WavyCircle';
-import Hamburger from '../components/navbar/Hamburger';
-import { twJoin } from 'tailwind-merge';
-import { useAppSelector } from '@/redux/store';
-import BlobMenu from '../components/navbar/BlobMenu';
+import { motion } from 'framer-motion';
 
+const locationVariants = {
+	hidden: {
+		opacity: 0,
+		translateX: '20px'
+	},
+	visible: {
+		opacity: 1,
+		translateX: '0px',
+		transition: {
+			delay: 0,
+			duration: 0.1,
+			type: 'spring',
+			stiffness: 200,
+			damping: 10,
+			mass: 1,
+		}
+	},
+};
 export default function Home() {
 	const t = useTranslations('Index');
 
@@ -22,11 +34,10 @@ export default function Home() {
 				</div>
 				<div className="flex w-full flex-row justify-center">
 					<div className="flex w-fit flex-row">
-
 						<div className="mr-3 h-7 w-7">
-							<LocationIcon />
+							<LocationIcon size="120%" pathClassName='fill-transparent stroke-white' />
 						</div>
-						<h1 className="relative z-50 w-full self-center text-center text-3xl text-white">{t('location')}</h1>
+						<motion.h1 variants={locationVariants} initial="hidden" animate="visible" className="relative z-50 w-full self-center text-center text-3xl text-white">{t('location')}</motion.h1>
 					</div>
 				</div>
 			</div>
@@ -34,5 +45,5 @@ export default function Home() {
 			</div>
 
 		</div>
-	)
+	);
 }

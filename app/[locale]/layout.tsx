@@ -6,7 +6,7 @@ import { Analytics } from '@vercel/analytics/react';
 import SubLayout from './subLayout';
 import { getMessages } from 'next-intl/server';
 import { NextIntlClientProvider } from 'next-intl';
-import SmoothScroll from '../components/scroll/SmoothScroll';
+import { AnimatePresence } from 'framer-motion';
 
 const nanum = Nanum_Myeongjo({
 	weight: "400",
@@ -34,6 +34,7 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 			<body className={locale === 'en' ? nanum.className : zenOldMincho.className}>
 				<NextIntlClientProvider messages={messages}>
 					<ReduxProvider>
+
 						<SubLayout>
 							{children}
 						</SubLayout>
