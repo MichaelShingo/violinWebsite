@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { CommonIconProps, defaultPathClassName } from './utils';
 
-const BassIcon: FC<CommonIconProps> = props => {
+const BassClefIcon: FC<CommonIconProps> = props => {
     const { size = '100%', pathClassName = defaultPathClassName } = props;
     return (
         <svg
@@ -43,4 +43,4 @@ const BassIcon: FC<CommonIconProps> = props => {
     );
 };
 
-export default BassIcon;
+export default BassClefIcon;

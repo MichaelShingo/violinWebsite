@@ -1,4 +1,6 @@
 /** @type {import('tailwindcss').Config} */
+
+
 module.exports = {
 	content: ['./app/**/*.{js,jsx,ts,tsx}'],
 	plugins: [
@@ -7,6 +9,10 @@ module.exports = {
 	darkMode: 'selector',
 	theme: {
 		extend: {
+			fontFamily: {
+				'header': ['var(--font-francois)'],
+				'paragraph': ['var(--font-spartan)']
+			},
 			colors: {
 				'paper-white': '#fffdf5',
 				'paper-white-sat': '#fff6b8',

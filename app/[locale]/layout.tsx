@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nanum_Myeongjo, Zen_Old_Mincho } from 'next/font/google';
+import { Nanum_Myeongjo, Zen_Old_Mincho, Francois_One, League_Spartan, Reem_Kufi } from 'next/font/google';
 import '../globals.css';
 import { ReduxProvider } from '@/redux/provider';
 import { Analytics } from '@vercel/analytics/react';
@@ -15,7 +15,25 @@ const nanum = Nanum_Myeongjo({
 });
 
 const zenOldMincho = Zen_Old_Mincho({
-	weight: "400",
+	weight: ['400', '600', '900'],
+	subsets: ['latin']
+});
+
+const francois = Francois_One({
+	weight: ['400'],
+	subsets: ['latin'],
+	variable: '--font-francois'
+
+});
+
+const spartan = League_Spartan({
+	weight: ['100', '300', '500', '700', '900'],
+	subsets: ['latin'],
+	variable: '--font-spartan'
+
+});
+const reem = Reem_Kufi({
+	weight: ['400', '500', '700', '600'],
 	subsets: ['latin']
 });
 
@@ -30,8 +48,8 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 	const messages = await getMessages();
 
 	return (
-		<html lang={locale} className="overflow-x-hidden bg-white">
-			<body className={locale === 'en' ? nanum.className : zenOldMincho.className}>
+		<html lang={locale} className={`overflow-x-hidden bg-white ${spartan.variable} ${francois.variable}`}>
+			<body className={locale === 'en' ? francois.className : zenOldMincho.className}>
 				<NextIntlClientProvider messages={messages}>
 					<ReduxProvider>
 

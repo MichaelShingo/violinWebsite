@@ -19,7 +19,7 @@ const LanguageToggle: FC = () => {
     };
 
     return (
-        <div onClick={handleClick} className="group fixed bottom-0 right-0 z-[1000] m-3 flex h-[75px] w-[100px] items-center justify-center rounded-full bg-transparent p-0">
+        <div onClick={handleClick} className="group pointer-events-auto fixed bottom-0 right-0 z-[1000] m-3 flex h-[75px] w-[100px] items-center justify-center rounded-full bg-transparent p-0">
             <div className="scale-[0%] transition duration-700 group-hover:scale-[50%]">
                 <WavyCircle waves1={7} waves2={3} />
             </div>

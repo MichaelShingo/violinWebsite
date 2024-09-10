@@ -3,10 +3,8 @@ import { twJoin, twMerge } from "tailwind-merge";
 import { motion } from "framer-motion";
 import { CommonIconProps } from "../icons/utils";
 
-export enum DividerVariant {
-    Small = 'small',
-    Large = 'large',
-}
+export type DividerVariant = 'small' | 'large';
+
 interface DividerProps {
     variant: DividerVariant;
     icon: FC<CommonIconProps>;
@@ -25,6 +23,6 @@ const Divider: FC<DividerProps> = ({ variant, icon: Icon, color = 'bg-gray-300',
             </motion.div>
         </div>
     );
-}
+};
 
 export default Divider;
