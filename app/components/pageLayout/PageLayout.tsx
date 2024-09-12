@@ -70,9 +70,9 @@ const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
                 <div className="absolute z-0 h-full w-full bg-black-trans"></div>
             </motion.div>
             <div className="h-[100vh] w-[100vw]" />
-            <div className="z-10 flex flex-col items-center gap-5 bg-white px-28 py-12">
-                <Typography variant="h1">{title}</Typography>
-                <div className="h-fit w-[50%] max-w-[750px]">
+            <div className="z-10 flex flex-col items-center gap-5 bg-white px-0 py-12">
+                {/* <Typography variant="h1">{title}</Typography> */}
+                <div className="max-w-dvw w-[100%]">
                     {children}
                 </div>
                 <div className="h-[300px] w-full"></div>

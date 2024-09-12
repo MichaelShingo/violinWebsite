@@ -24,6 +24,18 @@ module.exports = {
 				'green-sat': '#007c00',
 				'green-light': '#4cb94c',
 				'green-extra-light': '#a7fab5',
+				green: {
+					100: '#E6FFE3',
+					200: '#BDEAB9',
+					300: '#94D88F',
+					400: '#6FB269',
+					500: '#518E4C',
+					600: '#386D32',
+					700: '#1F4419',
+					800: '#11280D',
+					900: '#061104',
+					1000: '#040C03',
+				}
 
 			},
 			backgroundImage: {

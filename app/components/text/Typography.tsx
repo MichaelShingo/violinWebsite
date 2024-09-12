@@ -19,7 +19,7 @@ const Typography: FC<TypographyProps> = ({ variant, children }) => {
                 res = <motion.h1 style={{}} className="self-start text-[10rem] uppercase text-black">{children}</motion.h1>;
                 break;
             case 'h2':
-                res = <motion.h2 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className="my-8 -translate-x-[10px] text-6xl uppercase text-black first-letter:text-8xl">{children}</motion.h2>;
+                res = <motion.h2 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className="sticky left-0 top-0 my-8 -translate-x-[10px] text-8xl uppercase text-green-500">{children}</motion.h2>;
                 break;
             case 'p':
                 res = <motion.p viewport={{ once: true }} transition={{ delay: 0.3 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className="my-5 text-justify font-paragraph text-2xl font-light leading-[2.7rem] text-black">{children}</motion.p>;
