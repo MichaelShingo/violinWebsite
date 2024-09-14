@@ -6,8 +6,8 @@ interface GreenTextProps {
 
 const GreenText: FC<GreenTextProps> = ({ children }) => {
     return (
-        <span className="font-semibold text-green-sat">{children}</span>
+        <span className="font-semibold text-secondary">{children}</span>
     );
-}
+};
 
 export default GreenText;

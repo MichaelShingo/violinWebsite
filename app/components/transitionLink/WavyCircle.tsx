@@ -1,5 +1,6 @@
-import React, { FC, useEffect, useRef } from 'react';
+const tailwindTheme = require('@/app/utils/tailwindTheme');
 
+import React, { FC, useEffect, useRef } from 'react';
 interface WavyCircleProps {
     waves1: number;
     waves2: number;
@@ -40,7 +41,7 @@ const WavyCircle: FC<WavyCircleProps> = ({ waves1, waves2 }) => {
         }
 
         ctx.closePath();
-        ctx.fillStyle = '#007c00';
+        ctx.fillStyle = tailwindTheme.secondary;
         ctx.fill();
         ctx.lineWidth = 2;
     };

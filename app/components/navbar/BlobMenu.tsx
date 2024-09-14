@@ -100,7 +100,7 @@ const BlobMenu: FC = () => {
                     isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])
             } ></div>
             <h1 className={twJoin([
-                'z-50 text-[9rem] text-gray-300 uppercase bold duration-500 transition pointer-events-none',
+                'z-50 text-[9rem] text-primary uppercase bold duration-500 transition pointer-events-none',
                 isMenuHovered ? 'opacity-100' : 'opacity-0'
             ])}
             >

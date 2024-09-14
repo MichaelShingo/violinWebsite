@@ -44,9 +44,9 @@ const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) =
         <Link scroll={true} href={item.link} onClick={() => dispatch(setIsMenuOpen(false))}>
             <button
                 className={twJoin([
-                    'group absolute duration-500 h-24 w-24 flex justify-center items-center transform rounded-full transition-transform bg-green-light cursor-pointer',
-                    isMenuOpen ? 'pointer-events-auto hover:bg-green-extra-light' : 'pointer-events-none',
-                    isCurrentPage ? 'border-white border-[3px]' : 'border-none',
+                    'group absolute duration-500 h-24 w-24 flex justify-center items-center transform rounded-full transition-transform bg-secondary cursor-pointer',
+                    isMenuOpen ? 'pointer-events-auto hover:bg-accent' : 'pointer-events-none',
+                    isCurrentPage ? 'border-accent border-[3px]' : 'border-none',
                 ])}
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={handleMouseLeave}
@@ -56,7 +56,7 @@ const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) =
                 }}
             >
                 <div className="pointer-events-none flex h-full w-full rotate-[90deg] items-center justify-center">
-                    <item.icon className="rotate-90" pathClassName="fill-green-extra-light group-hover:fill-green-light" size="60%" />
+                    <item.icon className="rotate-90" pathClassName="fill-accent group-hover:fill-primary" size="60%" />
                 </div>
             </button>
         </Link >

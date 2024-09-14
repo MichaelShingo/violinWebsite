@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Nanum_Myeongjo, Zen_Old_Mincho, Francois_One, League_Spartan, Reem_Kufi } from 'next/font/google';
+import { Nanum_Myeongjo, Zen_Old_Mincho, Francois_One, Tilt_Warp, League_Spartan, Reem_Kufi, Bakbak_One, Gabarito, Urbanist, Noto_Sans_Display, Merriweather_Sans, Catamaran, Sarabun, Lexend_Deca, Hind_Madurai, Readex_Pro } from 'next/font/google';
 import '../globals.css';
 import { ReduxProvider } from '@/redux/provider';
 import { Analytics } from '@vercel/analytics/react';
@@ -19,8 +19,8 @@ const zenOldMincho = Zen_Old_Mincho({
 	subsets: ['latin']
 });
 
-const francois = Francois_One({
-	weight: ['400'],
+const francois = Readex_Pro({
+	weight: ['700'],
 	subsets: ['latin'],
 	variable: '--font-francois'
 

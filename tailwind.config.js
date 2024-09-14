@@ -1,5 +1,5 @@
 /** @type {import('tailwindcss').Config} */
-
+const theme = require('./app/utils/theme');
 
 module.exports = {
 	content: ['./app/**/*.{js,jsx,ts,tsx}'],
@@ -14,13 +14,16 @@ module.exports = {
 				'paragraph': ['var(--font-spartan)']
 			},
 			colors: {
-				'paper-white': '#fffdf5',
-				'paper-white-sat': '#fff6b8',
+				primary: theme.primary,
+				accent: theme.accent,
+				secondary: theme.secondary,
+				'secondary-light': '#a2af9f',
+				blueprimary: '#FFFFFF',
+				blueaccent: '#504AFF',
+				bluesecondary: '#23206F',
+
 				'black-trans': 'rgba(0,0,0,0.50)',
 				'black-trans-1': 'rgba(0,0,0,0.75)',
-				'paper-white-trans-0': 'rgba(255,253,245,0.75)',
-				'paper-grey': '#e5e1d8',
-				'paper-grey-dark': '#292827',
 				'green-sat': '#007c00',
 				'green-light': '#4cb94c',
 				'green-extra-light': '#a7fab5',
@@ -36,13 +39,6 @@ module.exports = {
 					900: '#061104',
 					1000: '#040C03',
 				}
-
-			},
-			backgroundImage: {
-				imageIcon: 'url("/imageIcon.svg")',
-			},
-			animation: {
-				'inch-worm': 'inch-worm s linear forwards',
 
 			},
 			keyframes: {

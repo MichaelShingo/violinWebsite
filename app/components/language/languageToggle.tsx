@@ -23,7 +23,7 @@ const LanguageToggle: FC = () => {
             <div className="scale-[0%] transition duration-700 group-hover:scale-[50%]">
                 <WavyCircle waves1={7} waves2={3} />
             </div>
-            <button onClick={handleClick} className="absolute flex h-[40px] w-[55px] items-center justify-center rounded-lg bg-green-sat p-0 text-2xl font-normal"
+            <button onClick={handleClick} className="absolute flex h-[40px] w-[55px] items-center justify-center rounded-lg bg-secondary p-0 text-2xl font-normal"
                 style={{
                 }}><LanguageIcon /></button>
         </div>

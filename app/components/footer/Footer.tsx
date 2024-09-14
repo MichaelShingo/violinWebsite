@@ -13,7 +13,7 @@ interface FooterIconProps {
 const FooterIcon = ({ href, icon: Icon }) => {
     return (
         <a className="h-[150px] w-[150px] transition hover:scale-[120%]" target="_blank" href={href}>
-            <Icon pathClassName="fill-gray-500 stroke-none stroke-[15px] transition hover:fill-green-light" />
+            <Icon pathClassName="fill-gray-500 stroke-none stroke-[15px] transition hover:fill-accent" />
         </a>
     );
 };

@@ -7,6 +7,7 @@ import { DevTool } from '@hookform/devtools';
 type FormValues = {
     name: string;
     email: string;
+    source: string;
     message: string;
 };
 
@@ -34,6 +35,12 @@ const Contact = () => {
                     }
                 })} />
 
+                <label htmlFor="source">Where did you find me?</label>
+                <select id="source" {...register('source', {
+                    required: 'Please specify where you found me.'
+                })}>
+                    <option>Hello</option>
+                </select>
                 <label htmlFor="message">Message</label>
                 <input type="textarea" id="message" formNoValidate {...register('message', { required: 'Please enter a message.' })} />
                 <button>Send Message</button>

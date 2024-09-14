@@ -8,7 +8,7 @@ import { twJoin } from "tailwind-merge";
 const DumbBarAnimation = () => {
     const isMenuOpen: boolean = useAppSelector((state) => state.locationReducer.value.isMenuOpen);
 
-    const sticksCommonStyles = twJoin(['z-10 h-[8px] rounded-full bg-green-light transition hover:duration-300', isMenuOpen ? 'scale-0' : 'scale-100']);
+    const sticksCommonStyles = twJoin(['z-10 h-[8px] rounded-full bg-accenttransition hover:duration-300', isMenuOpen ? 'scale-0' : 'scale-100']);
     const dispatch = useDispatch();
     const handleClick = () => {
         dispatch(setIsMenuOpen(!isMenuOpen));
@@ -43,7 +43,7 @@ const Hamburger = () => {
         dispatch(setIsMenuOpen(!isMenuOpen));
     };
 
-    const sticksCommonStyles = twJoin(['z-10 h-[8px] rounded-full bg-green-light transition hover:transition-none', 'bg-green-light', 'group-hover:bg-green-extra-light']);
+    const sticksCommonStyles = twJoin(['z-10 h-[8px] rounded-full bg-accenttransition hover:transition-none', 'bg-accent', 'group-hover:bg-white']);
 
     return (
         <button tabIndex={-1} onClick={handleClick} className={twJoin(['group pointer-events-auto absolute z-50 flex h-16 w-16 flex-col items-end justify-center gap-2 active:opacity-0'])}>
