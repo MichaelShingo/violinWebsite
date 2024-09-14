@@ -1,5 +1,14 @@
-import { PerformanceCard } from "@/app/[locale]/violinist-in-tokyo/page";
 import { FC } from "react";
+
+export type Ensemble = 'Solo' | 'Chamber' | 'Orchestra';
+
+export type PerformanceCard = {
+    title: string;
+    ensembleType: Ensemble;
+    description?: string;
+    period: string,
+    image?: string;
+};
 
 interface CardProps {
     card: PerformanceCard;

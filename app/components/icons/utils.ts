@@ -1,4 +1,4 @@
-export const defaultPathClassName = 'fill-gray-200';
+export const defaultPathClassName = 'fill-black';
 
 export interface CommonIconProps {
     size?: string;
