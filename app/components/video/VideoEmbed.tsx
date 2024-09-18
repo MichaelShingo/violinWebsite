@@ -3,27 +3,29 @@ import { useAppSelector } from "@/redux/store";
 import { FC, useEffect, useState } from "react";
 
 interface VideoEmbedProps {
-    link: string;
 }
 
-const VideoEmbed: FC<VideoEmbedProps> = ({ link }) => {
+const VideoEmbed: FC<VideoEmbedProps> = () => {
     const windowWidth: number = useAppSelector(
         (state) => state.windowReducer.value.windowWidth
     );
+    const windowHeight: number = useAppSelector((state) => state.windowReducer.value.windowHeight);
+    const link: string = useAppSelector(
+        (state) => state.locationReducer.value.currentVideo
+    );
 
-    console.log(windowWidth);
+    const factor = Math.min(windowWidth, windowHeight) / 1920;
 
     return (
-        <div className="relative flex h-0 w-full items-center justify-center pb-[56.25%]">
-            <iframe
-                className="absolute left-0 top-0 h-full w-full"
-                width={(windowWidth / 2).toString()}
-                src={link}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-            ></iframe>
-        </div >
+        <iframe
+            className=""
+            width={1920 * factor}
+            height={1080 * factor}
+            src={link}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+        ></iframe>
     );
 };
 

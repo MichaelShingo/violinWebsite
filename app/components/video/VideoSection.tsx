@@ -1,8 +1,9 @@
 import { FC, useRef, useState } from "react";
 import { twJoin } from "tailwind-merge";
-import VideoEmbed from "./VideoEmbed";
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import PlayIcon from "../icons/PlayIcon";
+import { useDispatch } from "react-redux";
+import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
 
 export type VideoData = {
     label: string;
@@ -14,8 +15,20 @@ interface VideoSectionProps {
     data: VideoData[];
 }
 
+const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+        opacity: 1,
+        transition: {
+            staggerChildren: 0.1,
+        },
+    },
+};
 
-
+const buttonVariants = {
+    hidden: { opacity: 0 },
+    visible: { opacity: 1, transition: { duration: 1.2 } },
+};
 
 
 const VideoSection: FC<VideoSectionProps> = ({ data }) => {
@@ -24,18 +37,52 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     const scale = useTransform(scrollYProgress, [0, 1], ['0%', "3000%"]);
     const x = useTransform(scrollYProgress, [0, 1], ['50%', "-500%"]);
     const xBackground = useTransform(scrollYProgress, [0, 1], ['10%', "-10%"]);
-    const [areCardsVisible, setAreCardsVisible] = useState<boolean>(false);
     const percentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
+    const dispatch = useDispatch();
+    const [isVideoSectionReady, setIsVideoSectionReady] = useState<boolean>(false);
+
+    useMotionValueEvent(percentage, "change", (value) => {
+        setIsVideoSectionReady(value > 70);
+    });
+
+    const handleClick = (link: string) => {
+        dispatch(setCurrentVideo(link));
+        dispatch(setIsModalOpen(true));
+    };
 
     return (
         <div ref={scrollContainerRef} className={twJoin([
             'h-[300vh] overflow-x-hidden sm:overflow-x-visible my-48',
         ])}>
-            <motion.div className="w-[100vw] h-[100vh] sticky justify-center flex items-center top-0 left-0 ">
+            <motion.div className="sticky left-0 top-0 flex h-[100vh] w-[100vw] items-center justify-center">
                 <motion.div style={{ scale, x, transformOrigin: 'left' }} className="">
                     <PlayIcon className="" size="50%" />
                 </motion.div>
-                <motion.div style={{ x: xBackground }} className="absolute top-0 w-full h-full bg-[url('/mediaButtonScattered.svg')] bg-cover bg-no-repeat"></motion.div>
+                <motion.div style={{ x: xBackground }} className="absolute top-0 h-full w-full bg-[url('/mediaButtonScattered.svg')] bg-cover bg-no-repeat" />
+                {isVideoSectionReady &&
+
+
+                    <motion.div
+                        initial="hidden"
+                        animate="visible"
+                        variants={containerVariants}
+                        className={twJoin(['w-full h-full absolute z-10 flex flex-col gap-20 items-center justify-center'])}
+                    >
+                        {data.map((item) => (
+                            <motion.button
+                                variants={buttonVariants}
+                                onClick={() => handleClick(item.link)} className="group relative w-dvw"
+                            >
+                                <h4 className="relative z-50 p-5 text-6xl text-primary transition duration-500 group-hover:text-white">
+                                    {item.label}
+                                </h4>
+                                <div className={twJoin([
+                                    'h-full bg-gradient-to-r  from-secondary to-accent -translate-x-[100%] group-hover:translate-x-[0%]  -translate-y-[100%] transition duration-500 -z-50',
+                                ])} />
+                            </motion.button>
+                        ))}
+                    </motion.div>
+                }
             </motion.div>
 
         </div >

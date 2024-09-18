@@ -4,6 +4,7 @@ type InitialState = {
 	value: LocationState;
 };
 
+type ModalContent = 'video';
 
 type LocationState = {
 	isStartingTransition: boolean;
@@ -11,6 +12,9 @@ type LocationState = {
 	isMenuOpen: boolean;
 	hoveredMenuInfo: string;
 	isMenuHovered: boolean;
+	isModalOpen: boolean;
+	modalContent: ModalContent;
+	currentVideo: string;
 };
 
 const initialState = {
@@ -20,6 +24,9 @@ const initialState = {
 		isMenuOpen: false,
 		hoveredMenuInfo: 'home',
 		isMenuHovered: false,
+		isModalOpen: false,
+		modalContent: 'video',
+		currentVideo: null,
 	} as LocationState,
 } as InitialState;
 
@@ -41,8 +48,17 @@ export const location = createSlice({
 		},
 		setIsMenuHovered: (state, action: PayloadAction<boolean>) => {
 			state.value.isMenuHovered = action.payload;
-		}
-	},
+		},
+		setIsModalOpen: (state, action: PayloadAction<boolean>) => {
+			state.value.isModalOpen = action.payload;
+		},
+		setModalContent: (state, action: PayloadAction<ModalContent>) => {
+			state.value.modalContent = action.payload;
+		},
+		setCurrentVideo: (state, action: PayloadAction<string>) => {
+			state.value.currentVideo = action.payload;
+		},
+	}
 });
 
 export const {
@@ -51,5 +67,8 @@ export const {
 	setIsMenuOpen,
 	setHoveredMenuInfo,
 	setIsMenuHovered,
+	setIsModalOpen,
+	setModalContent,
+	setCurrentVideo,
 } = location.actions;
 export default location.reducer;

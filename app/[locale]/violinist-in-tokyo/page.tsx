@@ -8,8 +8,6 @@ import { useRef, useState } from 'react';
 import VideoSection, { VideoData } from '@/app/components/video/VideoSection';
 import HorizontallyScrollingCards from '@/app/components/horizontallyScrollingCards/HorizontallyScrollingCards';
 
-
-
 const violinVideos: VideoData[] = [
     {
         label: 'New Music',

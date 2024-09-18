@@ -1,0 +1,42 @@
+'use client';
+import { FC, ReactNode } from "react";
+import { twJoin } from "tailwind-merge";
+import { motion } from "framer-motion";
+import { useAppSelector } from "@/redux/store";
+import VideoEmbed from "../video/VideoEmbed";
+import { setIsModalOpen } from "@/redux/features/locationSlice";
+import { useDispatch } from "react-redux";
+
+const Modal: FC = () => {
+    const modalContent: string = useAppSelector((state) => state.locationReducer.value.modalContent);
+    const isModalOpen: boolean = useAppSelector((state) => state.locationReducer.value.isModalOpen);
+    console.log("🚀 ~ isModalOpen:", isModalOpen);
+    const dispatch = useDispatch();
+
+    const generateModalContent = () => {
+        switch (modalContent) {
+            case 'video':
+                return <VideoEmbed />;
+            default:
+                return null;
+        }
+    };
+
+    return (
+        <>
+            {isModalOpen &&
+                <motion.div className="fixed z-[101] flex h-dvh w-dvw items-center justify-center bg-black/70 backdrop-blur-md">
+                    <button onClick={() => dispatch(setIsModalOpen(false))} className="group absolute right-0 top-0 mr-8 mt-5 h-[75px] w-[75px]">
+                        <div className="h-2 w-14 translate-y-[37%] rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
+                        <div className="h-2 w-14 -translate-y-[37%] -rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
+                    </button>
+                    <div className="h-fit w-fit bg-red-200">
+                        {generateModalContent()}
+                    </div>
+                </motion.div>
+            }
+        </>
+    );
+};
+
+export default Modal;
