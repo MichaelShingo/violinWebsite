@@ -65,7 +65,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
                 transition={{ delay: 0, duration: 1, }}
                 style={{
                     // filter,
-                    translateY,
+                    // translateY,
                 }}>
                 <div className="absolute z-0 h-full w-full bg-black-trans"></div>
             </motion.div>
@@ -75,8 +75,8 @@ const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
                 <div className="max-w-dvw w-[100%]">
                     {children}
                 </div>
-                <div className="h-[300px] w-full"></div>
             </div>
+            <div className="h-[40vh]" />
             <Footer />
 
         </>

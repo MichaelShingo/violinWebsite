@@ -1,6 +1,6 @@
-import { FC, useRef, useState } from "react";
+import { FC, useEffect, useRef, useState } from "react";
 import { twJoin } from "tailwind-merge";
-import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
+import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import PlayIcon from "../icons/PlayIcon";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
@@ -14,6 +14,8 @@ export type VideoData = {
 interface VideoSectionProps {
     data: VideoData[];
 }
+
+
 
 const containerVariants = {
     hidden: { opacity: 0 },
@@ -31,6 +33,7 @@ const buttonVariants = {
 };
 
 
+
 const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     const scrollContainerRef = useRef(null);
     const { scrollYProgress } = useScroll({ target: scrollContainerRef });
@@ -40,10 +43,24 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     const percentage = useTransform(scrollYProgress, [0, 1], [0, 100]);
     const dispatch = useDispatch();
     const [isVideoSectionReady, setIsVideoSectionReady] = useState<boolean>(false);
+    const [isExiting, setIsExiting] = useState<boolean>(false);
+    console.log("🚀 ~ isExiting:", isExiting);
+    const controls = useAnimation();
+
+    useEffect(() => {
+        if (isExiting) {
+            controls.start({ x: '-2000%', transition: { duration: 1 } });
+        } else {
+            controls.start({ x: x.get(), transition: { duration: 1 } });
+        }
+    }, [isExiting, controls, x]);
 
     useMotionValueEvent(percentage, "change", (value) => {
-        setIsVideoSectionReady(value > 70);
+        setIsVideoSectionReady(value > 40);
+        setIsExiting(value > 99);
     });
+
+
 
     const handleClick = (link: string) => {
         dispatch(setCurrentVideo(link));
@@ -51,17 +68,17 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     };
 
     return (
-        <div ref={scrollContainerRef} className={twJoin([
-            'h-[300vh] overflow-x-hidden sm:overflow-x-visible my-48',
+        <motion.div ref={scrollContainerRef} className={twJoin([
+            'h-[350vh] overflow-x-hidden sm:overflow-x-visible my-48',
         ])}>
             <motion.div className="sticky left-0 top-0 flex h-[100vh] w-[100vw] items-center justify-center">
-                <motion.div style={{ scale, x, transformOrigin: 'left' }} className="">
+                <motion.div animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }} style={{ scale, x, transformOrigin: 'left', }} className={twJoin([
+                    isExiting ? 'pointer-events-none' : 'pointer-events-auto',
+                ])}>
                     <PlayIcon className="" size="50%" />
                 </motion.div>
                 <motion.div style={{ x: xBackground }} className="absolute top-0 h-full w-full bg-[url('/mediaButtonScattered.svg')] bg-cover bg-no-repeat" />
                 {isVideoSectionReady &&
-
-
                     <motion.div
                         initial="hidden"
                         animate="visible"
@@ -71,7 +88,12 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                         {data.map((item) => (
                             <motion.button
                                 variants={buttonVariants}
-                                onClick={() => handleClick(item.link)} className="group relative w-dvw"
+                                animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }}
+                                onClick={() => handleClick(item.link)}
+                                className={twJoin([
+                                    'group relative w-dvw',
+                                    isExiting ? 'pointer-events-none' : 'pointer-events-auto',
+                                ])}
                             >
                                 <h4 className="relative z-50 p-5 text-6xl text-primary transition duration-500 group-hover:text-white">
                                     {item.label}
@@ -85,7 +107,7 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                 }
             </motion.div>
 
-        </div >
+        </motion.div >
     );
 };
 

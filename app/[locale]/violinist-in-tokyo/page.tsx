@@ -7,6 +7,7 @@ import { useRef, useState } from 'react';
 
 import VideoSection, { VideoData } from '@/app/components/video/VideoSection';
 import HorizontallyScrollingCards from '@/app/components/horizontallyScrollingCards/HorizontallyScrollingCards';
+import { twJoin } from 'tailwind-merge';
 
 const violinVideos: VideoData[] = [
     {
@@ -24,12 +25,9 @@ const violinVideos: VideoData[] = [
     }
 ];
 
+const concertTextStyles = 'text-5xl text-center border-[2px] border-black w-[110%] last-of-type:border-b-[4px] first-of-type:border-t-[4px] p-10 hover:bg-secondary transition duration-500 hover:text-white';
 
 const Violinist = () => {
-    const scrollContainerRef = useRef(null);
-    const { scrollYProgress } = useScroll({ target: scrollContainerRef });
-
-
     return (
         <PageLayout title="Violin">
             <Quote>
@@ -37,6 +35,14 @@ const Violinist = () => {
             </Quote>
             <HorizontallyScrollingCards />
             <VideoSection data={violinVideos} />
+            <div className="flex h-fit min-h-[100vh] w-full flex-col items-center justify-center gap-0 bg-primary">
+                <h2 className="p-10 text-9xl">Booking</h2>
+                <p className="font- p-5 text-center font-paragraph text-xl text-black">Michael is available is perform as a violinist at the following events:</p>
+                <h3 className={twJoin([concertTextStyles])}>Orchestra Concerts</h3>
+                <h3 className={twJoin([concertTextStyles])}>Chamber Music Concerts</h3>
+                <h3 className={twJoin([concertTextStyles])}>Solo Performances</h3>
+                <h3 className={twJoin([concertTextStyles])}>Weddings and Special Events</h3>
+            </div>
         </PageLayout >
     );
 };
