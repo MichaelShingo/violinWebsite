@@ -52,7 +52,6 @@ export default async function RootLayout({ children, params: { locale } }: { chi
 			<body className={locale === 'en' ? francois.className : zenOldMincho.className}>
 				<NextIntlClientProvider messages={messages}>
 					<ReduxProvider>
-
 						<SubLayout>
 							{children}
 						</SubLayout>

@@ -2,12 +2,10 @@
 import Quote from '../../components/text/Quote';
 import GreenText from '../../components/text/GreenText';
 import PageLayout from '@/app/components/pageLayout/PageLayout';
-import { useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import { useRef, useState } from 'react';
-
 import VideoSection, { VideoData } from '@/app/components/video/VideoSection';
 import HorizontallyScrollingCards from '@/app/components/horizontallyScrollingCards/HorizontallyScrollingCards';
 import { twJoin } from 'tailwind-merge';
+import Typography from '@/app/components/text/Typography';
 
 const violinVideos: VideoData[] = [
     {
@@ -29,7 +27,7 @@ const concertTextStyles = 'text-5xl text-center border-[2px] border-black w-[110
 
 const Violinist = () => {
     return (
-        <PageLayout title="Violin">
+        <PageLayout title="Violin" backgroundImageUrl="/alexTranProposal3.jpg">
             <Quote>
                 <GreenText>Michael Shingo Crawford</GreenText> is a Tokyo-based violinist, performing classical music, contemporary music, and anime soundtracks.
             </Quote>
@@ -37,8 +35,8 @@ const Violinist = () => {
             <VideoSection data={violinVideos} />
             <div className="flex h-fit min-h-[100vh] w-full flex-col items-center justify-center gap-0 bg-primary">
                 <h2 className="p-10 text-9xl">Booking</h2>
-                <p className="font- p-5 text-center font-paragraph text-xl text-black">Michael is available is perform as a violinist at the following events:</p>
-                <h3 className={twJoin([concertTextStyles])}>Orchestra Concerts</h3>
+                <Typography variant="p">Michael is available to perform as a violinist at the following events:</Typography>
+                <h3 className={twJoin([concertTextStyles, 'mt-10'])}>Orchestra Concerts</h3>
                 <h3 className={twJoin([concertTextStyles])}>Chamber Music Concerts</h3>
                 <h3 className={twJoin([concertTextStyles])}>Solo Performances</h3>
                 <h3 className={twJoin([concertTextStyles])}>Weddings and Special Events</h3>

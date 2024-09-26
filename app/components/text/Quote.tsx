@@ -6,10 +6,9 @@ interface QuoteProps {
 
 const Quote: FC<QuoteProps> = ({ children }) => {
     return (
-        <div className="my-5 flex h-dvh items-center justify-center px-28 text-7xl leading-[5.3rem]">
-            <div>
+        <div className="my-5 flex h-[135vh] items-center justify-center px-28 text-7xl leading-[5.3rem]">
+            <div className="">
                 <div className="absolute h-[12%] w-[10px] -translate-x-10 translate-y-2 rounded-sm bg-black" />
-
                 {children}
             </div>
         </div>);

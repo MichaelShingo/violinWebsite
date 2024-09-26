@@ -27,6 +27,7 @@ const containerVariants = {
     },
 };
 
+
 const buttonVariants = {
     hidden: { opacity: 0 },
     visible: { opacity: 1, transition: { duration: 1.2 } },
@@ -44,7 +45,6 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     const dispatch = useDispatch();
     const [isVideoSectionReady, setIsVideoSectionReady] = useState<boolean>(false);
     const [isExiting, setIsExiting] = useState<boolean>(false);
-    console.log("🚀 ~ isExiting:", isExiting);
     const controls = useAnimation();
 
     useEffect(() => {

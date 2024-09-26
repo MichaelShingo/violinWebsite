@@ -1,13 +1,14 @@
 'use client';
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useState } from "react";
 import Typography from '../../components/text/Typography';
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { twJoin } from "tailwind-merge";
-import Divider from "../divider/Divider";
-import BassClef from "../contact/BassClef";
 import Footer from "../footer/Footer";
+
 interface PageLayoutProps {
     title: string;
+    backgroundImageUrl: string;
+    darkenBackground?: boolean;
     children: ReactNode;
 }
 
@@ -32,11 +33,15 @@ const arrowButtonVariants = {
     }
 };
 
-const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
+const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBackground = true, children }) => {
     const { scrollYProgress } = useScroll();
     const translateY = useTransform(scrollYProgress, [0, 1], [0, -200]);
     const filter = useTransform(scrollYProgress, val => `blur(${val * 50}px) brightness(${1})`);
     const arrowCn = 'absolute h-[4px] w-16 rounded-sm bg-white';
+    const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
+    useMotionValueEvent(scrollYProgress, 'change', (value) => {
+        setScrolledPastHeader(value > 0.2);
+    });
 
     const scrollToContent = () => {
         window.scrollTo({
@@ -59,19 +64,25 @@ const PageLayout: FC<PageLayoutProps> = ({ title, children }) => {
                 <div className={twJoin([arrowCn, 'translate-x-[34%] -rotate-45'])} />
             </motion.button >
             <motion.div
-                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-[url('/alexTranProposal3.jpg')] bg-cover bg-no-repeat pb-5"
+                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat pb-5"
+                style={{
+                    backgroundImage: `url(${backgroundImageUrl})`,
+                }}
                 initial={{ opacity: 0, scale: '105%' }}
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
-                style={{
-                    // filter,
-                    // translateY,
-                }}>
-                <div className="absolute z-0 h-full w-full bg-black-trans"></div>
-            </motion.div>
+            >
+                <div className="absolute z-50 flex h-full w-full items-end justify-center px-16">
+                    {!scrolledPastHeader &&
+                        <Typography variant="h1" color="text-white">{title}</Typography>
+                    }
+                </div>
+                {darkenBackground &&
+                    <div className="absolute z-0 h-[110vh] w-full bg-black-trans"></div>
+                }
+            </motion.div >
             <div className="h-[100vh] w-[100vw]" />
             <div className="z-10 flex flex-col items-center gap-5 bg-white px-0 py-12">
-                {/* <Typography variant="h1">{title}</Typography> */}
                 <div className="max-w-dvw w-[100%]">
                     {children}
                 </div>
