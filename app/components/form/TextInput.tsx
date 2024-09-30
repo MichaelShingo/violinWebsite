@@ -21,7 +21,6 @@ const TextInput: FC<TextInputProps> = ({ type, id, register, requiredText, place
         switch (type) {
             case 'textarea':
                 cn.push('h-64 py-4');
-
                 return <textarea type={type} placeholder={placeholder} className={twJoin([...cn, 'h-16 min-w-44'])} id={id} formNoValidate {...register(inputName, { required: requiredText, pattern: validationPattern })} />;
             case 'text':
                 cn.push('h-16');

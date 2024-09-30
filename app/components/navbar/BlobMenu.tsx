@@ -29,13 +29,13 @@ export const menuItems: MenuItem[] = [
     },
     {
         label: 'composition',
-        link: '/classical-composer-in-tokyo',
+        link: '/composer-in-tokyo',
         icon: PenIcon,
         menuPosition: 'right',
     },
     {
         label: 'arranging',
-        link: '/music-arranger-in-tokyo',
+        link: '/arranger-in-tokyo',
         icon: EighthNoteArrowIcon,
         menuPosition: 'right',
     },
@@ -100,15 +100,15 @@ const BlobMenu: FC = () => {
                     isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])
             } ></div>
             <h1 className={twJoin([
-                'z-50 text-[9rem] text-primary uppercase bold duration-500 transition pointer-events-none',
-                isMenuHovered ? 'opacity-100' : 'opacity-0'
+                'z-50 lg:text-[8rem] mt-12 sm:mt-0 sm:text-[5rem] text-[2rem] md:text-[6rem] xl:text-[9rem] text-primary uppercase bold duration-500 transition pointer-events-none',
+                isMenuHovered ? 'opacity-0 sm:opacity-100' : 'opacity-0'
             ])}
             >
                 {hoveredMenuInfo}
             </h1>
 
             <div className={twJoin([
-                'pointer-events-none absolute flex h-[175px] w-[175px] items-center  justify-center transition duration-700',
+                'sm:scale-100 scale-75 pointer-events-none absolute flex h-[175px] w-[175px] items-center  justify-center transition duration-700',
                 calcMenuPosition(),
             ])}>
                 <Hamburger />
@@ -119,7 +119,7 @@ const BlobMenu: FC = () => {
                         <MenuCircle key={index} item={item} index={index} pathname={pathname} itemsLength={menuItems.length} />
                     ))}
                 </div>
-                <div className={twJoin([isMenuOpen ? 'scale-[55%]' : isRightLink ? 'scale-[38%]' : 'scale-[45%]', 'transition duration-700'])}>
+                <div className={twJoin([isMenuOpen ? 'scale-[55%]' : isRightLink ? 'scale-[43%]' : 'scale-[48%]', 'transition duration-700'])}>
                     <WavyCircle waves1={4} waves2={7} />
                 </div>
             </div>

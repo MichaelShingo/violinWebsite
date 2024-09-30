@@ -72,7 +72,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
             >
-                <div className="absolute z-50 flex h-full w-full items-end justify-center px-16">
+                <div className="absolute z-50 flex h-full w-full items-end justify-center px-16 pb-10">
                     {!scrolledPastHeader &&
                         <Typography variant="h1" color="text-white">{title}</Typography>
                     }

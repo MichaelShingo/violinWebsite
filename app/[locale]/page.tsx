@@ -28,16 +28,16 @@ export default function Home() {
 		<div className="flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-[url('/coverPhotoHome.jpg')] bg-cover bg-no-repeat pb-5">
 			<div className="relative z-50 flex h-full w-full flex-col justify-between">
 				<div className="relative"></div>
-				<div className="flex flex-col gap-6">
-					<h1 className="relative z-50 w-full self-center text-center text-7xl uppercase text-white">{t('title')}</h1>
-					<h1 className="relative z-50 w-full self-center text-center text-4xl uppercase text-white">{t('role')}</h1>
+				<div className="flex flex-col gap-12 sm:gap-10 md:gap-6">
+					<h1 className="relative z-50 w-full self-center text-center text-5xl uppercase text-white sm:text-6xl md:text-7xl">{t('title')}</h1>
+					<h1 className="relative z-50 w-full self-center text-center text-xl uppercase text-white md:text-4xl">{t('role')}</h1>
 				</div>
 				<div className="flex w-full flex-row justify-center">
 					<div className="flex w-fit flex-row">
-						<div className="mr-3 h-7 w-7">
-							<LocationIcon size="120%" pathClassName='fill-transparent stroke-white' />
+						<div className="mr-1 h-7 w-7 md:mr-3">
+							<LocationIcon size="120%" pathClassName='scale-[70%] fill-transparent stroke-white sm:scale-[80%] md:scale-100' />
 						</div>
-						<motion.h1 variants={locationVariants} initial="hidden" animate="visible" className="relative z-50 w-full self-center text-center text-3xl text-white">{t('location')}</motion.h1>
+						<motion.h1 variants={locationVariants} initial="hidden" animate="visible" className="relative z-50 w-full self-center text-center text-xl text-white sm:text-2xl md:text-3xl">{t('location')}</motion.h1>
 					</div>
 				</div>
 			</div>
