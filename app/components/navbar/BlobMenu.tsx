@@ -62,7 +62,7 @@ const BlobMenu: FC = () => {
             res = 'translate-y-[35vh]';
         } else {
             if (isRightLink) {
-                res = 'translate-x-[45vw]';
+                res = 'md:translate-x-[40vw] sm:translate-x-[35vw] translate-x-[30vw] lg:translate-x-[40vw] xl:translate-x-[41vw] 2xl:translate-x-[43vw]';
             }
         }
         return res;
