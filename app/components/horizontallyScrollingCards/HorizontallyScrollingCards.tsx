@@ -3,9 +3,9 @@ import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-mot
 import Card, { PerformanceCard } from '@/app/components/card/Card';
 import { twJoin } from 'tailwind-merge';
 import { useRef, useState } from 'react';
-
-
-
+import Typography from '../text/Typography';
+import { isMobile } from 'react-device-detect';
+import { hideOnMobile, showOnMobile } from '@/app/constants/styleConstants';
 
 const performanceHighlights: PerformanceCard[] = [
     {
@@ -82,23 +82,32 @@ const HorizontallyScrollingCards = () => {
 
 
     return (
-        <div ref={scrollContainerRef} className={twJoin([
-            'h-[400vh] -z-50 transition duration-700 overflow-x-hidden sm:overflow-x-visible',
-            // areCardsVisible ? 'bg-primary' : 'bg-primary'
-        ])}>
-            <motion.h2 style={{ x: xBackgroundText }} className={twJoin([
-                'sticky left-0 -z-[0] top-0 mt-auto flex h-dvh items-center text-center text-[50rem] leading-[40rem] uppercase',
-                areCardsVisible ? 'text-black' : 'text-black',
+        <>
+            <section ref={scrollContainerRef} className={twJoin([
+                'hidden lg:block h-[400vh] -z-50 transition duration-700',
             ])}>
-                Performance Highlights
-            </motion.h2>
-            <motion.div style={{ x }} className="min-w-dvw fixed left-0 top-0 flex h-dvh flex-row items-center justify-center">
+                <motion.h2 style={{ x: xBackgroundText }} className={twJoin([
+                    'sticky left-0 -z-[0] top-0 mt-auto flex h-dvh items-center text-center text-[50rem] leading-[40rem] uppercase',
+                    areCardsVisible ? 'text-black' : 'text-black',
+                ])}>
+                    Performance Highlights
+                </motion.h2>
+                <motion.div style={{ x }} className="min-w-dvw fixed left-0 top-0 flex h-dvh flex-row items-center justify-center">
+                    {performanceHighlights.map((item) => (
+                        <Card card={item} />
+                    ))}
+
+                </motion.div>
+            </section>
+            <section className={twJoin(['block lg:hidden'])}>
+                <Typography className="text-center" variant="h2">Performance Highlights</Typography>
                 {performanceHighlights.map((item) => (
                     <Card card={item} />
                 ))}
 
-            </motion.div>
-        </div>
+            </section>
+
+        </>
     );
 };
 

@@ -17,7 +17,7 @@ const Divider: FC<DividerProps> = ({ variant, icon: Icon, color = 'bg-gray-300',
 
     return (
         <div className={twJoin("mt-24 mb-9 w-full h-12 ")}>
-            <motion.div viewport={{ once: true }} transition={{ delay: 0, duration: 0.6 }} initial={{ height: '4px', width: '0%' }} whileInView={{ width: '100%' }} className="relative bg-black" />
+            <motion.div viewport={{ once: true }} transition={{ delay: 0, duration: 0.6 }} initial={{ height: '4px', width: '0%' }} whileInView={{ width: '100%' }} className="relative bg-white" />
             <motion.div viewport={{ once: true }} transition={{ delay: 0.4, duration: 0.3 }} className="relative bg-transparent" initial={{ scale: '0%', width: '100%', translateY: '-51%' }} whileInView={{ scale: '18%' }}>
                 <Icon pathClassName={iconColor} />
             </motion.div>

@@ -3,14 +3,16 @@ import { FC, ReactNode } from "react";
 import { twJoin } from "tailwind-merge";
 
 interface CustomLinkProps {
+    color?: string;
     href: string;
     children: ReactNode;
 }
-const CustomLink: FC<CustomLinkProps> = ({ href, children }) => {
+const CustomLink: FC<CustomLinkProps> = ({ color, href, children }) => {
+    const cn = [' underline transition hover:opacity-85 w-fit'];
+    color ? cn.push(color) : cn.push('text-secondary');
     return (
-        <Link className={twJoin(['text-secondary underline transition hover:opacity-85 w-fit'])} href={href}>
+        <Link className={twJoin([...cn])} href={href}>
             {children}
-            {/* <div className="w- h-full bg-black" /> */}
         </Link>
     );
 };

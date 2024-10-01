@@ -37,7 +37,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
     const { scrollYProgress } = useScroll();
     const translateY = useTransform(scrollYProgress, [0, 1], [0, -200]);
     const filter = useTransform(scrollYProgress, val => `blur(${val * 50}px) brightness(${1})`);
-    const arrowCn = 'absolute h-[4px] w-16 rounded-sm bg-white';
+    const arrowCn = 'absolute h-[4px] w-12 sm:w-14 rounded-sm bg-white';
     const [scrolledPastHeader, setScrolledPastHeader] = useState(false);
     useMotionValueEvent(scrollYProgress, 'change', (value) => {
         setScrolledPastHeader(value > 0.2);
@@ -58,7 +58,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 animate="visible"
                 whileHover="hover"
                 onClick={scrollToContent}
-                className="absolute bottom-0 left-[50vw] z-50 flex h-[100px] w-[100px] cursor-pointer flex-row items-center justify-center"
+                className="absolute bottom-0 z-50 flex h-[100px] w-full cursor-pointer flex-row items-center justify-center"
             >
                 <div className={twJoin([arrowCn, '-translate-x-[34%] rotate-45'])} />
                 <div className={twJoin([arrowCn, 'translate-x-[34%] -rotate-45'])} />
@@ -72,9 +72,9 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
             >
-                <div className="absolute z-50 flex h-full w-full items-end justify-center px-16 pb-10">
+                <div className="absolute z-50 flex h-full w-full items-center justify-center px-0 pb-10 md:px-16 lg:items-end">
                     {!scrolledPastHeader &&
-                        <Typography variant="h1" color="text-white">{title}</Typography>
+                        <Typography className="text-center md:text-left" variant="h1" color="text-white">{title}</Typography>
                     }
                 </div>
                 {darkenBackground &&
