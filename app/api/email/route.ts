@@ -1,13 +1,20 @@
-import { ContactFormData } from '@/src/app/utils/email';
 import { mailOptions, transporter } from './nodemailerFunctions';
 
+type ContactFormData = {
+	firstName: string;
+	lastName: string;
+	email: string;
+	source: string;
+	message: string;
+};
 export async function POST(req: Request) {
 	const body: ContactFormData = await req.json();
-	if (!body.email || !body.name || !body.message) {
+
+	if (!body.email || !body.firstName || !body.lastName || !body.message) {
 		return new Response('Bad request.', { status: 400 });
 	}
 
-	const emailBody: string = `Name: ${body.name}\n\nEmail: ${body.email}\n\nMessage: ${body.message}`;
+	const emailBody: string = `First Name: ${body.firstName}\n\nLast Name: ${body.lastName}\n\nWhere did you find me: ${body.source}\n\nEmail: ${body.email}\n\nMessage: ${body.message}`;
 
 	try {
 		await transporter.sendMail({

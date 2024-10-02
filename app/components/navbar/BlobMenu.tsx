@@ -91,7 +91,7 @@ const BlobMenu: FC = () => {
     return (
         <div className={
             twJoin([
-                'fixed z-[100] h-dvh w-dvw flex justify-center', isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none',
+                'fixed z-[100] h-[200vh] w-dvw flex justify-center', isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none',
             ])
         } >
             <div onClick={(e) => { toggleMenu(); e.stopPropagation(); }} className={

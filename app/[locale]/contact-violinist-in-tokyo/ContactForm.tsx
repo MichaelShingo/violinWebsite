@@ -24,7 +24,7 @@ const ContactForm = () => {
     const onSubmit = async (data: FormValues) => {
         console.log(data);
         try {
-            const response = await fetch('/api/contact', {
+            const response = await fetch('/api/email/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -67,7 +67,7 @@ const ContactForm = () => {
                         <Label htmlFor="email">Email*</Label>
                     </FormGroup>
                     <FormGroup>
-                        <TextInput type="text" id="source" register={register} requiredText="Please enter a source." inputName="source" placeholder="Google, Youtube, GigSalad, at a concert..." />
+                        <TextInput type="text" id="source" register={register} inputName="source" placeholder="Google, Youtube, GigSalad, at a concert..." />
                         <Label htmlFor="source">Where did you find me?</Label>
                     </FormGroup>
                 </FormRow>
@@ -79,11 +79,6 @@ const ContactForm = () => {
                     <button className={twJoin(['border-black border-[3px] h-16 bg-black w-fit py-4 px-12 hover:bg-accent active:scale-95 hover:text-black transition text-primary'])}>Send Message</button>
                 </div>
             </form>
-            <p>{errors.email?.message}</p>
-            <p>{errors.firstName?.message}</p>
-            <p>{errors.lastName?.message}</p>
-            <p>{errors.message?.message}</p>
-            <DevTool control={control} />
         </div>
     );
 };

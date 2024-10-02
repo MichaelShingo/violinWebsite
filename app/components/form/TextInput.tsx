@@ -6,7 +6,7 @@ interface TextInputProps {
     type: 'text' | 'textarea';
     id: string;
     register: any;
-    requiredText: string;
+    requiredText?: string;
     inputName: string;
     validationPattern?: ValidationRule<RegExp>;
     placeholder?: string;
@@ -14,8 +14,7 @@ interface TextInputProps {
 }
 
 const TextInput: FC<TextInputProps> = ({ type, id, register, requiredText, placeholder, inputName, validationPattern, error }) => {
-    console.log("🚀 ~ error:", error);
-    const cn = ['border-[3px] px-4 mb-6 font-paragraph font-light text-xl peer'];
+    const cn = ['border-[3px] px-4 mb-1 font-paragraph font-light text-xl peer'];
 
     error ? cn.push('border-error') : cn.push('border-black');
 
@@ -36,6 +35,7 @@ const TextInput: FC<TextInputProps> = ({ type, id, register, requiredText, place
     };
     return (
         <>
+            <p className={twJoin(['font-light font-paragraph mb-1', error ? 'text-error' : 'text-white pointer-events-none'])}>{error ? error?.message : ' _'}</p>
             {generateInput()}
         </>
     );

@@ -1,7 +1,6 @@
 'use client';
 import { FC } from "react";
 import Typography from "../text/Typography";
-import { isMobile } from 'react-device-detect';
 
 export type Ensemble = 'Solo' | 'Chamber' | 'Orchestra';
 
@@ -28,8 +27,8 @@ const Card: FC<CardProps> = ({ card }) => {
             </div>
             <div className="block h-fit w-full p-6 lg:hidden"
             >
-                <Typography variant="h3" className="text-3xl text-black">{card.title}</Typography>
-                <Typography variant="h4" className="my-2 text-lg text-black first-letter:uppercase">{card.period} | {card.ensembleType}</Typography>
+                <Typography variant="h3" className="mb-2 text-[1.7rem] text-black">{card.title}</Typography>
+                <Typography variant="h4" className="my-2 text-[1.1rem] text-black first-letter:uppercase">{card.period} | {card.ensembleType}</Typography>
                 <Typography variant="p">{card.description}</Typography>
             </div>
 

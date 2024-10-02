@@ -4,6 +4,9 @@ import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } fr
 import PlayIcon from "../icons/PlayIcon";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
+import { hideOnMobile, showOnMobile } from "@/app/constants/styleConstants";
+import VideoEmbed from "./VideoEmbed";
+import Typography from "../text/Typography";
 
 export type VideoData = {
     label: string;
@@ -60,54 +63,64 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
         setIsExiting(value > 99);
     });
 
-
-
     const handleClick = (link: string) => {
         dispatch(setCurrentVideo(link));
         dispatch(setIsModalOpen(true));
     };
 
     return (
-        <motion.div ref={scrollContainerRef} className={twJoin([
-            'h-[350vh] overflow-x-hidden sm:overflow-x-visible my-48',
-        ])}>
-            <motion.div className="sticky left-0 top-0 flex h-[100vh] w-[100vw] items-center justify-center">
-                <motion.div animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }} style={{ scale, x, transformOrigin: 'left', }} className={twJoin([
-                    isExiting ? 'pointer-events-none' : 'pointer-events-auto',
-                ])}>
-                    <PlayIcon className="" size="50%" />
-                </motion.div>
-                <motion.div style={{ x: xBackground }} className="absolute top-0 h-full w-full bg-[url('/mediaButtonScattered.svg')] bg-cover bg-no-repeat" />
-                {isVideoSectionReady &&
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={containerVariants}
-                        className={twJoin(['w-full h-full absolute z-10 flex flex-col gap-20 items-center justify-center'])}
-                    >
-                        {data.map((item) => (
-                            <motion.button
-                                variants={buttonVariants}
-                                animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }}
-                                onClick={() => handleClick(item.link)}
-                                className={twJoin([
-                                    'group relative w-dvw',
-                                    isExiting ? 'pointer-events-none' : 'pointer-events-auto',
-                                ])}
-                            >
-                                <h4 className="relative z-50 p-5 text-6xl text-primary transition duration-500 group-hover:text-white">
-                                    {item.label}
-                                </h4>
-                                <div className={twJoin([
-                                    'h-full bg-gradient-to-r  from-secondary to-accent -translate-x-[100%] group-hover:translate-x-[0%]  -translate-y-[100%] transition duration-500 -z-50',
-                                ])} />
-                            </motion.button>
-                        ))}
+        <>
+            <motion.div ref={scrollContainerRef} className={twJoin([
+                'h-[350vh] overflow-x-hidden sm:overflow-x-visible my-48 hidden lg:block',
+            ])}>
+                <motion.div className="sticky left-0 top-0 flex h-[100vh] w-[100vw] items-center justify-center">
+                    <motion.div animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }} style={{ scale, x, transformOrigin: 'left', }} className={twJoin([
+                        isExiting ? 'pointer-events-none' : 'pointer-events-auto',
+                    ])}>
+                        <PlayIcon className="" size="50%" />
                     </motion.div>
-                }
-            </motion.div>
-
-        </motion.div >
+                    <motion.div style={{ x: xBackground }} className="absolute top-0 h-full w-full bg-[url('/mediaButtonScattered.svg')] bg-cover bg-no-repeat" />
+                    {isVideoSectionReady &&
+                        <motion.div
+                            initial="hidden"
+                            animate="visible"
+                            variants={containerVariants}
+                            className={twJoin(['w-full h-full absolute z-10 flex flex-col gap-20 items-center justify-center'])}
+                        >
+                            {data.map((item) => (
+                                <motion.button
+                                    variants={buttonVariants}
+                                    animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }}
+                                    onClick={() => handleClick(item.link)}
+                                    className={twJoin([
+                                        'group relative w-dvw',
+                                        isExiting ? 'pointer-events-none' : 'pointer-events-auto',
+                                    ])}
+                                >
+                                    <h4 className="relative z-50 p-5 text-6xl text-primary transition duration-500 group-hover:text-white">
+                                        {item.label}
+                                    </h4>
+                                    <div className={twJoin([
+                                        'h-full bg-gradient-to-r  from-secondary to-accent -translate-x-[100%] group-hover:translate-x-[0%]  -translate-y-[100%] transition duration-500 -z-50',
+                                    ])} />
+                                </motion.button>
+                            ))}
+                        </motion.div>
+                    }
+                </motion.div>
+            </motion.div >
+            <div className={twJoin(['block lg:hidden'])}>
+                <Typography className="text-center" variant="h2">Videos</Typography>
+                <div className="flex flex-col items-center justify-center gap-8">
+                    {data.map((item) =>
+                        <button
+                            className={twJoin(['min-w-[200px] w-fit  block py-3 text-xl border-black border-[3px] text-black transition duration-500'])}
+                            onClick={() => handleClick(item.link)}
+                        >{item.label}</button>
+                    )}
+                </div>
+            </div>
+        </>
     );
 };
 
