@@ -8,7 +8,7 @@ interface FormGroupProps {
 
 const FormGroup: FC<FormGroupProps> = ({ fullWidth, children }) => {
     const cn = [];
-    fullWidth ? cn.push('w-full') : cn.push('w-1/2');
+    fullWidth ? cn.push('w-full') : cn.push('w-full md:w-1/2');
     return (
         <div className={twJoin([...cn, 'flex flex-col-reverse'])}>
             {children}

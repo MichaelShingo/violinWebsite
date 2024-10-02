@@ -17,6 +17,7 @@ module.exports = {
 				primary: theme.primary,
 				accent: theme.accent,
 				secondary: theme.secondary,
+				error: theme.error,
 				'secondary-light': '#a2af9f',
 				blueprimary: '#FFFFFF',
 				blueaccent: '#504AFF',

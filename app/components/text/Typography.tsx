@@ -38,7 +38,7 @@ const Typography: FC<TypographyProps> = ({ variant, className, color, sticky, al
                 res = <motion.h1 className={twJoin([...cn, 'w-full text-[2rem] sm:text-[4rem] md:text-[6rem] lg:text-[8rem] uppercase'])}>{children}</motion.h1>;
                 break;
             case 'h2':
-                res = <motion.h2 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className={twJoin([...cn, 'my-8 text-4xl sm:text-9xl lg:text-8xl uppercase'])}>{children}</motion.h2>;
+                res = <motion.h2 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className={twJoin([...cn, 'my-8 text-4xl sm:text-5xl md:text-6xl lg:text-8xl uppercase'])}>{children}</motion.h2>;
                 break;
             case 'h3':
                 res = <motion.h3 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className={twJoin([...cn, 'my-3 text-3xl sm:text-5xl lg:text-6xl uppercase'])}>{children}</motion.h3>;
