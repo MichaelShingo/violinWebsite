@@ -6,6 +6,7 @@ import { useRef, useState } from 'react';
 import Typography from '../text/Typography';
 import { isMobile } from 'react-device-detect';
 import { hideOnMobile, showOnMobile } from '@/app/constants/styleConstants';
+import { useTranslations } from 'next-intl';
 
 const performanceHighlights: PerformanceCard[] = [
     {
@@ -39,24 +40,6 @@ const performanceHighlights: PerformanceCard[] = [
         period: '2019-2023',
     },
     {
-        title: 'ENAensemble',
-        ensembleType: 'Chamber',
-        description: 'Newly composed Chamber opera performances in Philadelphia.',
-        period: '2019-2022',
-    },
-    {
-        title: 'ENAensemble',
-        ensembleType: 'Chamber',
-        description: 'Newly composed Chamber opera performances in Philadelphia.',
-        period: '2019-2022',
-    },
-    {
-        title: 'ENAensemble',
-        ensembleType: 'Chamber',
-        description: 'Newly composed Chamber opera performances in Philadelphia.',
-        period: '2019-2022',
-    },
-    {
         title: 'Emory University Symphony',
         ensembleType: 'Orchestra',
         description: 'Concertmaster, principal second violin, winner of 2015 Concerto and Aria Competition with the Barber Violin Concerto.',
@@ -65,6 +48,7 @@ const performanceHighlights: PerformanceCard[] = [
 ];
 
 const HorizontallyScrollingCards = () => {
+    const t = useTranslations('Violin');
     const scrollContainerRef = useRef(null);
     const { scrollYProgress } = useScroll({ target: scrollContainerRef });
     const x = useTransform(scrollYProgress, [0, 1], ['40%', "-100%"]);
@@ -87,10 +71,10 @@ const HorizontallyScrollingCards = () => {
                 'hidden lg:block h-[400vh] -z-50 transition duration-700',
             ])}>
                 <motion.h2 style={{ x: xBackgroundText }} className={twJoin([
-                    'sticky left-0 -z-[0] top-0 mt-auto flex h-dvh items-center text-center text-[50rem] leading-[40rem] uppercase',
+                    'sticky left-0 -z-[0] top-0 mt-auto flex h-dvh items-center text-center text-[50rem] leading-[40rem] uppercase font-header',
                     areCardsVisible ? 'text-black' : 'text-black',
                 ])}>
-                    Performance Highlights
+                    {t('performanceHighlights')}
                 </motion.h2>
                 <motion.div style={{ x }} className="min-w-dvw fixed left-0 top-0 flex h-dvh flex-row items-center justify-center">
                     {performanceHighlights.map((item) => (
@@ -100,7 +84,7 @@ const HorizontallyScrollingCards = () => {
                 </motion.div>
             </section>
             <section className={twJoin(['block lg:hidden'])}>
-                <Typography className="text-center" variant="h2">Performance Highlights</Typography>
+                <Typography className="text-center" variant="h2">{t('performanceHighlights')}</Typography>
                 {performanceHighlights.map((item) => (
                     <Card card={item} />
                 ))}

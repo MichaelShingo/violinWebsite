@@ -10,5 +10,48 @@
         "composition": "作曲",
         "arranging": "アレンジ",
         "contact": "問い合わせ"
+    },
+    "Violin": {
+        "title": "バイオリン",
+        "quote": "マイケル・シンゴ・クロフォードは東京を拠点とするバイオリニストで、クラシック音楽、現代音楽、アニメのサウンドトラックを演奏しています。",
+        "performanceHighlights": "Performance Highlights",
+        "newMusic": "現代音楽",
+        "classical": "クラシック",
+        "animeMusic": "アニメ音楽",
+        "booking": "予約",
+        "bookingContent": "マイケルは以下のイベントでバイオリニストとして演奏可能です:",
+        "orchestraConcerts": "オーケストラコンサート",
+        "chamberMusicConcerts": "室内楽コンサート",
+        "soloPerformances": "ソロ演奏",
+        "weddingsAndSpecialEvents": "結婚式や特別なイベント",
+        "biography": "Biography"
+    },
+    "Contact": {
+        "title": "お問い合わせ",
+        "quote": "バイオリン演奏の機会、音楽作曲や編曲の依頼、その他何でもお気軽にお問い合わせください！",
+        "sendMessage": "メッセージを送る",
+        "sendMessageContent": "東京や日本の他の都市、さらには海外でもバイオリニストとして演奏可能です。新しい人々と出会うことを楽しみにしています！ただ挨拶したいだけでも、お気軽にご連絡ください。",
+        "firstName": "名",
+        "lastName": "姓",
+        "email": "メールアドレス",
+        "source": "どこで私を見つけましたか？",
+        "message": "メッセージ",
+        "submitButton": "メッセージを送信",
+        "firstNamePlaceholder": "ジョン",
+        "lastNamePlaceholder": "太郎",
+        "sourcePlaceholder": "Google、Youtube、コンサートで...",
+        "messagePlaceholder": "こんにちはマイケルさん...",
+        "firstNameError": "名を入力してください。",
+        "lastNameError": "姓を入力してください。",
+        "emailError": "メールアドレスを入力してください。",
+        "emailValidityError": "有効なメールアドレスを入力してください。",
+        "messageError": "メッセージを入力してください。"
+    },
+    "Footer": {
+        "readyToBook": "予約の準備はできましたか？",
+        "getInTouch": "お問い合わせください！",
+        "copyright": "著作権",
+        "webDesign": "ウェブデザイン：マイケル・シンゴ・クロフォード",
+        "builtWith": "Next.js | Typescript | Tailwind CSS | Framer Motion"
     }
 }

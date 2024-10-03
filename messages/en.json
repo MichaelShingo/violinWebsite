@@ -10,5 +10,49 @@
         "composition": "Composition",
         "arranging": "Arranging",
         "contact": "Contact"
+    },
+    "Violin": {
+        "title": "Violin",
+        "quote": "Michael Shingo Crawford is a Tokyo-based violinist, performing classical music, contemporary music, and anime soundtracks.",
+        "performanceHighlights": "Performance Highlights",
+        "newMusic": "New Music",
+        "classical": "Classical",
+        "animeMusic": "Anime Music",
+        "booking": "Booking",
+        "bookingContent": "Michael is available to perform as a violinist at the following events:",
+        "orchestraConcerts": "Orchestra Concerts",
+        "chamberMusicConcerts": "Chamber Music Concerts",
+        "soloPerformances": "Solo Performances",
+        "weddingsAndSpecialEvents": "Weddings and Special Events",
+        "biography": "Biography",
+        "biographyContent": "Michael has performed at events and concerts throughout the United States and the Netherlands, as well as in China and Belgium. Other engagements include performances with the Philadelphia Virtuosi as well as the World Congress for Information Technology Orchestra in Yerevan, Armenia. He has performed with ENAensemble and Alter Ego Chamber Opera, both opera companies that bring fresh takes on the operatic medium. While pursuing his studies, he served as concertmaster of the Emory University Symphony Orchestra and was the winner of its 2015-2016 Concerto and Aria Competition with his performance of the Barber Violin Concerto. Over the summers, he has attended the WestBen Performer-Composer Residency, zFestival, Dalí Quartet International Music Festival, Fresh Inc Festival, Eastern Music Festival, and the National Symphony Orchestra Summer Music Institute. While living in the United States, he taught violin and piano lessons in his private studio, which attracted online students from several countries, including Australia and Singapore."
+    },
+    "Contact": {
+        "title": "Contact",
+        "quote": "Contact me about violin performance opportunities, music composition and arrangement commissions, or anything else that is on your mind!",
+        "sendMessage": "Send me a message",
+        "sendMessageContent": "I am available to perform as a violinist in Tokyo, other cities in Japan, as well as abroad. I am always happy to meet new people! If you just want to say hello, feel free to reach out.",
+        "firstName": "First Name",
+        "lastName": "Last Name",
+        "email": "Email",
+        "source": "Where did you find me?",
+        "message": "Message",
+        "submitButton": "Send Message",
+        "firstNamePlaceholder": "John",
+        "lastNamePlaceholder": "Taro",
+        "sourcePlaceholder": "Google, Youtube, at a concert...",
+        "messagePlaceholder": "Hello Michael, I found you on...",
+        "firstNameError": "Please enter your first name.",
+        "lastNameError": "Please enter your last name.",
+        "emailError": "Please enter an email.",
+        "emailValidityError": "Please enter a valid email.",
+        "messageError": "Please enter a message."
+    },
+    "Footer": {
+        "readyToBook": "Ready to book?",
+        "getInTouch": "Get in touch!",
+        "copyright": "Copyright",
+        "webDesign": "Web Design by Michael Shingo Crawford",
+        "builtWith": "Built with Next.js | Typescript | Tailwind CSS | Framer Motion"
     }
 }
