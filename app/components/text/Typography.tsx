@@ -1,6 +1,7 @@
 import { FC, ReactNode } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import { twJoin } from "tailwind-merge";
+import useLocaleFont from "@/app/customHooks/useLocaleFont";
 
 export type TypographyVariant = 'h1' | 'h2' | 'h3' | 'h4' | 'p';
 
@@ -15,6 +16,7 @@ interface TypographyProps {
 
 const Typography: FC<TypographyProps> = ({ variant, className, color, sticky, align, children }) => {
     const cn = [className];
+    const { headerFont, paragraphFont } = useLocaleFont();
 
     color ? cn.push(color) : cn.push('text-black');
     sticky ? cn.push('sticky left-0 top-0') : cn.push('relative');
@@ -47,7 +49,7 @@ const Typography: FC<TypographyProps> = ({ variant, className, color, sticky, al
                 res = <motion.h4 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className={twJoin([...cn, 'my-2 text-lg text-black first-letter:uppercase'])}>{children}</motion.h4>;
                 break;
             case 'p':
-                res = <p className="font-paragraph text-xl font-thin text-black md:text-2xl">{children}</p>;
+                res = <p className={twJoin(['text-xl font-thin text-black md:text-2xl', paragraphFont])}>{children}</p>;
             default:
                 break;
         }

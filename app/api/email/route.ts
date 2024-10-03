@@ -19,7 +19,7 @@ export async function POST(req: Request) {
 	try {
 		await transporter.sendMail({
 			...mailOptions,
-			subject: 'Contact Form Submission',
+			subject: 'Violinist Contact Form Submission',
 			text: emailBody,
 		});
 	} catch (e) {

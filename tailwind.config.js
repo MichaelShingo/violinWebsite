@@ -11,7 +11,9 @@ module.exports = {
 		extend: {
 			fontFamily: {
 				'header': ['var(--font-francois)'],
-				'paragraph': ['var(--font-spartan)']
+				'paragraph': ['var(--font-spartan)'],
+				'header-jp': ['var(--font-zen)'],
+				'paragraph-jp': ['var(--font-noto)']
 			},
 			colors: {
 				primary: theme.primary,

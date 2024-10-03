@@ -1,6 +1,6 @@
 'use client';
 import LocationIcon from '../components/icons/LocationIcon';
-import { useTranslations } from 'next-intl';
+import { useLocale, useTranslations } from 'next-intl';
 import { motion } from 'framer-motion';
 
 const locationVariants = {
@@ -23,6 +23,8 @@ const locationVariants = {
 };
 export default function Home() {
 	const t = useTranslations('Index');
+	const locale = useLocale();
+
 
 	return (
 		<div className="flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-[url('/coverPhotoHome.jpg')] bg-cover bg-no-repeat pb-5">

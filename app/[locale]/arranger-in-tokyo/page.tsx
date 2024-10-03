@@ -39,7 +39,6 @@ const Arranging = () => {
                 <Quote>Arrangements that utilize the <GreenText>full palette</GreenText> of violin technique.</Quote>
                 <Typography variant="h2">Send me a message</Typography>
                 <Typography variant="p">I am available to perform as a violinist in Tokyo, other cities in Japan, as well as abroad. I am always happy to meet new people! If you just want to say hello, feel free to reach out.</Typography>
-
             </div>
         </PageLayout >
     );
