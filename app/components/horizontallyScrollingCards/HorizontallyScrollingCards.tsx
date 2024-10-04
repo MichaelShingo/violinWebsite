@@ -78,7 +78,7 @@ const HorizontallyScrollingCards = () => {
                 </motion.h2>
                 <motion.div style={{ x }} className="min-w-dvw fixed left-0 top-0 flex h-dvh flex-row items-center justify-center">
                     {performanceHighlights.map((item) => (
-                        <Card card={item} />
+                        <Card key={item.title} card={item} />
                     ))}
 
                 </motion.div>
@@ -86,7 +86,7 @@ const HorizontallyScrollingCards = () => {
             <section className={twJoin(['block lg:hidden'])}>
                 <Typography className="text-center" variant="h2">{t('performanceHighlights')}</Typography>
                 {performanceHighlights.map((item) => (
-                    <Card card={item} />
+                    <Card key={item.title} card={item} />
                 ))}
 
             </section>

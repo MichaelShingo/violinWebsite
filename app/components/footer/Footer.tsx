@@ -8,6 +8,7 @@ import { CommonIconProps } from "../icons/utils";
 import { Link } from "@/i18n/routing";
 import CustomLink from "../CustomLink/CustomLink";
 import { useTranslations } from "next-intl";
+import CodingWebsiteIcon from "../icons/CodingWebsiteIcon";
 
 interface FooterIconProps {
     href: string;
@@ -16,8 +17,8 @@ interface FooterIconProps {
 
 const FooterIcon: FC<FooterIconProps> = ({ href, icon: Icon }) => {
     return (
-        <a className="flex h-[150px] w-[150px] scale-[60%] items-center justify-center transition sm:scale-[70%] md:scale-[80%] lg:scale-100" target="_blank" href={href}>
-            <Icon pathClassName="fill-accent stroke-none stroke-[15px] transition hover:fill-primary" />
+        <a className="group flex h-[150px] w-[150px] scale-[60%] items-center justify-center transition sm:scale-[70%] md:scale-[80%] lg:scale-100" target="_blank" href={href}>
+            <Icon pathClassName="fill-accent stroke-none stroke-[15px] transition group-hover:fill-primary" />
         </a>
     );
 };
@@ -35,8 +36,8 @@ const Footer = () => {
             {/* <CustomLink color="text-primary" href={'/contact-violinist-in-tokyo'}>Get in touch!</CustomLink> */}
             <div className="md:gap-18 -mt-6 flex w-full flex-row items-center justify-center gap-4 sm:gap-12 lg:gap-32">
                 <FooterIcon href="https://www.youtube.com/@MichaelShingo" icon={YoutubeIcon} />
-                <FooterIcon href="https://www.patreon.com/michaelshingo/" icon={PatreonIcon} />
-                <FooterIcon href="https://www.youtube.com/@MichaelShingo" icon={PatreonIcon} />
+                <FooterIcon href="https://portfolio.michaelshingo.com/" icon={CodingWebsiteIcon} />
+                <FooterIcon href="https://www.patreon.com/michaelshingo" icon={PatreonIcon} />
             </div>
             <div className="">
                 <h5 className="pt-5 text-center text-xl font-thin text-primary">{`${t('copyright')} © ${new Date().getFullYear()}`}</h5>

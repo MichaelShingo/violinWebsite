@@ -5,6 +5,7 @@ import GreenText from '@/app/components/text/GreenText';
 import { twJoin } from 'tailwind-merge';
 import ContactForm from './ContactForm';
 import { useTranslations } from 'next-intl';
+import { formatTranslation } from '@/app/utils/formatTranslation';
 
 const Contact = () => {
     const t = useTranslations('Contact');
@@ -12,7 +13,7 @@ const Contact = () => {
     return (
         <PageLayout title={t('title')} backgroundImageUrl="/norwaySeagull.jpg">
             <div className={twJoin(['h-fit min-h-[130vh] w-full'])}>
-                <Quote>{t('quote')}</Quote>
+                <Quote>{formatTranslation(t('quote'))}</Quote>
                 <ContactForm />
             </div>
         </PageLayout >

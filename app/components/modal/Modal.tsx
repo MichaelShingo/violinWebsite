@@ -15,7 +15,6 @@ const modalVariants = {
 const Modal: FC = () => {
     const modalContent: string = useAppSelector((state) => state.locationReducer.value.modalContent);
     const isModalOpen: boolean = useAppSelector((state) => state.locationReducer.value.isModalOpen);
-    console.log("🚀 ~ isModalOpen:", isModalOpen);
     const dispatch = useDispatch();
 
     const generateModalContent = () => {

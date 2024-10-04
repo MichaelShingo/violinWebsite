@@ -45,7 +45,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
 
     const scrollToContent = () => {
         window.scrollTo({
-            top: window.innerHeight,
+            top: window.innerHeight * 1.25,
             behavior: 'smooth',
         });
     };

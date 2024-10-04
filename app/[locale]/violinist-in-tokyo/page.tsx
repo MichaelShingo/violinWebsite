@@ -10,9 +10,10 @@ import { useTranslations } from 'next-intl';
 import { standardPadding } from '@/app/constants/styleConstants';
 import { useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '@/redux/store';
+import { formatTranslation } from '@/app/utils/formatTranslation';
 
 
-const concertTextStyles = 'text-5xl text-center border-[2px] border-black w-[110%] last-of-type:border-b-[4px] first-of-type:border-t-[4px] p-10 hover:bg-secondary transition duration-500 hover:text-white';
+const concertTextStyles = 'text-xl md:text-5xl text-center border-[2px] border-black w-[110%] last-of-type:border-b-[4px] first-of-type:border-t-[4px] p-7 md:p-10 hover:bg-secondary transition duration-500 hover:text-white';
 
 const Violinist = () => {
     const t = useTranslations('Violin');
@@ -47,25 +48,21 @@ const Violinist = () => {
     return (
         <PageLayout title={t('title')} backgroundImageUrl="/alexTranProposal3.jpg">
             <Quote>
-                {t('quote')}
+                {formatTranslation(t('quote'))}
             </Quote>
             <HorizontallyScrollingCards />
             <VideoSection data={violinVideos} />
-            <section className="flex h-fit min-h-[100vh] w-full flex-col items-center justify-center gap-0 bg-primary">
+            <section className="flex h-fit min-h-[100vh] w-full flex-col items-center justify-center gap-0 overflow-hidden bg-primary">
                 <Typography className="text-center" variant="h2">{t('booking')}</Typography>
-                <Typography variant="p">{t('bookingContent')}</Typography>
+                <Typography className={standardPadding} variant="p">{t('bookingContent')}</Typography>
                 <h3 className={twJoin([concertTextStyles, 'mt-10'])}>{t('orchestraConcerts')}</h3>
                 <h3 className={twJoin([concertTextStyles])}>{t('chamberMusicConcerts')}</h3>
                 <h3 className={twJoin([concertTextStyles])}>{t('soloPerformances')}</h3>
                 <h3 className={twJoin([concertTextStyles])}>{t('weddingsAndSpecialEvents')}</h3>
             </section>
-            <section className={twJoin(['min-h-dvh px-6 sm:px-8 md:px-4 h-full max-w-[1920px] lg:px-8 xl:px-34  flex items-center justify-center gap-12'])}>
-                <div ref={ref} className="flex h-fit w-fit flex-col items-center justify-center gap-8 overflow-hidden md:flex-row">
-                    <div className={twJoin(['w-[60%] bg-none h-[1500%] md:bg-black flex justify-center items-center p-12'])} style={{ height: boundingRect ? boundingRect.height : '100%' }}>
-                        <Typography className={twJoin(['text-center text-black md:text-white'])} variant="h2">{t('biography')}</Typography>
-                    </div>
-                    <Typography className="w-[40%]" align="justify" variant="p">{t('biographyContent')}</Typography>
-                </div>
+            <section className={twJoin([' overflow-hidden min-h-dvh flex flex-col  items-center justify-center gap-12', standardPadding])}>
+                <Typography className={twJoin(['absolute text-center text-white p-5 w-[900px] bg-black'])} variant="h2">{t('biography')}</Typography>
+                <Typography className={twJoin(['max-w-[900px]'])} align="justify" variant="p">{t('biographyContent')}</Typography>
             </section>
         </PageLayout >
     );

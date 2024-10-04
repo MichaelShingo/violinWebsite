@@ -89,6 +89,7 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                         >
                             {data.map((item) => (
                                 <motion.button
+                                    key={item.label}
                                     variants={buttonVariants}
                                     animate={{ opacity: isExiting ? '0%' : '100%', transition: { duration: 0.6 } }}
                                     onClick={() => handleClick(item.link)}
@@ -114,6 +115,7 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                 <div className="flex flex-col items-center justify-center gap-8">
                     {data.map((item) =>
                         <button
+                            key={item.label}
                             className={twJoin(['min-w-[200px] w-fit  block py-3 text-xl border-black border-[3px] text-black transition duration-500'])}
                             onClick={() => handleClick(item.link)}
                         >{item.label}</button>
