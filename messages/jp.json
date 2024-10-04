@@ -15,6 +15,17 @@
         "title": "バイオリン",
         "quote": "//GreenText//マイケル・シンゴ・クロフォード//GreenText//は東京を拠点とするバイオリニストで、クラシック音楽、現代音楽、アニメのサウンドトラックを演奏しています。",
         "performanceHighlights": "Performance Highlights",
+        "readAboutEnsemble": "アンサンブルについて読む",
+        "orchestra": "オーケストラ",
+        "chamber": "室内楽",
+        "solo": "ソロ",
+        "enaDescription": "フィラデルフィアで新作の室内オペラを舞台に上演する、オペラ、演劇、音楽、キャバレー、視覚芸術を融合させた革新的な集団、ENAensembleと定期的に共演。",
+        "alterEgoDescription": "ハンデルのオペラに現代的なひねりを加え、エレクトロニクス、サクソフォン、ギターを特徴とする「Alcina REVAMPED」に参加し、クラシック作品を現代の文脈で再解釈。",
+        "wcitDescription": "アルメニアのエレバンで、指揮者セルゲイ・スムバティアンが率いる世界情報技術会議オーケストラと共に、アルメニア国立交響楽団および15か国の音楽家と共演。",
+        "virtuosiDescription": "フィラデルフィア・ヴィルトゥオージと共演し、よく知られた作品やあまり演奏されない作品の新しい解釈を通じてクラシック音楽の体験を広げることに専念する室内オーケストラ。",
+        "internationalEvents": "国際イベント",
+        "eventsDescription": "アメリカ合衆国（フィラデルフィア、ニューヨーク市、アトランタ、ワシントンD.C.）およびオランダ、ベルギー、中国などの国際的なイベントで演奏。",
+        "emoryDescription": "コンサートマスター（2016年）および首席セカンドバイオリン（2015年）を務め、バーバーのバイオリン協奏曲の演奏で2015年のコンチェルト＆アリア・コンペティションで優勝",
         "newMusic": "現代音楽",
         "classical": "クラシック",
         "animeMusic": "アニメ音楽",
@@ -24,7 +35,8 @@
         "chamberMusicConcerts": "室内楽コンサート",
         "soloPerformances": "ソロ演奏",
         "weddingsAndSpecialEvents": "結婚式や特別なイベント",
-        "biography": "Biography"
+        "biography": "経歴",
+        "biographyContent": "マイケルはアメリカ合衆国およびオランダ、中国、ベルギーでイベントやコンサートに出演しました。他の出演には、フィラデルフィア・ヴィルトゥオージやアルメニアのエレバンでの世界情報技術会議オーケストラとの共演が含まれます。彼は、オペラの新しい解釈を提供するオペラ会社であるENAensembleおよびAlter Ego Chamber Operaと共演しました。学業を追求する間、彼はエモリー大学交響楽団のコンサートマスターを務め、バーバーのバイオリン協奏曲の演奏で2015-2016年のコンチェルト＆アリア・コンペティションで優勝しました。夏の間、彼はWestBen Performer-Composer Residency、zFestival、Dalí Quartet International Music Festival、Fresh Inc Festival、Eastern Music Festival、およびNational Symphony Orchestra Summer Music Instituteに参加しました。アメリカに住んでいる間、彼はプライベートスタジオでバイオリンとピアノのレッスンを教え、オーストラリアやシンガポールを含むいくつかの国からオンラインの生徒を引き付けました。"
     },
     "Contact": {
         "title": "お問い合わせ",

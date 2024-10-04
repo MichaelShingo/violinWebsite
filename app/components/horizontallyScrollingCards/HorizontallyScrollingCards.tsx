@@ -1,51 +1,13 @@
 'use client';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import Card, { PerformanceCard } from '@/app/components/card/Card';
+import Card, { Ensemble, PerformanceCard } from '@/app/components/card/Card';
 import { twJoin } from 'tailwind-merge';
 import { useRef, useState } from 'react';
 import Typography from '../text/Typography';
-import { isMobile } from 'react-device-detect';
-import { hideOnMobile, showOnMobile } from '@/app/constants/styleConstants';
 import { useTranslations } from 'next-intl';
 
-const performanceHighlights: PerformanceCard[] = [
-    {
-        title: 'ENAensemble',
-        ensembleType: 'Chamber',
-        description: 'Newly composed chamber opera performances in Philadelphia.',
-        period: '2019-2022',
-    },
-    {
-        title: 'Alto Ego Chamber Opera',
-        ensembleType: 'Chamber',
-        description: 'Performed in Alcina REVAMPED as part of the Philadelphia Fringe Festival. Handel\'s opera reimagined in a modern context and fitted with electronics, saxophone, and guitar.',
-        period: '2019-2022',
-    },
-    {
-        title: 'WCIT Orchestra',
-        ensembleType: 'Orchestra',
-        description: 'Invited to perform with the World Conference for Information Technology Orchestra in Yerevan, Areenia.',
-        period: '2019',
-    },
-    {
-        title: 'Philadelphia Virtuosi',
-        ensembleType: 'Orchestra',
-        description: '',
-        period: '2022',
-    },
-    {
-        title: 'International Events',
-        ensembleType: 'Solo',
-        description: 'Performed events throughout the United States, the Netherlands, Belgium, and China.',
-        period: '2019-2023',
-    },
-    {
-        title: 'Emory University Symphony',
-        ensembleType: 'Orchestra',
-        description: 'Concertmaster, principal second violin, winner of 2015 Concerto and Aria Competition with the Barber Violin Concerto.',
-        period: '2013-2017',
-    },
-];
+
+
 
 const HorizontallyScrollingCards = () => {
     const t = useTranslations('Violin');
@@ -65,6 +27,52 @@ const HorizontallyScrollingCards = () => {
     });
 
 
+    const performanceHighlights: PerformanceCard[] = [
+        {
+            title: 'ENAensemble',
+            ensembleType: t('chamber'),
+            description: t('enaDescription'),
+            period: '2019-2022',
+            link: 'https://www.enaensemble.org/',
+        },
+        {
+            title: 'Alter Ego Chamber Opera',
+            ensembleType: t('chamber'),
+            description: t('alterEgoDescription'),
+            period: '2019-2022',
+            link: 'https://www.alteregochamberopera.org/',
+        },
+        {
+            title: 'WCIT Orchestra',
+            ensembleType: t('orchestra'),
+            description: t('wcitDescription'),
+            period: '2019',
+            link: 'https://www.classicfm.com/music-news/ai-concert-hosted-wcit-first-time-orchestra/',
+        },
+        {
+            title: 'Philadelphia Virtuosi',
+            ensembleType: t('orchestra'),
+            description: t('virtuosiDescription'),
+            period: '2022',
+            link: 'https://www.pvco.org/',
+        },
+        {
+            title: t('internationalEvents'),
+            ensembleType: t('solo'),
+            description: t('eventsDescription'),
+            period: '2015-2023',
+            link: 'https://www.gigsalad.com/michael_shingo_crawford_philadelphia',
+        },
+        {
+            title: 'Emory University Symphony',
+            ensembleType: t('orchestra'),
+            description: t('emoryDescription'),
+            period: '2013-2017',
+            link: 'https://emorysymphony.org/',
+        },
+    ];
+
+
     return (
         <>
             <section ref={scrollContainerRef} className={twJoin([
@@ -80,7 +88,6 @@ const HorizontallyScrollingCards = () => {
                     {performanceHighlights.map((item) => (
                         <Card key={item.title} card={item} />
                     ))}
-
                 </motion.div>
             </section>
             <section className={twJoin(['block lg:hidden'])}>

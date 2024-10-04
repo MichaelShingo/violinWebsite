@@ -78,7 +78,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                     }
                 </div>
                 {darkenBackground &&
-                    <div className="absolute z-0 h-[110vh] w-full bg-black-trans"></div>
+                    <div className="absolute z-0 h-[250vh] w-full bg-black-trans"></div>
                 }
             </motion.div >
             <div className="h-[100vh] w-[100vw]" />
