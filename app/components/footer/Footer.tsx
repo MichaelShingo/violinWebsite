@@ -26,7 +26,7 @@ const Footer = () => {
     const t = useTranslations('Footer');
 
     return (
-        <footer className="lg:px-34 -z-[10] flex h-fit min-h-dvh w-full flex-col items-center justify-between bg-secondary px-4 py-6 sm:px-24 md:px-28 md:py-8 lg:py-8">
+        <footer className="lg:px-34 -z-[10] flex h-[100vh] min-h-[850px] w-full flex-col items-center justify-between bg-secondary px-4 py-6 sm:px-24 md:px-28 md:py-8 lg:py-8">
             <Divider icon={BassClefIcon} variant="small" iconColor="fill-white" color="bg-white" />
             <div className="flex flex-col items-center gap-5 md:gap-10">
                 <h2 className="text-center text-3xl text-primary md:text-5xl">{t('readyToBook')}</h2>
