@@ -13,7 +13,7 @@
     },
     "Violin": {
         "title": "Violin",
-        "quote": "//GreenText//Michael Shingo Crawford//GreenText// is a Tokyo-based violinist, performing classical music, contemporary music, and anime //GreenText//soundtracks//GreenText//.",
+        "quote": "$$GreenText$$Michael Shingo Crawford$$GreenText$$ is a Tokyo-based violinist, performing classical music, contemporary music, and anime soundtracks.",
         "performanceHighlights": "Performance Highlights",
         "readAboutEnsemble": "Read about the ensemble",
         "orchestra": "Orchestra",
@@ -40,7 +40,7 @@
     },
     "Contact": {
         "title": "Contact",
-        "quote": "Contact me about violin performance opportunities, music composition and arrangement commissions, or anything else that is on your mind!",
+        "quote": "Contact me about $$GreenText$$violin performance$$GreenText$$ opportunities, $$GreenText$$music composition$$GreenText$$ and $$GreenText$$arrangement commissions$$GreenText$$, or anything else that is on your mind!",
         "sendMessage": "Send me a message",
         "sendMessageContent": "I am available to perform as a violinist in Tokyo, other cities in Japan, as well as abroad. I am always happy to meet new people! If you just want to say hello, feel free to reach out.",
         "firstName": "First Name",

@@ -4,6 +4,7 @@ import Typography from '../../components/text/Typography';
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { twJoin } from "tailwind-merge";
 import Footer from "../footer/Footer";
+import { useAppSelector } from "@/redux/store";
 
 interface PageLayoutProps {
     title: string;
@@ -42,12 +43,18 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
     useMotionValueEvent(scrollYProgress, 'change', (value) => {
         setScrolledPastHeader(value > 0.2);
     });
+    const windowWidth = useAppSelector(state => state.windowReducer.value.windowWidth);
 
     const scrollToContent = () => {
-        window.scrollTo({
-            top: window.innerHeight * 1.25,
+        windowWidth < 700 ? window.scrollTo({
+            top: window.innerHeight * 1.5,
             behavior: 'smooth',
-        });
+        })
+            :
+            window.scrollTo({
+                top: window.innerHeight * 1.25,
+                behavior: 'smooth',
+            });
     };
 
     return (

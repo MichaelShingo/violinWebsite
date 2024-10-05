@@ -34,7 +34,7 @@ const Arranging = () => {
     };
 
     return (
-        <PageLayout title="Arrangement" backgroundImageUrl="/norwaySeagull.jpg">
+        <PageLayout title="Arrangement" backgroundImageUrl="/norway79.jpg">
             <div className="h-fit min-h-[130vh] w-full px-28">
                 <Quote>Arrangements that utilize the <GreenText>full palette</GreenText> of violin technique.</Quote>
                 <Typography variant="h2">Send me a message</Typography>

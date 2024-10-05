@@ -1,10 +1,12 @@
 import { ReactNode } from "react";
 import GreenText from "../components/text/GreenText";
+import { Link } from "@/i18n/routing";
 
-type TextFormat = 'GreenText' | 'Link' | 'normal';
+type TextFormat = 'GreenText' | 'LinkExt' | 'LinkInt' | 'normal';
 type Block = {
     type: TextFormat;
     content: string;
+    link?: string;
 };
 
 export const formatTranslation = (translation: string): ReactNode => {
@@ -14,18 +16,16 @@ export const formatTranslation = (translation: string): ReactNode => {
     let openingTagStartIndex = -1;
     let openingTagEndIndex = -1;
     let closingTagStartIndex = -1;
-    let closingTagEndIndex = -1;
+    let closingTagEndIndex = -2;
 
     let block = {
         type: 'normal' as TextFormat,
-        content: ''
+        content: '',
+        link: ''
     };
 
     for (let i = 0; i < translation.length; i++) {
-        const current = translation[i];
-        const next = translation[i + 1];
-
-        if (current === '/' && next === '/') {
+        if (translation[i] === '$' && translation[i + 1] === '$') {
             switch (currentPositionInBlock) {
                 case 0:
                     if (closingTagEndIndex !== -1) {
@@ -41,7 +41,8 @@ export const formatTranslation = (translation: string): ReactNode => {
                     openingTagEndIndex = i;
                     block = {
                         type: translation.substring(openingTagStartIndex + 2, i) as TextFormat,
-                        content: ''
+                        content: '',
+                        link: '',
                     };
                     currentPositionInBlock++;
                     break;
@@ -53,11 +54,10 @@ export const formatTranslation = (translation: string): ReactNode => {
                 case 3:
                     closingTagEndIndex = i;
                     currentPositionInBlock = 0;
+                    block.link = translation.substring(closingTagStartIndex + 2, i);
                     blocks.push(block);
-
                     break;
             }
-
         } else if (i >= translation.length - 1) {
             blocks.push({
                 type: 'normal',
@@ -66,13 +66,18 @@ export const formatTranslation = (translation: string): ReactNode => {
         }
     }
 
+    console.log("🚀 ~ formatTranslation ~ blocks:", blocks);
+
+
     const res: ReactNode = <>
         {blocks.map((block, index) => {
             switch (block.type) {
                 case 'GreenText':
                     return <GreenText key={index}>{block.content}</GreenText>;
-                case 'Link':
-                    return <a key={index} href={block.content}>{block.content}</a>;
+                case 'LinkExt':
+                    return <a key={index} href={block.link} target="_blank" className="text-secondary underline">{block.content}</a>;
+                case 'LinkInt':
+                    return <Link key={index} href={block.link} className="text-secondary underline">{block.content}</Link>;
                 case 'normal':
                     return <span key={index}>{block.content}</span>;
             }

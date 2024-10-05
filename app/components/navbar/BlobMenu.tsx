@@ -27,18 +27,18 @@ export const menuItems: MenuItem[] = [
         icon: ViolinIcon,
         menuPosition: 'right',
     },
-    {
-        label: 'composition',
-        link: '/composer-in-tokyo',
-        icon: PenIcon,
-        menuPosition: 'right',
-    },
-    {
-        label: 'arranging',
-        link: '/arranger-in-tokyo',
-        icon: EighthNoteArrowIcon,
-        menuPosition: 'right',
-    },
+    // {
+    //     label: 'composition',
+    //     link: '/composer-in-tokyo',
+    //     icon: PenIcon,
+    //     menuPosition: 'right',
+    // },
+    // {
+    //     label: 'arranging',
+    //     link: '/arranger-in-tokyo',
+    //     icon: EighthNoteArrowIcon,
+    //     menuPosition: 'right',
+    // },
     {
         label: 'contact',
         link: '/contact-violinist-in-tokyo',
@@ -96,8 +96,8 @@ const BlobMenu: FC = () => {
         } >
             <div onClick={(e) => { toggleMenu(); e.stopPropagation(); }} className={
                 twJoin([
-                    'fixed -z-[100] h-dvh w-dvw transition duration-700 flex justify-center',
-                    isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])
+                    'fixed -z-[100] w-dvw h-[250vh] transition duration-700 flex justify-center',
+                    isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-none' : 'bg-transparent pointer-events-none'])
             } ></div>
             <h1 className={twJoin([
                 'z-50 lg:text-[8rem] mt-12 sm:mt-0 sm:text-[5rem] text-[2rem] md:text-[6rem] xl:text-[9rem] text-primary uppercase bold duration-500 transition pointer-events-none',
@@ -108,7 +108,7 @@ const BlobMenu: FC = () => {
             </h1>
 
             <div className={twJoin([
-                'sm:scale-100 scale-75 pointer-events-none absolute flex h-[175px] w-[175px] items-center  justify-center transition duration-700',
+                'sm:scale-100 scale-75 pointer-events-none absolute flex h-[175px] w-[175px] items-center  justify-center transition duration-700 -top-6 md:top-0',
                 calcMenuPosition(),
             ])}>
                 <Hamburger />

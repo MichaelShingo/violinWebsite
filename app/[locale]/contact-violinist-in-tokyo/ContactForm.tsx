@@ -5,6 +5,7 @@ import Label from "@/app/components/form/Label";
 import TextInput from "@/app/components/form/TextInput";
 import Typography from "@/app/components/text/Typography";
 import { standardPadding } from "@/app/constants/styleConstants";
+import { formatTranslation } from "@/app/utils/formatTranslation";
 import { useTranslations } from "next-intl";
 import { useForm } from "react-hook-form";
 import { twJoin } from "tailwind-merge";
@@ -46,7 +47,7 @@ const ContactForm = () => {
     return (
         <div className={twJoin([standardPadding])}>
             <Typography variant="h2">{t('sendMessage')}</Typography>
-            <Typography variant="p">{t('sendMessageContent')}</Typography>
+            <Typography variant="p">{formatTranslation(t('sendMessageContent'))}</Typography>
             <form className={twJoin(['my-12 flex flex-col'])} onSubmit={handleSubmit(onSubmit)} noValidate>
                 <FormRow>
                     <FormGroup>

@@ -43,7 +43,7 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="absolute z-10 h-full w-full bg-black-trans">
+			<div className="absolute z-10 h-[100vh] w-full bg-black-trans">
 			</div>
 
 		</div>

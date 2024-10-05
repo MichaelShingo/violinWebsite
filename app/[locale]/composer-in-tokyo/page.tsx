@@ -1,15 +1,8 @@
 'use client';
 import Typography from '../../components/text/Typography';
 import PageLayout from '@/app/components/pageLayout/PageLayout';
-import { useForm } from 'react-hook-form';
-import { DevTool } from '@hookform/devtools';
 import Quote from '@/app/components/text/Quote';
 import GreenText from '@/app/components/text/GreenText';
-import { twJoin } from 'tailwind-merge';
-import Label from '@/app/components/form/Label';
-import TextInput from '@/app/components/form/TextInput';
-import FormGroup from '@/app/components/form/FormGroup';
-import FormRow from '@/app/components/form/FormRow';
 
 const buttonVariants = {
     hidden: { opacity: 0 },

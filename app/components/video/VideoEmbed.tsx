@@ -2,10 +2,7 @@
 import { useAppSelector } from "@/redux/store";
 import { FC, useEffect, useRef, useState } from "react";
 
-interface VideoEmbedProps {
-}
-
-const VideoEmbed: FC<VideoEmbedProps> = () => {
+const VideoEmbed: FC = () => {
     const windowWidth: number = useAppSelector(
         (state) => state.windowReducer.value.windowWidth
     );
@@ -27,7 +24,6 @@ const VideoEmbed: FC<VideoEmbedProps> = () => {
     const checkIfVideoReady = () => {
         const iframe = ref.current;
         if (iframe) {
-            console.log("🚀 ~ checkIfVideoReady ~ iframe:", iframe);
             const iframeDoc = iframe.contentDocument || iframe.contentWindow.document;
             if (iframeDoc.readyState === 'complete') {
                 iframe.contentWindow.onload = () => {
@@ -42,25 +38,17 @@ const VideoEmbed: FC<VideoEmbedProps> = () => {
         }
     };
 
-
-
-
     return (
-        <>
-            <iframe
-                ref={ref}
-                className=""
-                width={1920 * factor}
-                height={1080 * factor}
-                src={link}
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-            />
-            {isReady ?
-                <p>{'hi'}</p>
-                : <p>not ready</p>}
-        </>
+        <iframe
+            ref={ref}
+            className=""
+            width={1920 * factor}
+            height={1080 * factor}
+            src={link}
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+            allowFullScreen
+        />
     );
 };
 

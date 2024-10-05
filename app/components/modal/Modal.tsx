@@ -29,15 +29,18 @@ const Modal: FC = () => {
     return (
         <AnimatePresence>
             {isModalOpen &&
-                <motion.div initial="hidden" animate="visible" variants={modalVariants} exit="hidden" className="fixed z-[101] flex h-dvh w-dvw items-center justify-center bg-black/70 backdrop-blur-md">
-                    <button onClick={() => dispatch(setIsModalOpen(false))} className="group absolute right-0 top-0 mr-8 mt-5 h-[75px] w-[75px]">
-                        <div className="h-2 w-14 translate-y-[37%] rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
-                        <div className="h-2 w-14 -translate-y-[37%] -rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
-                    </button>
-                    <div className="h-fit w-fit">
-                        {generateModalContent()}
-                    </div>
-                </motion.div>
+                <>
+                    <motion.div initial="hidden" animate="visible" variants={modalVariants} exit="hidden" className="fixed z-[101] flex h-[250vh] w-dvw items-center justify-center bg-black/70 backdrop-blur-md" />
+                    <motion.div initial="hidden" animate="visible" variants={modalVariants} exit="hidden" className="fixed z-[101] flex h-dvh w-dvw items-center justify-center backdrop-blur-md">
+                        <button onClick={() => dispatch(setIsModalOpen(false))} className="group absolute right-0 top-0 mr-1 mt-4 h-[75px] w-[75px] scale-75 md:mr-8 md:scale-100">
+                            <div className="h-2 w-14 translate-y-[37%] rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
+                            <div className="h-2 w-14 -translate-y-[37%] -rotate-45 rounded-md bg-accent transition group-hover:bg-white"></div>
+                        </button>
+                        <div className="h-fit w-fit">
+                            {generateModalContent()}
+                        </div>
+                    </motion.div>
+                </>
             }
         </AnimatePresence>
     );
