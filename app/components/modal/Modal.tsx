@@ -20,7 +20,7 @@ const Modal: FC = () => {
     const generateModalContent = () => {
         switch (modalContent) {
             case 'video':
-                return <VideoEmbed />;
+                return <VideoEmbed useGlobalLink />;
             default:
                 return null;
         }

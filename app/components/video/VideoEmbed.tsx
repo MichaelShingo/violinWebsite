@@ -2,7 +2,12 @@
 import { useAppSelector } from "@/redux/store";
 import { FC, useEffect, useRef, useState } from "react";
 
-const VideoEmbed: FC = () => {
+interface VideoEmbedProps {
+    useGlobalLink?: boolean;
+    src?: string;
+}
+
+const VideoEmbed: FC<VideoEmbedProps> = ({ useGlobalLink = false, src }) => {
     const windowWidth: number = useAppSelector(
         (state) => state.windowReducer.value.windowWidth
     );
@@ -44,7 +49,7 @@ const VideoEmbed: FC = () => {
             className=""
             width={1920 * factor}
             height={1080 * factor}
-            src={link}
+            src={useGlobalLink ? link : src}
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen

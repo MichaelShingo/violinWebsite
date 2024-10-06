@@ -27,6 +27,12 @@ export const menuItems: MenuItem[] = [
         icon: ViolinIcon,
         menuPosition: 'right',
     },
+    {
+        label: 'weddings',
+        link: '/hire-a-violinist-in-tokyo',
+        icon: ViolinIcon,
+        menuPosition: 'right',
+    },
     // {
     //     label: 'composition',
     //     link: '/composer-in-tokyo',
