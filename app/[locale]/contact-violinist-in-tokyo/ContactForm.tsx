@@ -1,4 +1,5 @@
 'use client';
+import Button from "@/app/components/Button/Button";
 import FormGroup from "@/app/components/form/FormGroup";
 import FormRow from "@/app/components/form/FormRow";
 import Label from "@/app/components/form/Label";
@@ -22,7 +23,7 @@ const ContactForm = () => {
     const form = useForm<FormValues>();
     const t = useTranslations('Contact');
     const { register, control, handleSubmit, formState } = form;
-    const { errors } = formState;
+    const { errors, isSubmitting, isSubmitSuccessful } = formState;
     const onSubmit = async (data: FormValues) => {
         try {
             const response = await fetch('/api/email/', {
@@ -77,8 +78,12 @@ const ContactForm = () => {
                     <Label htmlFor="message">{t('message')}*</Label>
                 </FormGroup>
                 <div className="flex w-full items-center justify-center">
-                    <button className={twJoin(['border-black border-[3px] h-16 bg-black w-fit py-4 px-12 hover:bg-accent active:scale-95 hover:text-black transition text-primary'])}>{t('submitButton')}</button>
+                    <Button variant="primary" isLoading={isSubmitting}>{t('submitButton')}</Button>
+                    {/* <button className={twJoin(['border-black border-[3px] h-16 bg-black w-fit py-4 px-12 hover:bg-accent active:scale-95 hover:text-black transition text-primary'])}>{t('submitButton')}</button> */}
                 </div>
+                {isSubmitSuccessful &&
+                    <Typography variant="h4" className="text-center">{t('submitResult')}</Typography>
+                }
             </form>
         </div>
     );

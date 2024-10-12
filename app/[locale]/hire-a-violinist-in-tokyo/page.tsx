@@ -19,27 +19,34 @@ import SoloViolin from './SoloViolin';
 const tabs: Tab[] = [
     {
         title: 'Solo Violin',
-        content: <SoloViolin />
+        content: <SoloViolin />,
+        bgImageUrl: '/alexTranProposal1.jpg'
+
     },
     {
         title: 'Violin and Cello Duo',
-        content: 'The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.'
+        content: 'The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.',
+        bgImageUrl: '/angelo07.jpg'
     },
     {
         title: 'Violin and Piano Duo',
-        content: 'Only available if there is a piano at the venue! The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.'
+        content: 'Only available if there is a piano at the venue! The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.',
+        bgImageUrl: '/lanceRecital.jpg'
     },
     {
         title: 'Violin Duo',
-        content: 'The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.'
+        content: 'The violin and cello duo is a great option for those who want a rich, full sound without the need for additional musicians. The duo is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.',
+        bgImageUrl: '/alexTranProposal3.jpg'
     },
     {
         title: 'String Trio',
-        content: 'The string trio is a more intimate ensemble that is perfect for smaller venues or events. The trio is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.'
+        content: 'The string trio is a more intimate ensemble that is perfect for smaller venues or events. The trio is able to perform a wide variety of music, from classical to pop, and is perfect for weddings, corporate events, and private parties.',
+        bgImageUrl: '/churchWedding3.jpg'
     },
     {
         title: 'String Quartet',
-        content: 'The string quartet is a classic ensemble that can perform a wide variety of music, from classical to pop. The quartet is perfect for weddings, corporate events, and private parties, and is able to provide a rich, full sound that is sure to impress your guests.'
+        content: 'The string quartet is a classic ensemble that can perform a wide variety of music, from classical to pop. The quartet is perfect for weddings, corporate events, and private parties, and is able to provide a rich, full sound that is sure to impress your guests.',
+        bgImageUrl: '/parkerWedding.jpg'
     }
 ];
 

@@ -3,7 +3,7 @@ import { FC, ReactNode } from "react";
 import { twJoin } from "tailwind-merge";
 import { AnimatePresence, motion } from "framer-motion";
 import { useAppSelector } from "@/redux/store";
-import VideoEmbed from "../video/VideoEmbed";
+import VideoEmbedModal from "../video/VideoEmbedModal";
 import { setIsModalOpen } from "@/redux/features/locationSlice";
 import { useDispatch } from "react-redux";
 
@@ -20,7 +20,7 @@ const Modal: FC = () => {
     const generateModalContent = () => {
         switch (modalContent) {
             case 'video':
-                return <VideoEmbed useGlobalLink />;
+                return <VideoEmbedModal useGlobalLink />;
             default:
                 return null;
         }

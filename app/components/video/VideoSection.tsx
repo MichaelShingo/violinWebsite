@@ -5,8 +5,9 @@ import PlayIcon from "../icons/PlayIcon";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
 import { hideOnMobile, showOnMobile } from "@/app/constants/styleConstants";
-import VideoEmbed from "./VideoEmbed";
+import VideoEmbedModal from "./VideoEmbedModal";
 import Typography from "../text/Typography";
+import Button from "../Button/Button";
 
 export type VideoData = {
     label: string;
@@ -114,11 +115,9 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                 <Typography className="text-center" variant="h2">Videos</Typography>
                 <div className="flex flex-col items-center justify-center gap-8">
                     {data.map((item) =>
-                        <button
-                            key={item.label}
-                            className={twJoin(['min-w-[200px] w-fit  block py-3 text-xl border-black border-[3px] text-black transition duration-500'])}
-                            onClick={() => handleClick(item.link)}
-                        >{item.label}</button>
+                        <Button key={item.label} handleClick={() => handleClick(item.link)}>
+                            {item.label}
+                        </Button>
                     )}
                 </div>
             </div>

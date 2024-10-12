@@ -1,17 +1,14 @@
-import Button from "@/app/components/Button/Button";
 import PlainTextSection from "@/app/components/PlainTextSection/PlainTextSection";
 import VideoEmbed from "@/app/components/video/VideoEmbed";
 
 const SoloViolin = () => {
     return (
         <div className="my-12">
-
             <PlainTextSection marginSize="small" paddingSize="none" paragraphs={[
                 'Solo violin is a beautiful option for everything from the most intimate gatherings to larger weddings with over 100 people. As a versatile instrument that can play soaring melodies as well as harmonies at the same time, it has a wide-ranging repertoire and allows the musician great freedom to express his individual sound and playing style.',
             ]} />
-
-            <Button variant="secondary">Watch a Video</Button>
-
+            <img className="w-full bg-red-500" src="/angelo07.jpg" alt="Tokyo wedding violinist performs solo violin music at a wedding in Tokyo." />
+            <VideoEmbed src="https://www.youtube.com/embed/Z5pfzuJydZ0?si=Av5Hgtn9XWIBxNvU" />
         </div>
     );
 };
