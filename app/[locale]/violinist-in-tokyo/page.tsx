@@ -1,6 +1,5 @@
 'use client';
 import Quote from '../../components/text/Quote';
-import GreenText from '../../components/text/GreenText';
 import PageLayout from '@/app/components/pageLayout/PageLayout';
 import VideoSection, { VideoData } from '@/app/components/video/VideoSection';
 import HorizontallyScrollingCards from '@/app/components/horizontallyScrollingCards/HorizontallyScrollingCards';

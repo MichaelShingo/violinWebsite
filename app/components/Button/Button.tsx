@@ -3,13 +3,30 @@ import { twJoin } from "tailwind-merge";
 
 interface ButtonProps {
     variant?: 'primary' | 'secondary';
+    size?: 'small' | 'medium' | 'large';
     isLoading?: boolean;
     handleClick?: () => void;
     children: ReactNode;
+    className?: string;
 }
 
-const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children }) => {
-    const cn = [];
+const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children, className, size }) => {
+    const cn = [className];
+    const cnText = [];
+
+    switch (size) {
+        case 'small':
+            cn.push('text-sm');
+            break;
+        case 'medium':
+            cn.push('text-lg');
+            break;
+        case 'large':
+            cn.push('w-[350px] h-[100px]');
+            cnText.push('text-3xl');
+        default:
+            cn.push('text-xl');
+    }
 
     switch (variant) {
         case 'primary':
@@ -21,8 +38,11 @@ const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children }) 
             break;
     }
     return (
-        <button onClick={handleClick} className={twJoin([...cn, 'w-fit min-w-[200px] border-[3px] border-black p-3 text-xl transition duration-500'])}>
-            {isLoading ? 'Loading...' : children}
+        <button onClick={handleClick} className={twJoin([...cn, 'w-fit min-w-[200px] border-[3px] border-black p-3 transition duration-500'])}>
+            <p className={twJoin([...cnText])}>
+
+                {isLoading ? 'Loading...' : children}
+            </p>
         </button>
     );
 };

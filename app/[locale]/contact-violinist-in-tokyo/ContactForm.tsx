@@ -24,6 +24,7 @@ const ContactForm = () => {
     const t = useTranslations('Contact');
     const { register, control, handleSubmit, formState } = form;
     const { errors, isSubmitting, isSubmitSuccessful } = formState;
+
     const onSubmit = async (data: FormValues) => {
         try {
             const response = await fetch('/api/email/', {
@@ -34,7 +35,7 @@ const ContactForm = () => {
                 body: JSON.stringify(data)
             });
             if (response.ok) {
-                console.log('Message sent successfully.');
+                form.resetField();
             } else {
                 console.log('Message failed to send.');
             }

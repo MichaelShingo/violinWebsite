@@ -81,9 +81,6 @@ const Violinist = () => {
             <PlainTextSection title="Receive a quote for your event!">
                 Are you planning and wedding or event in Tokyo and looking for a violinist, or string ensemble to provide music? Do you have additional questions before deciding where ensemble is the best fit for your event? Contact Michael Shingo Crawford for a quote today!
             </PlainTextSection>
-            <ImageSection src="/parkerWedding.jpg" alt="Violinist in Tokyo hired to perform music at a cocktail hour at a wedding." />
-            <ImageSection src="/alexTranProposal1.jpg" alt="Violinist in Tokyo hired to perform music at a cocktail hour at a wedding." />
-            <ImageSection src="/lancewisemanrecital2.jpg" alt="Violinist in Tokyo hired to perform music at a cocktail hour at a wedding." />
 
 
 

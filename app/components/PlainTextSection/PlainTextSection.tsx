@@ -7,7 +7,7 @@ interface PlainTextSectionProps {
     title?: string;
     paragraphs?: string[];
     children?: ReactNode;
-    marginSize?: 'small' | 'medium' | 'large';
+    marginSize?: 'none' | 'small' | 'medium' | 'large';
     paddingSize?: 'none' | 'small' | 'medium' | 'large';
 }
 const PlainTextSection: FC<PlainTextSectionProps> = ({ title, paragraphs, children, marginSize, paddingSize }) => {
@@ -29,6 +29,9 @@ const PlainTextSection: FC<PlainTextSectionProps> = ({ title, paragraphs, childr
     }
 
     switch (marginSize) {
+        case 'none':
+            cn.push('my-0');
+            break;
         case 'small':
             cn.push('my-8');
             break;
