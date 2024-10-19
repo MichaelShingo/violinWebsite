@@ -1,6 +1,6 @@
 'use client';
 import { motion, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
-import Card, { Ensemble, PerformanceCard } from '@/app/components/card/Card';
+import Card, { PerformanceCard } from '@/app/components/card/Card';
 import { twJoin } from 'tailwind-merge';
 import { useRef, useState } from 'react';
 import Typography from '../text/Typography';

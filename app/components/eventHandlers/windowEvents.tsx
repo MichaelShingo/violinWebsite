@@ -6,21 +6,21 @@ import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 const WindowEvents = () => {
-	const dispatch = useDispatch<AppDispatch>();
+    const dispatch = useDispatch<AppDispatch>();
 
-	useEffect(() => {
-		dispatch(setHeight(window.innerHeight));
-		dispatch(setWidth(window.innerWidth));
+    useEffect(() => {
+        dispatch(setHeight(window.innerHeight));
+        dispatch(setWidth(window.innerWidth));
 
-		const setWindowSize = debounce(() => {
-			dispatch(setHeight(window.innerHeight));
-			dispatch(setWidth(window.innerWidth));
-		}, 200);
+        const setWindowSize = debounce(() => {
+            dispatch(setHeight(window.innerHeight));
+            dispatch(setWidth(window.innerWidth));
+        }, 200);
 
-		window.addEventListener('resize', setWindowSize);
-	}, []);
+        window.addEventListener('resize', setWindowSize);
+    }, []);
 
-	return <></>;
+    return <></>;
 };
 
 export default WindowEvents;

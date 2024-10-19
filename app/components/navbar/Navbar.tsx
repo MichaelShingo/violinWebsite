@@ -3,12 +3,7 @@ import { FC, ReactNode, useEffect, useState } from "react";
 import { twJoin, twMerge } from "tailwind-merge";
 import { useTranslations } from "next-intl";
 import { Link } from "@/i18n/routing";
-import ViolinIcon from "../icons/ViolinIcon";
-import HomeIcon from "../icons/HomeIcon";
-import PenIcon from "../icons/PenIcon";
-import EighthNoteArrowIcon from "../icons/EighthNoteArrowIcon";
-import EmailIcon from "../icons/EmailIcon";
-import { MenuCircle } from "./MenuCircle";
+import { menuItems } from "./BlobMenu";
 
 interface NavbarLinkProps {
     children: ReactNode,
@@ -19,7 +14,7 @@ interface NavbarLinkProps {
 const NavbarLink: FC<NavbarLinkProps> = ({ children, url, navbarTransform }) => {
     return (<Link href={url} className={twMerge('text-4xl uppercase')}>{children}</Link>
     );
-}
+};
 
 const Navbar = () => {
     const t = useTranslations('Navbar');
@@ -28,13 +23,13 @@ const Navbar = () => {
     useEffect(() => {
         const handleScroll = () => {
             scrollY > window.innerHeight - 100 ? setNavbarTransform(true) : setNavbarTransform(false);
-        }
+        };
         window.addEventListener('scroll', handleScroll);
 
         return () => {
             window.removeEventListener('scroll', handleScroll);
-        }
-    }, [])
+        };
+    }, []);
 
     return (
         <div className={twJoin(cn)}
@@ -53,6 +48,6 @@ const Navbar = () => {
             ))}
         </div>
     );
-}
+};
 
 export default Navbar;
