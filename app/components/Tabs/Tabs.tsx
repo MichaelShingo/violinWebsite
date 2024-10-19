@@ -4,6 +4,9 @@ import { twJoin } from "tailwind-merge";
 import Typography from "../text/Typography";
 import Button from "../Button/Button";
 import { motion, AnimatePresence } from "framer-motion";
+import PlainTextSection from "../PlainTextSection/PlainTextSection";
+import { useDispatch } from "react-redux";
+import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
 
 export type Tab = {
     title: string;
@@ -20,12 +23,16 @@ interface TabsProps {
 const Tabs: FC<TabsProps> = ({ tabs }) => {
     const [selectedTab, setSelectedTab] = useState<number>(0);
     const cn = [tabs[selectedTab].bgImageUrl];
+    const dispatch = useDispatch();
+    const currentTab = tabs[selectedTab];
 
+    const handleClick = (link: string) => {
+        dispatch(setCurrentVideo(link));
+        dispatch(setIsModalOpen(true));
+    };
 
     return (
-        <div className={twJoin([...cn, " flex items-start justify-center border-black"])}
-
-        >
+        <div className={twJoin([...cn, " flex items-start justify-center border-black"])}>
             <AnimatePresence>
                 <motion.div
                     initial={{ opacity: 0 }}
@@ -48,16 +55,14 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
                 ))}
             </div>
             <div className="flex h-dvh min-h-dvh w-[25%] flex-col items-center justify-center gap-20">
-                <Button className="relative z-10" variant="primary" size="large">Watch a Video</Button>
-                <motion.div
-                    key={tabs[selectedTab].title} // Key the motion.div by the tab title
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    exit={{ opacity: 0 }}
-                    className={twJoin(['bg-white w-full z-10 relative transition duration-500 hover:scale-120'])}
-                >
-                    {tabs[selectedTab].content}
-                </motion.div>
+                {currentTab.videoUrl && <Button handleClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
+                }
+                <div className="z-10 my-12 flex flex-col items-center justify-center bg-white py-10">
+                    <PlainTextSection marginSize="none" paddingSize="none">{currentTab.content}
+                    </PlainTextSection>
+
+
+                </div>
             </div >
 
         </div>

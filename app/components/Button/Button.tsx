@@ -22,7 +22,7 @@ const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children, cl
             cn.push('text-lg');
             break;
         case 'large':
-            cn.push('w-[350px] h-[100px]');
+            cn.push('w-[350px] h-[100px] px-8');
             cnText.push('text-3xl');
         default:
             cn.push('text-xl');
