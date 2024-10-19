@@ -7,6 +7,7 @@ const withNextIntl = createNextIntlPlugin(
 /** @type {import('next').NextConfig} */
 const nextConfig = {
     reactStrictMode: false,
+    "env._next_intl_trailing_slash": false,
 };
 
 

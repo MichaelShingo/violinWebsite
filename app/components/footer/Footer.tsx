@@ -3,12 +3,12 @@ import Divider from "../divider/Divider";
 import BassClefIcon from "../icons/BassClefIcon";
 import PatreonIcon from "../icons/PatreonIcon";
 import YoutubeIcon from "../icons/YoutubeIcon";
-import GreenText from "../text/GreenText";
 import { CommonIconProps } from "../icons/utils";
-import { Link } from "@/i18n/routing";
-import CustomLink from "../CustomLink/CustomLink";
+import { useRouter } from "@/i18n/routing";
 import { useTranslations } from "next-intl";
 import CodingWebsiteIcon from "../icons/CodingWebsiteIcon";
+import Button from "../Button/Button";
+import { urls } from "@/app/constants/urls";
 
 interface FooterIconProps {
     href: string;
@@ -25,13 +25,16 @@ const FooterIcon: FC<FooterIconProps> = ({ href, icon: Icon }) => {
 
 const Footer = () => {
     const t = useTranslations('Footer');
+    const router = useRouter();
 
     return (
         <footer className="lg:px-34 -z-[10] flex h-[100vh] min-h-[850px] w-full flex-col items-center justify-between bg-secondary px-4 py-6 sm:px-24 md:px-28 md:py-8 lg:py-8">
             <Divider icon={BassClefIcon} variant="small" iconColor="fill-white" color="bg-white" />
             <div className="flex flex-col items-center gap-5 md:gap-10">
                 <h2 className="text-center text-3xl text-primary md:text-5xl">{t('readyToBook')}</h2>
-                <button className="h-fit w-fit border-[3px] border-white px-8 py-3 text-lg text-white transition hover:border-white hover:bg-white hover:text-secondary md:border-[4px] md:px-10 md:py-4 md:text-3xl">{t('getInTouch')}</button>
+                <Button variant="transparent" onClick={() => router.push(urls.contact)}>
+                    {t('getInTouch')}
+                </Button>
             </div>
             <div className="md:gap-18 -mt-6 flex w-full flex-row items-center justify-center gap-4 sm:gap-12 lg:gap-32">
                 <FooterIcon href="https://www.youtube.com/@MichaelShingo" icon={YoutubeIcon} />

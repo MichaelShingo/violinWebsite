@@ -35,7 +35,7 @@ const ContactForm = () => {
                 body: JSON.stringify(data)
             });
             if (response.ok) {
-                form.resetField();
+                form.reset();
             } else {
                 console.log('Message failed to send.');
             }

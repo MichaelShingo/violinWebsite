@@ -13,41 +13,43 @@ import MenuCircle, { MenuItem } from "./MenuCircle";
 import { usePathname } from "@/i18n/routing";
 import { useDispatch } from "react-redux";
 import { setIsMenuOpen } from "@/redux/features/locationSlice";
+import { urls } from "@/app/constants/urls";
+import PartyIcon from "../icons/PartyIcon";
 
 export const menuItems: MenuItem[] = [
     {
         label: 'home',
-        link: '/',
+        link: urls.home,
         icon: HomeIcon,
         menuPosition: 'center',
     },
     {
         label: 'violin',
-        link: '/violinist-in-tokyo',
+        link: urls.violinist,
         icon: ViolinIcon,
         menuPosition: 'right',
     },
     {
         label: 'weddings',
-        link: '/hire-a-violinist-in-tokyo',
-        icon: ViolinIcon,
+        link: urls.weddings,
+        icon: PartyIcon,
         menuPosition: 'right',
     },
-    // {
-    //     label: 'composition',
-    //     link: '/composer-in-tokyo',
-    //     icon: PenIcon,
-    //     menuPosition: 'right',
-    // },
-    // {
-    //     label: 'arranging',
-    //     link: '/arranger-in-tokyo',
-    //     icon: EighthNoteArrowIcon,
-    //     menuPosition: 'right',
-    // },
+    {
+        label: 'composition',
+        link: urls.composition,
+        icon: PenIcon,
+        menuPosition: 'right',
+    },
+    {
+        label: 'arranging',
+        link: urls.arranging,
+        icon: EighthNoteArrowIcon,
+        menuPosition: 'right',
+    },
     {
         label: 'contact',
-        link: '/contact-violinist-in-tokyo',
+        link: urls.contact,
         icon: EmailIcon,
         menuPosition: 'right',
     }

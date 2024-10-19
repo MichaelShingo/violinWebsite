@@ -115,7 +115,7 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
                 <Typography className="text-center" variant="h2">Videos</Typography>
                 <div className="flex flex-col items-center justify-center gap-8">
                     {data.map((item) =>
-                        <Button key={item.label} handleClick={() => handleClick(item.link)}>
+                        <Button key={item.label} onClick={() => handleClick(item.link)}>
                             {item.label}
                         </Button>
                     )}

@@ -38,7 +38,7 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     exit={{ opacity: 0 }}
-                    key={tabs[selectedTab].bgImageUrl} // Key the motion.div by the background image URL
+                    key={tabs[selectedTab].bgImageUrl}
                     className="absolute h-full w-full bg-cover bg-center" style={{
                         backgroundImage: `url(${tabs[selectedTab].bgImageUrl})`
                     }} />
@@ -57,7 +57,7 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
                 </div>
                 <div className="z-10 flex h-dvh min-h-dvh w-[70vw] flex-col items-center justify-center gap-20">
                     {currentTab.videoUrl &&
-                        <Button handleClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
+                        <Button onClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
                     }
                     <div className="z-10 my-5 flex w-[90%] flex-col items-center justify-center rounded-md bg-white py-5 md:my-10 md:py-10">
                         <PlainTextSection marginSize="none" paddingSize="none">{currentTab.content}
