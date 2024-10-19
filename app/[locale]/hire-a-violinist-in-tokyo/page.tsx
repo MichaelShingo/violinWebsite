@@ -20,56 +20,54 @@ const Violinist = () => {
 
     const tabs: Tab[] = [
         {
-            title: 'Solo Violin',
-            content: t('soloViolin'),
+            title: t('soloViolin'),
+            content: t('soloViolinDescription'),
             bgImageUrl: '/alexTranProposal1.jpg',
             videoUrl: 'https://www.youtube.com/embed/OfoqvqPQCaI?si=NxKHCx00gRPvIb-h'
         },
         {
-            title: 'Violin and Cello Duo',
-            content: t('violinCello'),
+            title: t('violinCello'),
+            content: t('violinCelloDescription'),
             bgImageUrl: '/harpAndViolinSolo.png',
             videoUrl: ''
         },
         {
-            title: 'Violin and Piano Duo',
-            content: t('violinPiano'),
+            title: t('violinPiano'),
+            content: t('violinPianoDescription'),
             bgImageUrl: '/lanceRecital.jpg',
             videoUrl: 'https://www.youtube.com/embed/smSvZD7BCpg?si=h02L9hHRYLcAGv3i'
         },
         {
-            title: 'Violin and Guitar Duo',
-            content: t('violinGuitar'),
+            title: t('violinGuitar'),
+            content: t('violinGuitarDescription'),
             bgImageUrl: '/alexTranProposal3.jpg',
             videoUrl: 'https://www.youtube.com/embed/57dSarLsSwg?si=nfWjhSE9xA7kiIz3'
         },
         {
-            title: 'Violin and Harp Duo',
-            content: t('violinHarp'),
+            title: t('violinHarp'),
+            content: t('violinHarpDescription'),
             bgImageUrl: '/harpAndViolin.png',
             videoUrl: 'https://www.youtube.com/embed/dmoNcAsY17U?si=L9aUdut4WrtyeIOy'
         },
         {
-            title: 'Violin Duo',
-            content: t('violinDuo'),
+            title: t('violinDuo'),
+            content: t('violinDuoDescription'),
             bgImageUrl: '/alexTranProposal3.jpg',
             videoUrl: 'https://www.youtube.com/embed/dSt523L10iw?si=quOuZKWsYguEEs5J'
         },
         {
-            title: 'String Trio',
-            content: t('stringTrio'),
+            title: t('stringTrio'),
+            content: t('stringTrioDescription'),
             bgImageUrl: '/churchWedding3.jpg',
             videoUrl: null
         },
         {
-            title: 'String Quartet',
-            content: t('stringQuartet'),
+            title: t('stringQuartet'),
+            content: t('stringQuartetDescription'),
             bgImageUrl: '/parkerWedding.jpg',
             videoUrl: null
         }
     ];
-
-    // reviews
 
     return (
         <PageLayout title={t('title')} backgroundImageUrl="/netherlandsViolin.jpg">
