@@ -7,6 +7,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import PlainTextSection from "../PlainTextSection/PlainTextSection";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
+import { useTranslations } from "next-intl";
 
 export type Tab = {
     title: string;
@@ -25,6 +26,7 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
     const cn = [tabs[selectedTab].bgImageUrl];
     const dispatch = useDispatch();
     const currentTab = tabs[selectedTab];
+    const t = useTranslations('Tabs');
 
     const handleClick = (link: string) => {
         dispatch(setCurrentVideo(link));
@@ -57,7 +59,7 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
                 </div>
                 <div className="z-10 flex h-dvh min-h-dvh w-[70vw] flex-col items-center justify-center gap-20">
                     {currentTab.videoUrl &&
-                        <Button onClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
+                        <Button onClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">{t('watchVideo')}</Button>
                     }
                     <div className="z-10 my-5 flex w-[90%] flex-col items-center justify-center rounded-md bg-white py-5 md:my-10 md:py-10">
                         <PlainTextSection marginSize="none" paddingSize="none">{currentTab.content}

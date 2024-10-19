@@ -87,5 +87,8 @@
         "copyright": "Copyright",
         "webDesign": "Web Design by Michael Shingo Crawford",
         "builtWith": "Built with Next.js | Typescript | Tailwind CSS | Framer Motion"
+    },
+    "Tabs": {
+        "watchVideo": "Watch a Video"
     }
 }
