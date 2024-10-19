@@ -36,11 +36,11 @@
       "jsx": true
     }
   },
-  "prettier/prettier": [
-    {
-      "endOfLine": "auto"
-    }
-  ],
+  // "prettier/prettier": [
+  //   {
+  //     "endOfLine": "auto"
+  //   }
+  // ],
   "env": {
     "browser": true,
     "node": true,

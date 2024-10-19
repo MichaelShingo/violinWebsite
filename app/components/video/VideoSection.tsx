@@ -4,8 +4,6 @@ import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } fr
 import PlayIcon from "../icons/PlayIcon";
 import { useDispatch } from "react-redux";
 import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
-import { hideOnMobile, showOnMobile } from "@/app/constants/styleConstants";
-import VideoEmbedModal from "./VideoEmbedModal";
 import Typography from "../text/Typography";
 import Button from "../Button/Button";
 
