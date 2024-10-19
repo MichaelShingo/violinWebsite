@@ -33,7 +33,6 @@ const Footer = () => {
                 <h2 className="text-center text-3xl text-primary md:text-5xl">{t('readyToBook')}</h2>
                 <button className="h-fit w-fit border-[3px] border-white px-8 py-3 text-lg text-white transition hover:border-white hover:bg-white hover:text-secondary md:border-[4px] md:px-10 md:py-4 md:text-3xl">{t('getInTouch')}</button>
             </div>
-            {/* <CustomLink color="text-primary" href={'/contact-violinist-in-tokyo'}>Get in touch!</CustomLink> */}
             <div className="md:gap-18 -mt-6 flex w-full flex-row items-center justify-center gap-4 sm:gap-12 lg:gap-32">
                 <FooterIcon href="https://www.youtube.com/@MichaelShingo" icon={YoutubeIcon} />
                 <FooterIcon href="https://portfolio.michaelshingo.com/" icon={CodingWebsiteIcon} />

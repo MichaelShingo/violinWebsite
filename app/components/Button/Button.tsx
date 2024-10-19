@@ -22,8 +22,8 @@ const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children, cl
             cn.push('text-lg');
             break;
         case 'large':
-            cn.push('w-[350px] h-[100px] px-8');
-            cnText.push('text-3xl');
+            cn.push('sm:w-[250px] h-[70px] md:w-[350px] md:h-[100px] px-4 md:px-8');
+            cnText.push('text-md sm:text-xl md:text-3xl');
         default:
             cn.push('text-xl');
     }
@@ -38,7 +38,7 @@ const Button: FC<ButtonProps> = ({ variant, isLoading, handleClick, children, cl
             break;
     }
     return (
-        <button onClick={handleClick} className={twJoin([...cn, 'w-fit min-w-[200px] border-[3px] border-black p-3 transition duration-500'])}>
+        <button onClick={handleClick} className={twJoin([...cn, 'w-fit min-w-[100px] md:min-w-[200px] border-[3px] border-black p-3 transition duration-500'])}>
             <p className={twJoin([...cnText])}>
 
                 {isLoading ? 'Loading...' : children}

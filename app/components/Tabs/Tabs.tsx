@@ -43,25 +43,28 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
                         backgroundImage: `url(${tabs[selectedTab].bgImageUrl})`
                     }} />
             </AnimatePresence>
-            <div className="absolute mt-4 flex flex-row items-center justify-center">
-                {tabs.map((tab, index) => (
-                    <div
-                        className={twJoin(['border-[2px] border-3px   backdrop-blur-sm mx-2 px-4 py-2  transition duration-500 cursor-pointer', selectedTab === index ? 'border-accent bg-secondary/55 hover:bg-secondary/75' : 'border-white bg-black/25 hover:bg-black/65'])}
-                        key={index}
-                        onClick={() => setSelectedTab(index)}
-                    >
-                        <Typography variant="h4" color={selectedTab === index ? 'text-white' : 'text-white'}>{tab.title}</Typography>
+            <div className="flex flex-row items-center justify-stretch">
+                <div className="z-10 flex h-full w-[30vw] flex-col items-start justify-center gap-3">
+                    {tabs.map((tab, index) => (
+                        <div
+                            className={twJoin(['border-[2px] backdrop-blur-sm ml-3 md:ml-7 px-2 md:px-4 py-0 md:py-2  transition duration-500 cursor-pointer', selectedTab === index ? 'border-accent bg-secondary/55 hover:bg-secondary/75' : 'border-white bg-black/25 hover:bg-black/65'])}
+                            key={index}
+                            onClick={() => setSelectedTab(index)}
+                        >
+                            <Typography variant="h4" color={selectedTab === index ? 'text-white' : 'text-white'}>{tab.title}</Typography>
+                        </div>
+                    ))}
+                </div>
+                <div className="z-10 flex h-dvh min-h-dvh w-[70vw] flex-col items-center justify-center gap-20">
+                    {currentTab.videoUrl &&
+                        <Button handleClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
+                    }
+                    <div className="z-10 my-5 flex w-[90%] flex-col items-center justify-center rounded-md bg-white py-5 md:my-10 md:py-10">
+                        <PlainTextSection marginSize="none" paddingSize="none">{currentTab.content}
+                        </PlainTextSection>
+
+
                     </div>
-                ))}
-            </div>
-            <div className="flex h-dvh min-h-dvh w-[25%] flex-col items-center justify-center gap-20">
-                {currentTab.videoUrl && <Button handleClick={() => handleClick(currentTab.videoUrl)} className="relative z-10" variant="primary" size="large">Watch a Video</Button>
-                }
-                <div className="z-10 my-12 flex flex-col items-center justify-center bg-white py-10">
-                    <PlainTextSection marginSize="none" paddingSize="none">{currentTab.content}
-                    </PlainTextSection>
-
-
                 </div>
             </div >
 
