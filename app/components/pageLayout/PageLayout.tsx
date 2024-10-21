@@ -1,10 +1,11 @@
 'use client';
 import { FC, ReactNode, useEffect, useState } from "react";
 import Typography from '../../components/text/Typography';
-import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
+import { AnimatePresence, motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { twJoin } from "tailwind-merge";
 import Footer from "../footer/Footer";
 import { useAppSelector } from "@/redux/store";
+import WavyCircle from "../transitionLink/WavyCircle";
 
 interface PageLayoutProps {
     title: string;
@@ -82,25 +83,40 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 <div className={twJoin([arrowCn, 'translate-x-[34%] -rotate-45'])} />
             </motion.button >
             <motion.div
-                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center overflow-hidden bg-cover bg-no-repeat pb-5"
-                style={{
-                    backgroundImage: `url(${backgroundImageUrl})`,
-                }}
+                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center overflow-hidden pb-5"
                 initial={{ opacity: 0, scale: '105%' }}
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
             >
-                {!isLoaded && (
-                    <div className="absolute inset-0 flex items-center justify-center bg-red-500">
-                        <div className="loader">Loading...</div>
-                    </div>
-                )}
+                {!isLoaded ? (
+                    <AnimatePresence>
+                        <motion.div
+                            initial={{ scale: '0%' }}
+                            animate={{ scale: '100%' }}
+                            exit={{ scale: '10000%' }}
+                            transition={{ duration: 1 }}
+                            className="absolute z-[10000] flex h-[100vh] w-[100vw] items-center justify-center"
+                        >
+                            <WavyCircle waves1={3} waves2={4} />
+                        </motion.div>
+                    </AnimatePresence>
+                ) :
+                    <motion.div
+                        className={twJoin(['absolute h-[110%] w-full overflow-hidden bg-cover bg-no-repeat bg-blue-200'])}
+                        initial={{ opacity: 0, scale: '105%' }}
+                        animate={{ opacity: 1, scale: '100%' }}
+                        transition={{ delay: 0, duration: 1, }}
+                        style={{
+                            backgroundImage: `url(${backgroundImageUrl})`,
+                        }}
+                    />
+                }
                 <div className="absolute z-50 flex h-full w-full items-center justify-center px-0 pb-10 md:px-16 lg:items-end">
                     {!scrolledPastHeader &&
                         <Typography className="text-center md:text-left" variant="h1" color="text-white">{title}</Typography>
                     }
                 </div>
-                {darkenBackground &&
+                {darkenBackground && isLoaded &&
                     <div className="absolute z-0 h-[250vh] w-full bg-black-trans"></div>
                 }
             </motion.div >
