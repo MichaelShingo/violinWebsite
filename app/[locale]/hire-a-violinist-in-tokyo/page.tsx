@@ -8,6 +8,7 @@ import { formatTranslation } from '@/app/utils/formatTranslation';
 import PlainTextSection from '@/app/components/PlainTextSection/PlainTextSection';
 import ImageSection from '@/app/components/ImageSection/ImageSection';
 import Tabs, { Tab } from '@/app/components/Tabs/Tabs';
+import ImageWithLoader from './ImageWithLoader';
 
 const concertTextStyles = 'text-xl md:text-5xl text-center border-[2px] border-black w-[110%] last-of-type:border-b-[4px] first-of-type:border-t-[4px] p-7 md:p-10 hover:bg-secondary transition duration-500 hover:text-white';
 
@@ -71,6 +72,7 @@ const Violinist = () => {
 
     return (
         <PageLayout title={t('title')} backgroundImageUrl="/netherlandsViolin.jpg">
+            <ImageWithLoader className="bg-red-500" src="/alexTranProposal2.jpg" alt={t('alexTranProposal2Alt')} />
             <Quote source="Brooke R.">
                 {formatTranslation(t('quote'))}
             </Quote>
@@ -87,6 +89,7 @@ const Violinist = () => {
             <PlainTextSection title={t('receiveQuote')}>
                 {t('receiveQuoteParagraph')}
             </PlainTextSection>
+
         </PageLayout >
     );
 };

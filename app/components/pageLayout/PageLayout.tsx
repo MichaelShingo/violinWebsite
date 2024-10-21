@@ -1,5 +1,5 @@
 'use client';
-import { FC, ReactNode, useState } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import Typography from '../../components/text/Typography';
 import { motion, useMotionValueEvent, useScroll, useTransform } from "framer-motion";
 import { twJoin } from "tailwind-merge";
@@ -35,6 +35,7 @@ const arrowButtonVariants = {
 };
 
 const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBackground = true, children }) => {
+    const [isLoaded, setIsLoaded] = useState(false);
     const { scrollYProgress } = useScroll();
     const translateY = useTransform(scrollYProgress, [0, 1], [0, -200]);
     const filter = useTransform(scrollYProgress, val => `blur(${val * 50}px) brightness(${1})`);
@@ -44,6 +45,16 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
         setScrolledPastHeader(value > 0.2);
     });
     const windowWidth = useAppSelector(state => state.windowReducer.value.windowWidth);
+
+
+    useEffect(() => {
+        const img = new Image();
+        img.src = backgroundImageUrl;
+        if (img.complete) {
+            setIsLoaded(true);
+        }
+        img.addEventListener('load', () => setIsLoaded(true));
+    }, [backgroundImageUrl]);
 
     const scrollToContent = () => {
         windowWidth < 700 ? window.scrollTo({
@@ -79,6 +90,11 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
             >
+                {!isLoaded && (
+                    <div className="absolute inset-0 flex items-center justify-center bg-red-500">
+                        <div className="loader">Loading...</div>
+                    </div>
+                )}
                 <div className="absolute z-50 flex h-full w-full items-center justify-center px-0 pb-10 md:px-16 lg:items-end">
                     {!scrolledPastHeader &&
                         <Typography className="text-center md:text-left" variant="h1" color="text-white">{title}</Typography>
