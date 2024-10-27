@@ -52,7 +52,7 @@ const Typography: FC<TypographyProps> = ({ variant, className, color, sticky, al
                 res = <motion.h4 viewport={{ once: true }} transition={{ delay: 0 }} initial={{ opacity: '0%' }} whileInView={{ opacity: '100%' }} className={twJoin([...cn, 'my-2 text-sm sm:text-base md:text-lg text-black first-letter:uppercase'])}>{children}</motion.h4>;
                 break;
             case 'p':
-                res = <p className={twJoin([...cn, 'text-xl font-thin text-black md:text-2xl', paragraphFont])}>{children}</p>;
+                res = <p className={twJoin([...cn, 'text-base font-thin text-black md:text-2xl', paragraphFont])}>{children}</p>;
             default:
                 break;
         }

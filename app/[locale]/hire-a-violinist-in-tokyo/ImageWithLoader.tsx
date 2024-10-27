@@ -21,7 +21,7 @@ const ImageWithLoader = ({ src, alt, className }) => {
         if (imgRef.current) {
             imgRef.current.addEventListener('load', handleImageLoad);
         }
-    });
+    }, []);
 
 
 

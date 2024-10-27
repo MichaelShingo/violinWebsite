@@ -66,9 +66,6 @@ export const formatTranslation = (translation: string): ReactNode => {
         }
     }
 
-    console.log("🚀 ~ formatTranslation ~ blocks:", blocks);
-
-
     const res: ReactNode = <>
         {blocks.map((block, index) => {
             switch (block.type) {
