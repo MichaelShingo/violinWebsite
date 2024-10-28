@@ -1,22 +1,20 @@
-'use client';
-import PageLayout from '@/app/components/pageLayout/PageLayout';
-import Quote from '@/app/components/text/Quote';
-import GreenText from '@/app/components/text/GreenText';
-import { twJoin } from 'tailwind-merge';
-import ContactForm from './ContactForm';
-import { useTranslations } from 'next-intl';
-import { formatTranslation } from '@/app/utils/formatTranslation';
+import { Metadata } from "next";
+import Presenter from "./presenter";
+
+
+export async function generateMetadata({ params }): Promise<Metadata> {
+    const locale = params.locale;
+    const translations = await import(`../../../messages/${locale}.json`);
+
+    return {
+        title: translations.Contact.pageTitle,
+        description: translations.Contact.pageDescription
+    };
+}
 
 const Contact = () => {
-    const t = useTranslations('Contact');
-
     return (
-        <PageLayout title={t('title')} backgroundImageUrl="/norwaySeagull.jpg">
-            <div className={twJoin(['h-fit min-h-[130vh] w-full'])}>
-                <Quote>{formatTranslation(t('quote'))}</Quote>
-                <ContactForm />
-            </div>
-        </PageLayout >
+        <Presenter />
     );
 };
 

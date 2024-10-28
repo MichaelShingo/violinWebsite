@@ -25,7 +25,7 @@ module.exports = {
 				blueaccent: '#504AFF',
 				bluesecondary: '#23206F',
 
-				'black-trans': 'rgba(0,0,0,0.50)',
+				'black-trans': 'rgba(0,0,0,0.35)',
 				'black-trans-1': 'rgba(0,0,0,0.75)',
 				'green-sat': '#007c00',
 				'green-light': '#4cb94c',

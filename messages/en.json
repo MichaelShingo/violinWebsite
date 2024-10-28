@@ -13,6 +13,8 @@
         "weddings": "Events"
     },
     "Violin": {
+        "pageTitle": "Violinist in Tokyo",
+        "pageDescription": "Michael Shingo Crawford is a Tokyo-based violinist, performing classical music, contemporary music, and anime soundtracks. Available for orchestra concerts, chamber music concerts, solo performances, and weddings.",
         "title": "Violin",
         "quote": "$$GreenText$$Michael Shingo Crawford$$GreenText$$ is a Tokyo-based violinist, performing classical music, contemporary music, and anime soundtracks.",
         "performanceHighlights": "Performance Highlights",
@@ -41,6 +43,7 @@
     },
     "Weddings": {
         "pageTitle": "Hire a Violinist in Tokyo",
+        "pageDescription": "Michael Shingo Crawford is a violinist available to be hired in Tokyo, Japan and beyond.",
         "title": "Wedding Violinist",
         "quote": "\"Michael did such an amazing job at our wedding and $$GreenText$$exceeded all expectations$$GreenText$$. So many guests were talking about the $$GreenText$$amazing music$$GreenText$$ he played and it really brought our ceremony to the next level. Michael even came outside to play during our “bubble exit” and did such a wonderful job. $$GreenText$$Very talented!!$$GreenText$$\"",
         "intro": "Wedding Violin Music in the Heart of Tokyo",
@@ -69,7 +72,17 @@
         "receiveQuote": "Receive a quote for your event!",
         "receiveQuoteParagraph": "Are you planning and wedding or event in Tokyo and looking for a violinist, or string ensemble to provide music? Do you have additional questions before deciding which ensemble is the best fit for your event? Contact Michael Shingo Crawford for a quote today!"
     },
+    "Arranging": {
+        "pageTitle": "Arranging",
+        "pageDescription": "Michael Shingo Crawford is an music arranger in Tokyo."
+    },
+    "Composition": {
+        "pageTitle": "Composition",
+        "pageDescription": "Michael Shingo Crawford is a classical composer in Tokyo."
+    },
     "Contact": {
+        "pageTitle": "Contact Violinist in Tokyo",
+        "pageDescription": "Contact Michael Shingo Crawford for violin performance opportunities, music composition and arrangement commissions, or anything else that is on your mind!",
         "title": "Contact",
         "quote": "Contact me about $$GreenText$$violin performance$$GreenText$$ opportunities, $$GreenText$$music composition$$GreenText$$ and $$GreenText$$arrangement commissions$$GreenText$$, or anything else that is on your mind!",
         "sendMessage": "Send me a message",

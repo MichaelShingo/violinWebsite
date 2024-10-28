@@ -102,7 +102,7 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 </AnimatePresence>
                 }
                 <motion.div
-                    className={twJoin(['absolute h-[110%] w-full overflow-hidden bg-cover bg-no-repeat bg-blue-200'])}
+                    className={twJoin(['absolute h-[110%] w-full overflow-hidden bg-cover bg-no-repeat'])}
                     initial={{ opacity: 0, scale: '105%' }}
                     animate={{ opacity: 1, scale: '100%' }}
                     transition={{ delay: 0, duration: 0.3, }}

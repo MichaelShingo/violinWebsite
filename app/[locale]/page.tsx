@@ -1,7 +1,11 @@
 'use client';
 import LocationIcon from '../components/icons/LocationIcon';
-import { useLocale, useTranslations } from 'next-intl';
-import { motion } from 'framer-motion';
+import { useTranslations } from 'next-intl';
+import { AnimatePresence, motion } from 'framer-motion';
+import WavyCircle from '../components/transitionLink/WavyCircle';
+import { useState } from 'react';
+import Image from 'next/image';
+import { twJoin } from 'tailwind-merge';
 
 const locationVariants = {
 	hidden: {
@@ -22,14 +26,39 @@ const locationVariants = {
 	},
 };
 export default function Home() {
+	const [isLoaded, setIsLoaded] = useState(false);
 	const t = useTranslations('Index');
-	const locale = useLocale();
-
 
 	return (
-		<div className="flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-[url('/coverPhotoHome.jpg')] bg-cover bg-no-repeat pb-5">
+		<div className="flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-white bg-cover bg-no-repeat pb-5">
+			{!isLoaded && <AnimatePresence>
+				<motion.div
+					initial={{ scale: '0%' }}
+					animate={{ scale: '100%' }}
+					exit={{ scale: '10000%' }}
+					transition={{ duration: 1 }}
+					className="absolute z-[10000] flex h-[100vh] w-[100vw] items-center justify-center"
+				>
+					<WavyCircle waves1={3} waves2={4} />
+				</motion.div>
+			</AnimatePresence>
+			}
+			<motion.div
+				className={twJoin(['absolute h-[100%] w-full overflow-hidden bg-cover bg-no-repeat'])}
+				initial={{ opacity: 0, scale: '100%' }}
+				animate={{ opacity: 1, scale: '100%' }}
+				transition={{ delay: 0, duration: 1.5, }}
+			>
+				<Image
+					src={'/coverPhotoHome.jpg'}
+					layout="fill"
+					objectFit="cover"
+					alt="background image"
+					onLoadingComplete={() => setIsLoaded(true)}
+				/>
+			</motion.div>
 			<div className="relative z-50 flex h-full w-full flex-col justify-between">
-				<div className="relative"></div>
+				<div className="relativebg-white"></div>
 				<div className="flex flex-col gap-12 sm:gap-10 md:gap-6">
 					<h1 className="relative z-50 w-full self-center text-center text-5xl uppercase text-white sm:text-6xl md:text-7xl">{t('title')}</h1>
 					<h1 className="relative z-50 w-full self-center text-center text-xl uppercase text-white md:text-4xl">{t('role')}</h1>
@@ -43,9 +72,10 @@ export default function Home() {
 					</div>
 				</div>
 			</div>
-			<div className="absolute z-10 h-[100vh] w-full bg-black-trans">
-			</div>
+			<motion.div initial={{ opacity: 0, scale: '100%' }}
+				animate={{ opacity: 1, scale: '100%' }}
+				transition={{ delay: 0, duration: 2, }} className="absolute z-10 h-[100vh] w-full bg-black-trans" />
 
-		</div>
+		</div >
 	);
 }
