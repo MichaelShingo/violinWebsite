@@ -7,6 +7,7 @@ import Footer from "../footer/Footer";
 import { useAppSelector } from "@/redux/store";
 import WavyCircle from "../transitionLink/WavyCircle";
 import { useAppendImageBreakpoint } from "@/app/customHooks/useAppendImageBreakpoint";
+import Image from "next/image";
 
 interface PageLayoutProps {
     title: string;
@@ -47,15 +48,15 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
         setScrolledPastHeader(value > 0.2);
     });
 
-    useEffect(() => {
-        const img = new Image();
-        img.src = appendImageBreakpoint(backgroundImageUrl);
-        console.log(img.src);
-        if (img.complete) {
-            setIsLoaded(true);
-        }
-        img.addEventListener('load', () => setIsLoaded(true));
-    }, [backgroundImageUrl, breakpoint]);
+    // useEffect(() => {
+    //     const img = new Image();
+    //     img.src = appendImageBreakpoint(backgroundImageUrl);
+    //     console.log(img.src);
+    //     if (img.complete) {
+    //         setIsLoaded(true);
+    //     }
+    //     img.addEventListener('load', () => setIsLoaded(true));
+    // }, [backgroundImageUrl, breakpoint]);
 
     const scrollToContent = () => {
         windowWidth < 700 ? window.scrollTo({
@@ -83,34 +84,37 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
                 <div className={twJoin([arrowCn, 'translate-x-[34%] -rotate-45'])} />
             </motion.button >
             <motion.div
-                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center overflow-hidden pb-5"
+                className="fixed -z-20 flex h-[100vh] w-[100vw] flex-col items-center justify-center overflow-hidden bg-white pb-5"
                 initial={{ opacity: 0, scale: '105%' }}
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1, }}
             >
-                {!isLoaded ? (
-                    <AnimatePresence>
-                        <motion.div
-                            initial={{ scale: '0%' }}
-                            animate={{ scale: '100%' }}
-                            exit={{ scale: '10000%' }}
-                            transition={{ duration: 1 }}
-                            className="absolute z-[10000] flex h-[100vh] w-[100vw] items-center justify-center"
-                        >
-                            <WavyCircle waves1={3} waves2={4} />
-                        </motion.div>
-                    </AnimatePresence>
-                ) :
+                {!isLoaded && <AnimatePresence>
                     <motion.div
-                        className={twJoin(['absolute h-[110%] w-full overflow-hidden bg-cover bg-no-repeat bg-blue-200'])}
-                        initial={{ opacity: 0, scale: '105%' }}
-                        animate={{ opacity: 1, scale: '100%' }}
-                        transition={{ delay: 0, duration: 0.3, }}
-                        style={{
-                            backgroundImage: `url(${backgroundImageUrl})`,
-                        }}
-                    />
+                        initial={{ scale: '0%' }}
+                        animate={{ scale: '100%' }}
+                        exit={{ scale: '10000%' }}
+                        transition={{ duration: 1 }}
+                        className="absolute z-[10000] flex h-[100vh] w-[100vw] items-center justify-center"
+                    >
+                        <WavyCircle waves1={3} waves2={4} />
+                    </motion.div>
+                </AnimatePresence>
                 }
+                <motion.div
+                    className={twJoin(['absolute h-[110%] w-full overflow-hidden bg-cover bg-no-repeat bg-blue-200'])}
+                    initial={{ opacity: 0, scale: '105%' }}
+                    animate={{ opacity: 1, scale: '100%' }}
+                    transition={{ delay: 0, duration: 0.3, }}
+                >
+                    <Image
+                        src={backgroundImageUrl}
+                        layout="fill"
+                        objectFit="cover"
+                        alt="background image"
+                        onLoadingComplete={() => setIsLoaded(true)}
+                    />
+                </motion.div>
                 <div className="z-50 flex h-full w-full items-center justify-center px-0 pb-10 md:px-16 lg:items-end">
                     {!scrolledPastHeader &&
                         <Typography className="text-center md:text-left" variant="h1" color="text-white">{title}</Typography>
