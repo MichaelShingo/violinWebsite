@@ -1,5 +1,11 @@
 import { MetadataRoute } from 'next';
 import { urls } from './constants/urls';
+
+type SitemapEntry = {
+	url: string;
+	lastModified: Date;
+	priority: number;
+};
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 	const calcPriority = (url: string) => {
 		if (url === urls.home || url === urls.violinist) {
@@ -8,14 +14,32 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 			return 0.8;
 		}
 	};
+
 	const baseUrl = process.env.NEXT_PUBLIC_BASE_URL;
-	const fullUrls = Object.values(urls).map(path => {
-		return {
-			url: `${baseUrl}${path}`,
-			lastModified: new Date(),
-			priority: calcPriority(path)
-		};
-	});
+	const urlList: string[] = Object.values(urls);
+	const locales = ['en', 'jp'];
+	let fullUrls: SitemapEntry[] = [];
+
+	for (let url of urlList) {
+		for (let locale of locales) {
+			fullUrls.push({
+				url: `${baseUrl}/${locale}${url}`,
+				lastModified: new Date(),
+				priority: calcPriority(url)
+			});
+		}
+	}
+
+
+	console.log("🚀 ~ sitemap ~ fullUrls:", fullUrls);
+
+	// const fullUrls = Object.values(urls).map(path => {
+	// 	return {
+	// 		url: `${baseUrl}${path}`,
+	// 		lastModified: new Date(),
+	// 		priority: calcPriority(path)
+	// 	};
+	// });
 
 	return [
 		...fullUrls
