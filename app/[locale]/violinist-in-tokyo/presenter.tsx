@@ -10,6 +10,7 @@ import { standardPadding } from '@/app/constants/styleConstants';
 import { useEffect, useRef, useState } from 'react';
 import { useAppSelector } from '@/redux/store';
 import { formatTranslation } from '@/app/utils/formatTranslation';
+import BioSection from '@/app/components/BioSection/BioSection';
 
 const concertTextStyles = 'text-xl md:text-5xl text-center border-[2px] border-black w-[110%] last-of-type:border-b-[4px] first-of-type:border-t-[4px] p-7 md:p-10 hover:bg-secondary transition duration-500 hover:text-white';
 
@@ -56,10 +57,8 @@ const Presenter = () => {
             <h3 className={twJoin([concertTextStyles])}>{t('soloPerformances')}</h3>
             <h3 className={twJoin([concertTextStyles])}>{t('weddingsAndSpecialEvents')}</h3>
         </section>
-        <section className={twJoin([' overflow-hidden min-h-dvh flex flex-col  items-center justify-center gap-12', standardPadding])}>
-            <Typography className={twJoin(['absolute text-center text-white p-5 w-[900px] bg-black'])} variant="h2">{t('biography')}</Typography>
-            <Typography className={twJoin(['max-w-[900px]'])} align="justify" variant="p">{t('biographyContent')}</Typography>
-        </section>
+        <BioSection title={t('biography')} content={t('biographyContent')} />
+
     </PageLayout >);
 };
 

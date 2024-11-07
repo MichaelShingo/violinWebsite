@@ -16,7 +16,10 @@ const CompositionsTable = ({ compositions }) => {
     };
     return (
         <Table>
-            <TableHeaderRow headers={['Title', 'Ensemble', 'Description', 'Video', 'Score']} />
+            <TableHeaderRow
+                headers={['Title', 'Ensemble', 'Description', 'Video', 'Score']}
+                cellWidths={['w-1/5', 'w-1/5', 'w-2/5', 'w-1/10', 'w-1/10']}
+            />
             <tbody>
                 {compositions.map((composition: Composition, index: number) => (
                     <tr key={index}>

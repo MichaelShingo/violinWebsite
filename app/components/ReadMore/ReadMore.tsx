@@ -7,8 +7,8 @@ const ReadMore = ({ content }) => {
     const [isReadMore, setIsReadMore] = useState(false);
 
     const shortenContent = (content: string) => {
-        let currentChar = content[250];
-        let i = 250;
+        let i = 100;
+        let currentChar = content[i];
         while (currentChar !== ' ') {
             currentChar = content[i];
             i++;
