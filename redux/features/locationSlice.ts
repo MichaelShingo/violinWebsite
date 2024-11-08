@@ -64,6 +64,11 @@ export const location = createSlice({
 		setSelectedInstruments: (state, action: PayloadAction<string[]>) => {
 			state.value.selectedInstruments = action.payload;
 		},
+		openVideoModal: (state, action: PayloadAction<string>) => {
+			state.value.currentVideo = action.payload;
+			state.value.isModalOpen = true;
+			state.value.modalContent = 'video';
+		}
 	}
 });
 
@@ -77,5 +82,6 @@ export const {
 	setModalContent,
 	setCurrentVideo,
 	setSelectedInstruments,
+	openVideoModal,
 } = location.actions;
 export default location.reducer;

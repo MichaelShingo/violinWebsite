@@ -3,7 +3,7 @@ import TableHeaderRow from '@/app/components/Table/HeaderRow';
 import Table from '@/app/components/Table/Table';
 import TableData from '@/app/components/Table/TableData';
 import { Composition } from '@/app/constants/compositions';
-import { setCurrentVideo, setIsModalOpen } from '@/redux/features/locationSlice';
+import { openVideoModal, setCurrentVideo, setIsModalOpen } from '@/redux/features/locationSlice';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -11,8 +11,7 @@ const CompositionsTable = ({ compositions }) => {
     const dispatch = useDispatch();
 
     const handleVideoClick = (link: string) => {
-        dispatch(setCurrentVideo(link));
-        dispatch(setIsModalOpen(true));
+        ;
     };
     return (
         <Table>
@@ -43,7 +42,7 @@ const CompositionsTable = ({ compositions }) => {
                                 // variant="secondary"
                                 //  size="medium" 
                                 //  className="w-fit !min-w-0" 
-                                onClick={() => handleVideoClick(composition.videoLink)}>
+                                onClick={() => dispatch(openVideoModal(composition.videoLink))}>
                                 Watch Video
                             </button>
                         </TableData>

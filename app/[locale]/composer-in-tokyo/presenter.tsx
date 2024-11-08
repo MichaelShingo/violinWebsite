@@ -34,7 +34,10 @@ const Presenter = () => {
             const ensembles = composition.ensemble.join(' ');
             const searchTerms = `${composition.title.toLowerCase()} ${ensembles.toLowerCase()} |${composition.description.toLowerCase()}`;
 
-            return searchTerms.includes(getValues('term').toLowerCase()) && selectedInstruments.every(instrument => composition.ensemble.includes(instrument));
+            return (
+                searchTerms.includes(getValues('term').toLowerCase())
+                && selectedInstruments.every(instrument => composition.ensemble.includes(instrument))
+            );
 
         }));
     }, [watch('term'), selectedInstruments]);
@@ -63,7 +66,6 @@ const Presenter = () => {
                     <Typography variant="h4">
                         Displaying {filteredCompositions.length} pieces.
                     </Typography>
-
                 </div>
                 {filteredCompositions.length > 0 ?
                     <CompositionsTable compositions={filteredCompositions} />
