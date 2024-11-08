@@ -1,10 +1,11 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
+import { set } from 'lodash';
 
 type InitialState = {
 	value: LocationState;
 };
 
-type ModalContent = 'video';
+type ModalContent = 'video' | 'instrument';
 
 type LocationState = {
 	isStartingTransition: boolean;
@@ -15,6 +16,7 @@ type LocationState = {
 	isModalOpen: boolean;
 	modalContent: ModalContent;
 	currentVideo: string;
+	selectedInstruments: string[];
 };
 
 const initialState = {
@@ -27,6 +29,7 @@ const initialState = {
 		isModalOpen: false,
 		modalContent: 'video',
 		currentVideo: null,
+		selectedInstruments: [],
 	} as LocationState,
 } as InitialState;
 
@@ -58,6 +61,9 @@ export const location = createSlice({
 		setCurrentVideo: (state, action: PayloadAction<string>) => {
 			state.value.currentVideo = action.payload;
 		},
+		setSelectedInstruments: (state, action: PayloadAction<string[]>) => {
+			state.value.selectedInstruments = action.payload;
+		},
 	}
 });
 
@@ -70,5 +76,6 @@ export const {
 	setIsModalOpen,
 	setModalContent,
 	setCurrentVideo,
+	setSelectedInstruments,
 } = location.actions;
 export default location.reducer;

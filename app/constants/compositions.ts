@@ -6,6 +6,8 @@ export type Composition = {
     scoreLink: string;
 };
 
+export const instruments = ['violin', 'piano', 'cello', 'bassoon', 'flute', 'oboe', 'clarinet', 'wind quintet', 'soprano', 'piano trio', 'viola', 'double bass', 'trumpet', 'saxophone', 'trombone', 'tuba', 'brass quintet', 'orchestra', 'french horn', 'percussion', 'percussion quartet', 'string quartet'];
+
 export const compositions: Composition[] = [
     {
         title: 'Rainbow Chaser',
@@ -30,7 +32,7 @@ export const compositions: Composition[] = [
     },
     {
         title: 'Agnostic Symbol',
-        ensemble: ['wind quintet', 'flute', 'oboe', 'bassoon', 'clarinet', 'horn'],
+        ensemble: ['wind quintet', 'flute', 'oboe', 'bassoon', 'clarinet', 'french horn'],
         description: 'Agnostic Symbol is inspired by Salvador Dalí’s painting of the same name. A desolate landscape opens before the viewer, and a distended spoon emerges from the distance. Carrying a miniscule clock, the spoon stretches across the canvas, contorting itself around a rock formation, representing humanity, and continuing further. This painting may be interpreted as an opposition between the longing for eternal life and the reality that life is finite. The spoon attempts to feed the reality of finitude to the stone, but misses the mark, leaving humanity steeped in its longing. Rather than attempting to recreate and represent the painting through sound, this music expresses the overall impression and emotional content of the image. There is a pervasive sense of desolation, especially in the sparsely orchestrated opening and closing sections. The middle of the piece expresses conflict and anguish through highly active and unstable textures.',
         videoLink: 'https://www.youtube.com/embed/jUhJbFW9Bs4?si=a9KJpdMdggDeJO0W',
         scoreLink: 'https://www.babelscores.com/catalogs/instrumental/chamber-ensemble/4839-agnostic-symbol',

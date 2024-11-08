@@ -5,6 +5,7 @@ import { useAppSelector } from "@/redux/store";
 import VideoEmbedModal from "../video/VideoEmbedModal";
 import { setIsModalOpen } from "@/redux/features/locationSlice";
 import { useDispatch } from "react-redux";
+import InstrumentFilterModal from "./InstrumentFilterModal";
 
 const modalVariants = {
     hidden: { opacity: 0, transition: { duration: .5 } },
@@ -20,6 +21,8 @@ const Modal: FC = () => {
         switch (modalContent) {
             case 'video':
                 return <VideoEmbedModal useGlobalLink />;
+            case 'instrument':
+                return <InstrumentFilterModal />;
             default:
                 return null;
         }
