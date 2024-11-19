@@ -4,6 +4,10 @@
         "role": "Violinist // Composer",
         "location": "Tokyo, Japan"
     },
+    "Home": {
+        "title": "Michael Shingo Crawford | Violinist and Composer",
+        "description": "Violinist and Composer based in Tokyo, Japan."
+    },
     "Navbar": {
         "home": "Home",
         "violin": "Violin",
@@ -43,7 +47,7 @@
     },
     "Weddings": {
         "pageTitle": "Hire a Violinist in Tokyo",
-        "pageDescription": "Michael Shingo Crawford is a violinist available to be hired in Tokyo, Japan and beyond.",
+        "pageDescription": "Michael Shingo Crawford is a wedding violinist available for hire in Tokyo, Japan and beyond.",
         "title": "Wedding Violinist",
         "quote": "\"Michael did such an amazing job at our wedding and $$GreenText$$exceeded all expectations$$GreenText$$. So many guests were talking about the $$GreenText$$amazing music$$GreenText$$ he played and it really brought our ceremony to the next level. Michael even came outside to play during our “bubble exit” and did such a wonderful job. $$GreenText$$Very talented!!$$GreenText$$\"",
         "intro": "Wedding Violin Music in the Heart of Tokyo",
@@ -73,11 +77,19 @@
         "receiveQuoteParagraph": "Are you planning and wedding or event in Tokyo and looking for a violinist, or string ensemble to provide music? Do you have additional questions before deciding which ensemble is the best fit for your event? Contact Michael Shingo Crawford for a quote today!"
     },
     "Arranging": {
+        "title": "Arranger in Tokyo",
+        "description": "Anime music arrranger in Tokyo.",
         "pageTitle": "Arranging",
-        "pageDescription": "Michael Shingo Crawford is an music arranger in Tokyo."
+        "pageDescription": "Michael Shingo Crawford is an music arranger in Tokyo.",
+        "quote": "Michael writes $$GreenText$$anime music$$GreenText$$ arrangements that utilize the $$GreenText$$full palette$$GreenText$$ of violin technique.",
+        "baccano": "Baccano!",
+        "hegemony": "Hunter x Hunter",
+        "onePiece": "One Piece",
+        "biographyTitle:": "Biography",
+        "biography": "Michael Shingo Crawford is an experienced transcriber and arranger. Sharing them on his $$LinkExt$$Youtube channel$$https://www.youtube.com/@MichaelShingo$$ which has garnered over 2 million views. Professional engraving standards. Transcribed and arranged music from four episodes of Cowboy Bebop for the anime's 25th Anniversary concert in New York City. Arranged band and orchestra music for chamber orchestra for the Arts International Concert Soloists. 12,000 subscribers"
     },
     "Composition": {
-        "pageTitle": "Composition",
+        "pageTitle": "Classical Composer in Tokyo",
         "pageDescription": "Michael Shingo Crawford is a classical composer in Tokyo."
     },
     "Contact": {
