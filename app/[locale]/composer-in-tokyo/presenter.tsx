@@ -23,7 +23,6 @@ const Presenter = () => {
     const selectedInstruments = useAppSelector((state) => state.locationReducer.value.selectedInstruments);
     const dispatch = useDispatch();
 
-
     const form = useForm<FormValues>();
     const t = useTranslations('Contact');
     const { register, getValues, watch } = form;
@@ -38,7 +37,6 @@ const Presenter = () => {
                 searchTerms.includes(getValues('term').toLowerCase())
                 && selectedInstruments.every(instrument => composition.ensemble.includes(instrument))
             );
-
         }));
     }, [watch('term'), selectedInstruments]);
 
@@ -50,9 +48,9 @@ const Presenter = () => {
     return (
         <PageLayout title="Composition" backgroundImageUrl="/freshIncPiano.jpg">
             <BioSection title="Biography" content="Michael Shingo Crawford is a Tokyo-based violinist, composer, and arranger passionate about performing and recording classical music, contemporary music, and anime sountracks. As a composer, his work tackles quirky subject matter with a tinge of the supernatural, often drawing inspiration from his Japanese heritage. Michael’s compositions have been presented by performers including the Network for New Music, PRISM Quartet, Sound Energy Trio, Philadelphia Orchestra Musicians, and the Vega String Quartet. As a violinist, Michael is passionate about recording his compositions and arrangements, sharing them on his Youtube channel which has garnered over 2 million views. Michael’s engagements include performances with orchestras such as the Philadelphia Virtuosi, World Congress for Information Technology Orchestra in Yerevan, Armenia, and chamber opera companies including ENAensemble and Alter Ego Chamber Opera. Michael holds a Masters in Music Composition from Temple University and a Bachelors in Violin Performance from Emory University. " />
-            <div className="h-fit min-h-[130vh] w-full px-28">
+            <div className="h-fit min-h-[130vh] w-full px-1 md:px-28">
                 <Typography variant="h2" align='left'>Works</Typography>
-                <div className="justify-left mb-10 flex flex-row items-center gap-10">
+                <div className="justify-left mb-2 flex flex-col items-center gap-2 md:mb-10 md:flex-row md:gap-10">
                     <TextInput
                         placeholder="Search"
                         type="text"
@@ -60,7 +58,7 @@ const Presenter = () => {
                         inputName="term"
                         register={register}
                         useErrors={false}
-                        classNames="w-2/3"
+                        classNames="w-full"
                     />
                     <Button variant="secondary" size="small" onClick={handleFilterClick}>Filter by Instruments ({selectedInstruments.length})</Button>
                     <Typography variant="h4">

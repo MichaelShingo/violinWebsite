@@ -10,9 +10,6 @@ import { useDispatch } from 'react-redux';
 const CompositionsTable = ({ compositions }) => {
     const dispatch = useDispatch();
 
-    const handleVideoClick = (link: string) => {
-        ;
-    };
     return (
         <Table>
             <TableHeaderRow
@@ -28,7 +25,7 @@ const CompositionsTable = ({ compositions }) => {
                         <TableData>
                             <div className="flex flex-row flex-wrap">
                                 {composition.ensemble.map((ensemble, index) => (
-                                    <div className="text-bold m-1 w-fit text-nowrap rounded-full bg-black px-4 py-1 text-center text-2xl text-white hover:text-accent" key={index}>
+                                    <div className="text-bold m-1 w-fit text-nowrap rounded-full bg-black px-4 py-1 text-center text-base text-white hover:text-accent md:text-2xl" key={index}>
                                         {ensemble}
                                     </div>
                                 ))}

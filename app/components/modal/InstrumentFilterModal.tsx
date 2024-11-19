@@ -18,13 +18,12 @@ const InstrumentFilterModal = () => {
         }
     };
     return (
-        <div className="mx-auto h-fit w-fit max-w-[90%] bg-white px-10 py-10">
+        <div className="mx-auto h-fit w-fit max-w-full bg-white px-3 py-10 md:max-w-[90%] md:px-10">
             <Typography variant="h3">Select Instruments</Typography>
             <div className="flex flex-row flex-wrap">
-
                 {instruments.sort().map((instrument, index) => (
                     <button key={index} className={twJoin([
-                        'm-1 h-fit w-fit rounded-sm transition border-[2px] px-5 text-xl',
+                        'm-1 h-fit w-fit rounded-sm transition border-[2px] px-3 md:px-5 text-xl',
                         selectedInstruments.includes(instrument) ? 'bg-black border-black' : 'bg-white border-black'
                     ])}
                         onClick={() => handleInstrumentClick(instrument)}

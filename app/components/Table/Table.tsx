@@ -6,10 +6,12 @@ interface TableProps {
 
 const Table: FC<TableProps> = ({ children }) => {
     return (
-        <table className="table-fixed border-[3px] border-black px-4 py-2">
-            {children}
-        </table>
+        <div className="w-full overflow-x-auto">
+            <table className="min-w-[720px] table-fixed px-4 py-2">
+                {children}
+            </table>
+        </div>
     );
 };
 
-export default Table;
+export default Table;;
