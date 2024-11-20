@@ -1,14 +1,17 @@
 'use client';
-import { instruments } from "@/app/constants/compositions";
 import Typography from "../text/Typography";
 import { twJoin } from "tailwind-merge";
 import { useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setSelectedInstruments } from "@/redux/features/locationSlice";
+import useCompositions from "@/app/customHooks/useCompositions";
 
 const InstrumentFilterModal = () => {
     const selectedInstruments = useAppSelector((state) => state.locationReducer.value.selectedInstruments);
     const dispatch = useDispatch();
+    const { instruments: instrumentsMap } = useCompositions();
+
+    const instruments = Object.values(instrumentsMap);
 
     const handleInstrumentClick = (instrument: string) => {
         if (selectedInstruments.includes(instrument)) {

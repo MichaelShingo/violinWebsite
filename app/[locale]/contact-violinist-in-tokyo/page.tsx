@@ -8,7 +8,7 @@ export async function generateMetadata({ params }): Promise<Metadata> {
     const translations = await import(`../../../messages/${locale}.json`);
 
     return {
-        title: translations.Contact.pageTitle + websiteTitle,
+        title: translations.Contact.pageTitle + ' | ' + translations.Index.title,
         description: translations.Contact.pageDescription
     };
 }
