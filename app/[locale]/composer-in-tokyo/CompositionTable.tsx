@@ -3,17 +3,18 @@ import TableHeaderRow from '@/app/components/Table/HeaderRow';
 import Table from '@/app/components/Table/Table';
 import TableData from '@/app/components/Table/TableData';
 import { Composition } from '@/app/constants/compositions';
-import { openVideoModal, setCurrentVideo, setIsModalOpen } from '@/redux/features/locationSlice';
+import { openVideoModal } from '@/redux/features/locationSlice';
+import { useTranslations } from 'next-intl';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
 const CompositionsTable = ({ compositions }) => {
     const dispatch = useDispatch();
-
+    const t = useTranslations('Composition');
     return (
         <Table>
             <TableHeaderRow
-                headers={['Title', 'Ensemble', 'Description', 'Video', 'Score']}
+                headers={[t('tableTitle'), t('tableEnsemble'), t('tableDescription'), t('tableVideo'), t('tableScore')]}
                 cellWidths={['w-1/5', 'w-1/5', 'w-2/5', 'w-1/10', 'w-1/10']}
             />
             <tbody>
@@ -36,9 +37,6 @@ const CompositionsTable = ({ compositions }) => {
                         </TableData>
                         <TableData>
                             <button
-                                // variant="secondary"
-                                //  size="medium" 
-                                //  className="w-fit !min-w-0" 
                                 onClick={() => dispatch(openVideoModal(composition.videoLink))}>
                                 Watch Video
                             </button>

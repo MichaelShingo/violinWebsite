@@ -123,6 +123,11 @@
         "percussion": "percussion",
         "percussionQuartet": "percussion quartet",
         "stringQuartet": "string quartet",
+        "tableTitle": "Title",
+        "tableDescription": "Description",
+        "tableEnsemble": "Ensemble",
+        "tableVideo": "Video",
+        "tableScore": "Score",
         "aFantasticalFlight": "A Fantastical Flight transports the listener into a dream where he is airborne, unfettered by reason and fully convinced of the reality of what he sees before his eyes. The constantly shifting meter reflects the boundless imagination of the dreaming mind and its proclivity for sudden, unexpected changes in focus. The opening presents diatonic harmonies and simple accompaniment, joyous and spritely in character. As this dream progresses, darker undertones emerge through the use of bimodality and polymeter. The concurrence of contrasting pitch collections and meters expresses the conflict between the purely mental imagery of the dream and the corporeal world that lies awaiting the sleeper’s wake. The motivic material is passed between the two parts and presented in several variations throughout the piece. The music pensively draws to a close, reflecting on the inevitability of awakening and the dreamer’s melancholy at the thought of abandoning the fantastical journey that will soon fade into oblivion.",
         "aberrantBourree": "Aberrant Bourrée is a reimagining of the bourrée that departs from the traditional dance. While it incorporates the familiar quarter-bar anacrusis and dactylic rhythm (long-short-short), its unexpected changes of meter and metrically displaced accents lend it a deviant character. The A section begins with a jagged melody in the xylophone, which is deconstructed and developed in various ways. The B section begins with more fragmented music, gradually increasing in density and intensity until it leads into a return of the opening material. Those familiar with violin and cello repertoire may notice occasional quotations of Bach’s bourrées woven into the texture.",
         "agnosticSymbol": "Agnostic Symbol is inspired by Salvador Dalí’s painting of the same name. A desolate landscape opens before the viewer, and a distended spoon emerges from the distance. Carrying a miniscule clock, the spoon stretches across the canvas, contorting itself around a rock formation, representing humanity, and continuing further. This painting may be interpreted as an opposition between the longing for eternal life and the reality that life is finite. The spoon attempts to feed the reality of finitude to the stone, but misses the mark, leaving humanity steeped in its longing. Rather than attempting to recreate and represent the painting through sound, this music expresses the overall impression and emotional content of the image. There is a pervasive sense of desolation, especially in the sparsely orchestrated opening and closing sections. The middle of the piece expresses conflict and anguish through highly active and unstable textures.",
@@ -179,5 +184,8 @@
     },
     "Tabs": {
         "watchVideo": "Watch a Video"
+    },
+    "ReadMore": {
+        "ellipses": ". . ."
     }
 }

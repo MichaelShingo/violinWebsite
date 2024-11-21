@@ -1,7 +1,5 @@
 import { Metadata } from "next";
 import Presenter from "./presenter";
-import { websiteTitle } from "@/app/constants/metadata";
-
 
 export async function generateMetadata({ params }): Promise<Metadata> {
     const locale = params.locale;

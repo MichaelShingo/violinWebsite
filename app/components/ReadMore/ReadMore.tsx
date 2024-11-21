@@ -1,3 +1,4 @@
+import { useTranslations } from "next-intl";
 import { useState } from "react";
 
 interface ReadMoreProps {
@@ -5,15 +6,17 @@ interface ReadMoreProps {
 }
 const ReadMore = ({ content }) => {
     const [isReadMore, setIsReadMore] = useState(false);
-
+    const t = useTranslations('ReadMore');
     const shortenContent = (content: string) => {
         let i = 100;
         let currentChar = content[i];
-        while (currentChar !== ' ') {
+        let count = 0;
+        while (currentChar !== ' ' && count < 20 && currentChar !== "。") {
             currentChar = content[i];
             i++;
+            count++;
         }
-        return content.slice(0, i) + '. . .';
+        return content.slice(0, i) + t('ellipses');
     };
 
     const shortenedContent = shortenContent(content);
