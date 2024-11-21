@@ -29,6 +29,13 @@ const HorizontallyScrollingCards = () => {
 
     const performanceHighlights: PerformanceCard[] = [
         {
+            title: 'Tokyo Vivaldi Ensemble',
+            ensembleType: t('orchestra'),
+            description: t('vivaldiDescription'),
+            period: '2023-2024',
+            link: 'https://vivaldi.jp/',
+        },
+        {
             title: 'ENAensemble',
             ensembleType: t('chamber'),
             description: t('enaDescription'),
