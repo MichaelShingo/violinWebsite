@@ -26,6 +26,7 @@
         "orchestra": "Orchestra",
         "chamber": "Chamber Music",
         "solo": "Solo",
+        "vivaldiDescription": "Performed with Tokyo Vivaldi Ensemble during their 2024-2025 season in concerts at Roppongi Hills and Suntory Hall.",
         "enaDescription": "Performed regularly with ENAensemble, an innovative collective blending opera, theater, music, cabaret, and visual arts, bringing newly composed chamber operas to the stage in Philadelphia.",
         "alterEgoDescription": "Participated in \"Alcina REVAMPED\", a contemporary twist on Handel's opera featuring electronics, saxophone, and guitar, recontextualizing the classic work in a modern setting.",
         "wcitDescription": "Performed in Yerevan, Armenia with the World Conference for Information Technology Orchestra, led by conductor Sergey Smbatyan, alongside the Armenian National Symphony and musicians from 15 countries.",
@@ -47,8 +48,8 @@
     },
     "Weddings": {
         "pageTitle": "Hire a Violinist in Tokyo",
-        "pageDescription": "Michael Shingo Crawford is a wedding violinist available for hire in Tokyo, Japan and beyond.",
-        "title": "Wedding Violinist",
+        "pageDescription": "Michael Shingo Crawford is a violinist available for hire in Tokyo, Japan and beyond.",
+        "title": "Violinist in Tokyo",
         "quote": "\"Michael did such an amazing job at our wedding and $$GreenText$$exceeded all expectations$$GreenText$$. So many guests were talking about the $$GreenText$$amazing music$$GreenText$$ he played and it really brought our ceremony to the next level. Michael even came outside to play during our “bubble exit” and did such a wonderful job. $$GreenText$$Very talented!!$$GreenText$$\"",
         "intro": "Wedding Violin Music in the Heart of Tokyo",
         "intro1": "Michael Shingo Crawford is an Tokyo-based violinist who has performed at a wide variety of events, including weddings, marriage proposals, corporate functions, holiday celebrations, private salon concerts, and recitals throughout the United States, the Netherlands, Belgium, China, and Japan.",
@@ -74,7 +75,7 @@
         "stringTrioDescription": "The string trio is the perfect bridge between the smaller ensembles and the full quartet, echoing elements of both. Please note that string trio repertoire is limited to classical music.",
         "stringQuartetDescription": "A string quartet delivers the ultimate classical ensemble experience, capable of performing a vast repertoire from classical to contemporary music. It’s perfect for weddings, corporate events, and private functions, providing a rich, impressive sound that will leave a lasting impression.",
         "receiveQuote": "Receive a quote for your event!",
-        "receiveQuoteParagraph": "Are you planning and wedding or event in Tokyo and looking for a violinist, or string ensemble to provide music? Do you have additional questions before deciding which ensemble is the best fit for your event? Contact Michael Shingo Crawford for a quote today!"
+        "receiveQuoteParagraph": "Are you planning and wedding or event in Tokyo and looking for a violinist, or string ensemble to provide music? Do you have additional questions before deciding which ensemble is the best fit for your event? $$LinkInt$$Contact$$/contact-violinist-in-tokyo$$ Michael Shingo Crawford for a quote today!"
     },
     "Arranging": {
         "title": "Arranger in Tokyo",
@@ -95,6 +96,9 @@
         "biography": "Michael Shingo Crawford is a Tokyo-based composer whose work tackles quirky subject matter with a tinge of the supernatural, often drawing inspiration from his Japanese heritage. Michael’s compositions have been presented by performers including the $$LinkExt$$Network for New Music$$https://www.networkfornewmusic.org/$$, PRISM Quartet, Sound Energy Trio, Philadelphia Orchestra Musicians, and the Vega String Quartet. Michael holds a Masters in Music Composition from Temple University and a Bachelors in Violin Performance from Emory University.",
         "works": "Works",
         "search": "Search",
+        "score": "Score",
+        "selectInstruments": "Select Instruments",
+        "watchVideo": "Watch Video",
         "filterByInstruments": "Filter by Instruments",
         "noCompositions": "There were no compositions that match the search term.",
         "piecesDisplayed": "pieces displayed.",
@@ -186,6 +190,8 @@
         "watchVideo": "Watch a Video"
     },
     "ReadMore": {
+        "readMore": "Read More",
+        "readLess": "Read Less",
         "ellipses": ". . ."
     }
 }

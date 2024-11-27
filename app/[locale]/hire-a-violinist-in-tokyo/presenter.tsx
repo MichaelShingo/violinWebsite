@@ -64,9 +64,9 @@ const Presenter = () => {
 
     return (
         <PageLayout title={t('title')} backgroundImageUrl="/netherlandsViolin.jpg">
-            <Quote source="Brooke R.">
+            {/* <Quote source="Brooke R.">
                 {formatTranslation(t('quote'))}
-            </Quote>
+            </Quote> */}
             <PlainTextSection title={t('intro')} paragraphs={[
                 t('intro1'),
                 t('intro2'),
@@ -78,7 +78,7 @@ const Presenter = () => {
             ]} />
             <Tabs tabs={tabs} />
             <PlainTextSection title={t('receiveQuote')}>
-                {t('receiveQuoteParagraph')}
+                {formatTranslation(t('receiveQuoteParagraph'))}
             </PlainTextSection>
 
         </PageLayout >

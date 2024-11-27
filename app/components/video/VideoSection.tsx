@@ -3,7 +3,7 @@ import { twJoin } from "tailwind-merge";
 import { motion, useAnimation, useMotionValueEvent, useScroll, useTransform } from 'framer-motion';
 import PlayIcon from "../icons/PlayIcon";
 import { useDispatch } from "react-redux";
-import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
+import { openVideoModal, setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
 import Typography from "../text/Typography";
 import Button from "../Button/Button";
 
@@ -63,8 +63,7 @@ const VideoSection: FC<VideoSectionProps> = ({ data }) => {
     });
 
     const handleClick = (link: string) => {
-        dispatch(setCurrentVideo(link));
-        dispatch(setIsModalOpen(true));
+        dispatch(openVideoModal(link));
     };
 
     return (

@@ -31,7 +31,7 @@ const Presenter = () => {
     const t = useTranslations('Index');
 
     return (
-        <div className="flex h-[100vh] w-[100vw] flex-col justify-stretch overflow-hidden bg-white bg-cover bg-no-repeat pb-5">
+        <div className="flex h-[100vh] w-[100vw] flex-col justify-stretch bg-white bg-cover bg-no-repeat pb-5">
             {!isLoaded && <AnimatePresence>
                 <motion.div
                     initial={{ scale: '0%' }}
@@ -45,13 +45,14 @@ const Presenter = () => {
             </AnimatePresence>
             }
             <motion.div
-                className={twJoin(['absolute h-[100%] w-full overflow-hidden bg-cover bg-no-repeat'])}
+                className={twJoin(['absolute h-[100vh] w-full overflow-x-hidden overflow-y-auto bg-cover bg-no-repeat'])}
                 initial={{ opacity: 0, scale: '100%' }}
                 animate={{ opacity: 1, scale: '100%' }}
                 transition={{ delay: 0, duration: 1.5, }}
             >
                 <Image
                     src={'/coverPhotoHome.jpg'}
+                    className="h-[125%]"
                     layout="fill"
                     objectFit="cover"
                     alt="background image"

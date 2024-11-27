@@ -3,6 +3,7 @@ import TableHeaderRow from '@/app/components/Table/HeaderRow';
 import Table from '@/app/components/Table/Table';
 import TableData from '@/app/components/Table/TableData';
 import { Composition } from '@/app/constants/compositions';
+import { Link } from '@/i18n/routing';
 import { openVideoModal } from '@/redux/features/locationSlice';
 import { useTranslations } from 'next-intl';
 import React from 'react';
@@ -38,11 +39,14 @@ const CompositionsTable = ({ compositions }) => {
                         <TableData>
                             <button
                                 onClick={() => dispatch(openVideoModal(composition.videoLink))}>
-                                Watch Video
+                                {t('watchVideo')}
                             </button>
                         </TableData>
                         <TableData>
-                            {'score'}
+                            <Link
+                                href={composition.scoreLink}>
+                                {t('score')}
+                            </Link>
                         </TableData>
 
                     </tr>

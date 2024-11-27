@@ -24,7 +24,7 @@ const ReadMore = ({ content }) => {
         <div className="flex flex-col items-start">
             {isReadMore ? content : shortenedContent}
             <button className="font-bold" onClick={() => setIsReadMore(!isReadMore)}>
-                {isReadMore ? 'Read Less' : 'Read More'}
+                {isReadMore ? t('readLess') : t('readMore')}
             </button>
         </div>
     );

@@ -32,7 +32,7 @@ const HorizontallyScrollingCards = () => {
             title: 'Tokyo Vivaldi Ensemble',
             ensembleType: t('orchestra'),
             description: t('vivaldiDescription'),
-            period: '2023-2024',
+            period: '2024-2025',
             link: 'https://vivaldi.jp/',
         },
         {

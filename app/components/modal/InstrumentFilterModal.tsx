@@ -5,9 +5,11 @@ import { useAppSelector } from "@/redux/store";
 import { useDispatch } from "react-redux";
 import { setSelectedInstruments } from "@/redux/features/locationSlice";
 import useCompositions from "@/app/customHooks/useCompositions";
+import { useTranslations } from "next-intl";
 
 const InstrumentFilterModal = () => {
     const selectedInstruments = useAppSelector((state) => state.locationReducer.value.selectedInstruments);
+    const t = useTranslations('Composition');
     const dispatch = useDispatch();
     const { instruments: instrumentsMap } = useCompositions();
 
@@ -21,8 +23,8 @@ const InstrumentFilterModal = () => {
         }
     };
     return (
-        <div className="mx-auto h-fit w-fit max-w-full bg-white px-3 py-10 md:max-w-[90%] md:px-10">
-            <Typography variant="h3">Select Instruments</Typography>
+        <div className="mx-auto h-fit w-fit max-w-full bg-white px-3 py-10 md:max-w-[60%] md:px-10">
+            <Typography variant="h3">{t('selectInstruments')}</Typography>
             <div className="flex flex-row flex-wrap">
                 {instruments.sort().map((instrument, index) => (
                     <button key={index} className={twJoin([

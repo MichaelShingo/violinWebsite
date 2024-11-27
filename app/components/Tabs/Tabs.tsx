@@ -6,7 +6,7 @@ import Button from "../Button/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import PlainTextSection from "../PlainTextSection/PlainTextSection";
 import { useDispatch } from "react-redux";
-import { setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
+import { openVideoModal, setCurrentVideo, setIsModalOpen } from "@/redux/features/locationSlice";
 import { useTranslations } from "next-intl";
 
 export type Tab = {
@@ -29,8 +29,7 @@ const Tabs: FC<TabsProps> = ({ tabs }) => {
     const t = useTranslations('Tabs');
 
     const handleClick = (link: string) => {
-        dispatch(setCurrentVideo(link));
-        dispatch(setIsModalOpen(true));
+        dispatch(openVideoModal(link));
     };
 
     return (
