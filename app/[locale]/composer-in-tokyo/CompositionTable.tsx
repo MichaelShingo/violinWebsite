@@ -44,7 +44,9 @@ const CompositionsTable = ({ compositions }) => {
                         </TableData>
                         <TableData>
                             <Link
-                                href={composition.scoreLink}>
+                                href={composition.scoreLink}
+                                target="_blank"
+                            >
                                 {t('score')}
                             </Link>
                         </TableData>
