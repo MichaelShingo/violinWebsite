@@ -30,17 +30,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 		}
 	}
 
-
-	console.log("🚀 ~ sitemap ~ fullUrls:", fullUrls);
-
-	// const fullUrls = Object.values(urls).map(path => {
-	// 	return {
-	// 		url: `${baseUrl}${path}`,
-	// 		lastModified: new Date(),
-	// 		priority: calcPriority(path)
-	// 	};
-	// });
-
 	return [
 		...fullUrls
 	];

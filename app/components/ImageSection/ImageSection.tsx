@@ -11,9 +11,6 @@ interface ImageSectionProps {
 const ImageSection: FC<ImageSectionProps> = ({ src, alt, marginSize }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const imgRef = useRef(null);
-    useEffect(() => {
-        console.log("🚀 ~ useEffect ~ isLoaded:", isLoaded);
-    });
 
     const handleImageLoad = () => {
         setIsLoaded(true);

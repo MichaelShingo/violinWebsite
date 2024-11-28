@@ -8,12 +8,12 @@ import useCompositions from "@/app/customHooks/useCompositions";
 import { useTranslations } from "next-intl";
 
 const InstrumentFilterModal = () => {
-    const selectedInstruments = useAppSelector((state) => state.locationReducer.value.selectedInstruments);
+    const selectedInstruments: string[] = useAppSelector((state) => state.locationReducer.value.selectedInstruments);
     const t = useTranslations('Composition');
     const dispatch = useDispatch();
     const { instruments: instrumentsMap } = useCompositions();
 
-    const instruments = Object.values(instrumentsMap);
+    const instruments = Object.keys(instrumentsMap);
 
     const handleInstrumentClick = (instrument: string) => {
         if (selectedInstruments.includes(instrument)) {
@@ -33,7 +33,7 @@ const InstrumentFilterModal = () => {
                     ])}
                         onClick={() => handleInstrumentClick(instrument)}
                     >
-                        <Typography variant="p" color={selectedInstruments.includes(instrument) ? 'text-white' : 'text-black'}>{instrument}</Typography>
+                        <Typography variant="p" color={selectedInstruments.includes(instrument) ? 'text-white' : 'text-black'}>{instrumentsMap[instrument]}</Typography>
                     </button>
                 ))}
             </div>

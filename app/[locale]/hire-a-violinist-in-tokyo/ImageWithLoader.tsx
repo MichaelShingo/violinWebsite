@@ -6,9 +6,6 @@ import { twJoin } from 'tailwind-merge';
 const ImageWithLoader = ({ src, alt, className }) => {
     const [isLoaded, setIsLoaded] = useState(false);
     const imgRef = useRef(null);
-    useEffect(() => {
-        console.log("🚀 ~ useEffect ~ isLoaded:", isLoaded);
-    });
 
     const handleImageLoad = () => {
         setIsLoaded(true);

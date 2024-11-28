@@ -48,16 +48,6 @@ const PageLayout: FC<PageLayoutProps> = ({ title, backgroundImageUrl, darkenBack
         setScrolledPastHeader(value > 0.2);
     });
 
-    // useEffect(() => {
-    //     const img = new Image();
-    //     img.src = appendImageBreakpoint(backgroundImageUrl);
-    //     console.log(img.src);
-    //     if (img.complete) {
-    //         setIsLoaded(true);
-    //     }
-    //     img.addEventListener('load', () => setIsLoaded(true));
-    // }, [backgroundImageUrl, breakpoint]);
-
     const scrollToContent = () => {
         windowWidth < 700 ? window.scrollTo({
             top: window.innerHeight * 1.5,

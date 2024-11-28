@@ -30,12 +30,12 @@ const Presenter = () => {
 
     useEffect(() => {
         setFilteredCompositions(compositions.filter(composition => {
-            const ensembles = composition.ensemble.join(' ');
+            const ensembles = composition.ensemble.join(' ') + ' ' + composition.ensembleKeys.join(' ');
             const searchTerms = `${composition.title.toLowerCase()} ${ensembles.toLowerCase()} |${composition.description.toLowerCase()}`;
 
             return (
                 searchTerms.includes(getValues('term').toLowerCase())
-                && selectedInstruments.every(instrument => composition.ensemble.includes(instrument))
+                && selectedInstruments.every(instrument => composition.ensembleKeys.includes(instrument))
             );
         }));
     }, [watch('term'), selectedInstruments]);
