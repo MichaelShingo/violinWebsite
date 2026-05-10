@@ -6,4 +6,5 @@ export const urls = {
 	composition: '/composer-in-tokyo',
 	contact: '/contact-violinist-in-tokyo',
 	proposals: '/propose-in-japan',
+	hireMusicians: '/hire-musicians-in-japan',
 };
