@@ -48,19 +48,13 @@ const PlainTextSection: FC<PlainTextSectionProps> = ({
 			break;
 		case 'large':
 		default:
-			cn.push('my-24');
+			cn.push('my-8');
 			break;
 	}
 
 	return (
-		<section
-			className={twJoin([
-				...cn,
-				standardPadding,
-				'flex flex-col items-center justify-center',
-			])}
-		>
-			<div className="max-w-[1200px]">
+		<section className={twJoin([...cn, 'flex flex-col items-center justify-center'])}>
+			<div className="w-full max-w-[1200px]">
 				{title && <Typography variant={titleVariant}>{title}</Typography>}
 				<div className="flex flex-col gap-5">
 					{paragraphs &&

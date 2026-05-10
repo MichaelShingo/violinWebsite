@@ -41,25 +41,32 @@ const MenuCircle: FC<MenuItemProps> = ({ item, index, itemsLength, pathname }) =
     };
 
     return (
-        <Link scroll={true} href={item.link} onClick={() => dispatch(setIsMenuOpen(false))}>
-            <button
-                className={twJoin([
-                    'group absolute duration-500 h-24 w-24 flex justify-center items-center transform rounded-full transition-transform bg-secondary cursor-pointer',
-                    isMenuOpen ? 'pointer-events-auto hover:bg-accent' : 'pointer-events-none',
-                    isCurrentPage ? 'border-accent border-[3px]' : 'border-none',
-                ])}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                style={{
-                    transform: isMenuOpen ? `scale(100%) translateY(${yCoordinate}px) translateX(${xCoordinate}px)` : 'scale(0%) translateY(0px) translateX(0px)',
-                    transitionDelay: `${index / 10}s`
-                }}
-            >
-                <div className="pointer-events-none flex h-full w-full rotate-[90deg] items-center justify-center">
-                    <item.icon className="rotate-90" pathClassName="fill-accent group-hover:fill-primary" size="60%" />
-                </div>
-            </button>
-        </Link >
+        <Link
+            scroll={true}
+            href={item.link}
+            onClick={() => dispatch(setIsMenuOpen(false))}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            className={twJoin([
+                'group absolute flex h-24 w-24 transform items-center justify-center rounded-full bg-secondary transition-transform duration-500 touch-manipulation',
+                // Hover styles only on devices with real hover — avoids iOS Safari’s first-tap “hover”, second-tap navigation.
+                '[@media(hover:hover)_and_(pointer:fine)]:hover:bg-accent',
+                isMenuOpen ? 'pointer-events-auto' : 'pointer-events-none',
+                isCurrentPage ? 'border-accent border-[3px]' : 'border-none',
+            ])}
+            style={{
+                transform: isMenuOpen ? `scale(100%) translateY(${yCoordinate}px) translateX(${xCoordinate}px)` : 'scale(0%) translateY(0px) translateX(0px)',
+                transitionDelay: `${index / 10}s`
+            }}
+        >
+            <div className="pointer-events-none flex h-full w-full rotate-[90deg] items-center justify-center">
+                <item.icon
+                    className="rotate-90"
+                    pathClassName="fill-accent [@media(hover:hover)_and_(pointer:fine)]:group-hover:fill-primary"
+                    size="60%"
+                />
+            </div>
+        </Link>
     );
 };
 

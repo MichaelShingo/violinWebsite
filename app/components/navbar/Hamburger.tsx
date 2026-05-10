@@ -43,10 +43,21 @@ const Hamburger = () => {
         dispatch(setIsMenuOpen(!isMenuOpen));
     };
 
-    const sticksCommonStyles = twJoin(['z-10 h-[8px] rounded-full bg-accenttransition hover:transition-none', 'bg-accent', 'group-hover:bg-white']);
+    const sticksCommonStyles = twJoin([
+        'z-10 h-[8px] rounded-full bg-accenttransition hover:transition-none',
+        'bg-accent',
+        '[@media(hover:hover)_and_(pointer:fine)]:group-hover:bg-white',
+    ]);
 
     return (
-        <button tabIndex={-1} onClick={handleClick} className={twJoin(['group pointer-events-auto absolute z-50 flex h-16 w-16 flex-col items-end justify-center gap-2 active:opacity-0'])}>
+        <button
+            tabIndex={-1}
+            type="button"
+            onClick={handleClick}
+            className={twJoin([
+                'group pointer-events-auto absolute z-50 flex h-16 w-16 touch-manipulation flex-col items-end justify-center gap-2 active:opacity-0',
+            ])}
+        >
             <div className={twJoin([
                 sticksCommonStyles,
                 'w-16 origin-center ',

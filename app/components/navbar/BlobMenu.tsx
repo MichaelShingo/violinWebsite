@@ -105,7 +105,8 @@ const BlobMenu: FC = () => {
             <div onClick={(e) => { toggleMenu(); e.stopPropagation(); }} className={
                 twJoin([
                     'fixed -z-[100] w-dvw h-[250vh] transition duration-700 flex justify-center',
-                    isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-none' : 'bg-transparent pointer-events-none'])
+                    // When open, capture taps so outside-close works and hits aren’t lost to layers below (iOS-friendly).
+                    isMenuOpen ? 'bg-black/75 backdrop-blur-md pointer-events-auto' : 'bg-transparent pointer-events-none'])
             } ></div>
             <h1 className={twJoin([
                 'z-50 lg:text-[8rem] mt-12 sm:mt-0 sm:text-[5rem] text-[2rem] md:text-[6rem] xl:text-[9rem] text-primary uppercase bold duration-500 transition pointer-events-none',
