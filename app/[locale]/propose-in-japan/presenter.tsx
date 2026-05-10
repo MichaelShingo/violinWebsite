@@ -57,12 +57,7 @@ const Presenter = () => {
 			<PlainTextSection title={t('otherLocations')} titleVariant="h3">
 				{formatTranslation(t('otherLocationsContent'))}
 			</PlainTextSection>
-			<ImageSection
-				src="/shinjukuGyouenProposal2.jpg"
-				alt={t(
-					'Violinist in Tokyo, Japan performing at a proposal event in Shinjuku Gyouen'
-				)}
-			/>
+			<ImageSection src="/shinjukuGyouenProposal2.jpg" alt={t('shinjukuGyouenAlt')} />
 			{/* What's Included */}
 			<PlainTextSection
 				title={t('service')}
